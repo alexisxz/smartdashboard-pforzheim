@@ -22,6 +22,7 @@ const button = cva(
         sm: 'py-1 px-3 text-sm',
         md: 'py-2 px-5 text-md',
         lg: 'py-3 px-5 text-lg',
+        link: 'pr-6 md:pr-10 pl-5 md:pl-8 py-2 md:py-3 text-xl md:text-2xl',
       },
       hover: {
         climate: 'hover:border-climate',
@@ -71,7 +72,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading && <Spinner className="text-current" size="sm" />}
-        {!isLoading && startIcon}
+        {!isLoading && <div className="mr-1 md:mr-4">{startIcon}</div>}
         <span className="mx-2">{props.children}</span> {!isLoading && endIcon}
       </button>
     )
