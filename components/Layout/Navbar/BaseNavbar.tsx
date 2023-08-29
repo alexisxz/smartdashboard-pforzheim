@@ -67,17 +67,18 @@ export default function BaseNavbar({
           <div className="xl:hidden">
             <Collapsible
               trigger={
-                <div className="w-fit rounded-full border-2 border-primary p-2">
-                  <Bars3Icon className="w-5 stroke-2 text-primary" />
+                <div className="w-fit rounded-full border-2 border-primary p-2 md:p-4">
+                  <Bars3Icon className="w-5 stroke-2 text-primary md:w-6" />
                 </div>
               }
             >
-              <div className="my-4 flex flex-col gap-2 md:flex-row">
+              <div className="my-4 flex flex-col flex-wrap gap-2 md:flex-row">
                 {links.map(l => (
                   <LinkComponent key={l.link} {...l} />
                 ))}
               </div>
             </Collapsible>
+            <Spacer size={'sm'} />
           </div>
           <div className="flex flex-col justify-between gap-4">
             <Link href={'/'}>
@@ -91,7 +92,7 @@ export default function BaseNavbar({
             <div className="flex items-center justify-between">
               {actionComponent}
 
-              <div className="hidden h-fit flex-wrap gap-2 xl:flex">
+              <div className="hidden h-fit flex-wrap justify-end gap-2 xl:flex">
                 {links.map(l => (
                   <LinkComponent
                     key={l.link}
