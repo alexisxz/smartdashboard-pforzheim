@@ -42,11 +42,13 @@ export default function Navbar() {
 
   const ActionComponent = isIndexPage ? (
     <Button
+      className="whitespace-nowrap"
       onClick={() => setShowOverlay(true)}
-      startIcon={<InformationCircleIcon className="h-[34px]" />}
+      size={'link'}
+      startIcon={<InformationCircleIcon className="h-[26px] md:h-[34px]" />}
       variant={'secondary'}
     >
-      <Title as="h5">So helfen Daten dem Klima</Title>
+      So helfen Daten dem Klima
     </Button>
   ) : (
     <Back
@@ -66,11 +68,11 @@ export default function Navbar() {
         mehr Transparenz in der gesamtstädtischen Klimaarbeit. Entwickelt wurde
         das Klimadashboard von der Stabsstelle Smart City und der Stabsstelle
         Klima der Stadt Münster mit Unterstützung von den Stadtwerken Münster
-        und der Wirtschaftsförderung Münster.
-        Wir arbeiten stetig daran, die Verfügbarkeit der Daten zu verbessern.
-        Das Klimadashboard wird im Rahmen des Förderprogramms „Modellprojekte
-        Smart Cities“ aus Mitteln des Bundesministeriums für Wohnen,
-        Stadtentwicklung und Bauwesen (BMWSB) gefördert.
+        und der Wirtschaftsförderung Münster. Wir arbeiten stetig daran, die
+        Verfügbarkeit der Daten zu verbessern. Das Klimadashboard wird im Rahmen
+        des Förderprogramms „Modellprojekte Smart Cities“ aus Mitteln des
+        Bundesministeriums für Wohnen, Stadtentwicklung und Bauwesen (BMWSB)
+        gefördert.
       </Title>
     </div>
   )
@@ -79,8 +81,10 @@ export default function Navbar() {
     <BaseNavbar
       actionComponent={
         <Button
+          className="whitespace-nowrap"
           onClick={() => setShowOverlay(false)}
-          startIcon={<XMarkIcon className="h-[34px] text-white" />}
+          size={'link'}
+          startIcon={<XMarkIcon className="h-[26px] text-white md:h-[34px]" />}
           variant={'secondary'}
         >
           <Title as="h5" variant={'inverse'}>
