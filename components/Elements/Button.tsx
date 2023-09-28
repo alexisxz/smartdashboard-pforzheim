@@ -17,6 +17,7 @@ const button = cva(
         goToMobility: 'border-mobility text-primary',
         goToEnergy: 'border-energy text-primary',
         goToBuildings: 'border-buildings text-primary',
+        overlay: 'border-secondary text-white'
       },
       size: {
         sm: 'py-1 px-3 text-sm',
