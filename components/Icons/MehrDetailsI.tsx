@@ -8,7 +8,7 @@ function SvgMehrDetailsI(props: SVGProps<SVGSVGElement>) {
   >
     <g
       data-name="Gruppe 883"
-      fill="#005b79"
+      fill="currentColor"
       transform="translate(-138 -396.283)"
     >
       <g data-name="Gruppe 229">
