@@ -7,6 +7,7 @@ import PVData from '@/assets/data/bestand-pv-anlagen.csv'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import { PvIcon } from '@/components/Icons'
 import ProgressBar from '@/components/Charts/Progress/ProgressBar'
+import { format } from 'date-fns'
 
 interface PVDataType {
   ZEIT: string
@@ -21,7 +22,7 @@ export default function PhotovoltTile() {
 
   return (
     <EnergyTile
-      dataRetrieval="06.06.2023"
+      dataRetrieval={format(new Date(data.ZEIT), 'dd.MM.yyyy')}
       dataSource={'Marktstammdatenregister'}
       embedId="energy-PV"
       title={
