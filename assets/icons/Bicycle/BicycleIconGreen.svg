@@ -1,28 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="63.459" height="40.441" viewBox="0 0 63.459 40.441">
-    <g data-name="Komponente 54 – 2" transform="translate(1.25 1.582)">
-        <path data-name="Pfad 1" d="M365.727 477.363h-6.545a2.181 2.181 0 0 1-2.182-2.181h0a2.181 2.181 0 0 1 2.182-2.182h6.545a2.181 2.181 0 0 1 2.182 2.182h0a2.181 2.181 0 0 1-2.182 2.181z" transform="translate(-340.438 -473)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <circle data-name="Ellipse 1" cx="11.887" cy="11.887" r="11.887" transform="translate(0 13.835)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <ellipse data-name="Ellipse 2" cx="12.27" cy="11.887" rx="12.27" ry="11.887" transform="translate(36.418 13.835)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <circle data-name="Ellipse 3" cx="3.451" cy="3.451" r="3.451" transform="translate(27.029 22.704)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <path data-name="Pfad 2" d="M368.363 499.454H352L365.09 482h19.526" transform="translate(-341.042 -472.93)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <path data-name="Linie 1" transform="translate(31.877 9.234)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px" d="M11.061 0 0 14.748"/>
-        <path data-name="Pfad 3" d="m362 477 2.116 5.542 5.443 14.312" transform="translate(-340.192 -472.637)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-        <path data-name="Pfad 4" d="M386.58 473a4.786 4.786 0 0 1-4.538 3.273h-2.422l9.141 24" transform="translate(-339.573 -473)" style="fill:none;stroke:#34c17b
-
-;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px"/>
-    </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61.85 43">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #34c17b;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m50.36,16.37c-.87,0-1.7.1-2.51.28l-4.36-10.37,3.82-.1c.17.03.8.17,1.08.6.3.45.16,1.17,0,1.68-.19.58.13,1.2.72,1.39.57.19,1.2-.13,1.39-.71.46-1.43.37-2.64-.27-3.59-.92-1.38-2.58-1.56-2.77-1.58h-.12l-5.52.13c-.37,0-.71.2-.9.5-.2.31-.24.7-.1,1.03l1.8,4.28-19.43.26-1.23-2.62h3.79c.72,0,1.31-.59,1.31-1.32s-.58-1.31-1.31-1.31h-9.11c-.72,0-1.31.59-1.31,1.31s.58,1.32,1.31,1.32h2.88l1.6,3.4-4.28,6.74c-1.59-.85-3.4-1.33-5.33-1.33C5.28,16.37.2,21.44.2,27.68s5.08,11.32,11.32,11.32,10.9-4.68,11.29-10.57l6.52-.03.99,2.09c-.32.29-.51.7-.51,1.16,0,.88.71,1.58,1.57,1.58h1.25c.88,0,1.58-.71,1.58-1.58s-.71-1.57-1.58-1.57h-.07l-1.19-2.55,12.56-14.52,1.82,4.34c-3.94,1.76-6.7,5.73-6.7,10.32,0,6.25,5.07,11.32,11.31,11.32s11.32-5.07,11.32-11.32-5.08-11.31-11.32-11.31Zm-32.86,4.45c1.57,1.37,2.67,3.27,3.01,5.42l-6.47.02,3.46-5.44Zm-5.97,15.97c-5.02,0-9.11-4.08-9.11-9.11s4.09-9.1,9.11-9.1c1.48,0,2.9.36,4.14,1l-4.57,7.2c-.21.34-.23.78-.04,1.13.19.34.57.57.97.57l8.56-.04c-.38,4.68-4.3,8.35-9.07,8.35Zm11.22-10.56c-.37-2.93-1.87-5.52-4.05-7.29l3.56-5.59,6.05,12.87-5.56.02Zm7.6-.88l-6.11-12.98,17.52-.22-11.41,13.2Zm20.02,11.44c-5.02,0-9.1-4.08-9.1-9.11,0-3.69,2.19-6.86,5.35-8.29l3.54,8.41c.18.42.58.67,1.02.67.14,0,.29-.03.42-.09.57-.23.83-.88.59-1.44l-3.46-8.22c.53-.1,1.08-.15,1.64-.15,5.02,0,9.11,4.08,9.11,9.1s-4.09,9.11-9.11,9.11Z"/>
 </svg>
