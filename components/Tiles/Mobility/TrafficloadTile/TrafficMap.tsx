@@ -69,82 +69,82 @@ export default function TrafficMap({
         <path
           d="M622.54 16.31L611.49 40.775L581.127 50.264L535.545 0L510.707 10.873V29.9L480.319 39.414L415.425 70.652L411.281 115.48L382.3 135.867L394.731 220.111L329.837 273.094L320.168 317.922L378.156 335.591L361.581 388.574L371.25 436.12L414.044 427.965L425.094 471.458L444.432 517.645L458.245 547.522L489.989 577.422L535.546 585.577L550.74 550.239L575.603 557.039L601.822 538.039L607.347 494.546L654.285 501.346L695.723 516.297L713.678 495.9L683.29 448.354L679.146 426.607L709.534 418.477L767.522 444.277L790.978 437.477L803.409 402.163L826.89 380.416L811.698 350.542L785.454 324.718L777.192 283.968L753.711 252.707L749.567 197.007L777.192 167.13L734.368 91.039L717.793 74.729H687.434L659.809 50.264L622.54 16.31Z"
           fill="#34C17B"
-          fill-opacity="0.15"
+          fillOpacity="0.15"
           id="Stroke_1"
         />
         <path
           d="M305.721 285.443L374.491 295.863L423.44 329.689L492.124 383.22"
           id="Pfad_372"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           d="M544.043 301.513L533.888 292.929V252.291L541.616 243.608"
           id="Pfad_373"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
         />
         <path
           d="M553.85 4.76501V31.398L557.577 41.113V56.288L553.85 80.428L550.403 182.455V251.003"
           id="Pfad_374"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
         />
         <g id="Gruppe_472">
           <path
             d="M323.1 78.136C334.719 91.335 345.083 105.589 354.059 120.711C368.743 145.536 401.791 178.131 416.792 181.234C431.794 184.337 441.751 187.322 461.979 190.041C482.206 192.758 488.025 186.732 504.679 204.541C521.332 222.349 549.074 250.962 549.074 250.962L557.961 253.84"
             id="Pfad_365"
             stroke="white"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
           />
           <path
             d="M277.049 423.104C277.049 423.104 314.005 437.532 330.577 432.511C347.149 427.49 398.79 402.591 398.79 402.591C398.79 402.591 441.915 391.777 460.821 390.441C479.727 389.105 497.981 388.126 512.604 361.875C527.227 335.623 546.812 300.853 546.812 300.853L558.263 281.806V253.941L590.721 265.762"
             id="Pfad_366"
             stroke="white"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
           />
           <path
             d="M727.99 488.449L699.329 455.665H689.204L678.816 414.082L646.452 373.908C646.452 373.908 626.511 343.523 613.998 330.822C601.485 318.121 582.164 296.195 582.164 296.195V284.514L584.206 272.604"
             id="Pfad_367"
             stroke="white"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
           />
           <path
             d="M830.653 185.273L817.847 192.874L805.754 208.107H764.121L681.845 228.982L658.945 236.375H644.483L599.813 255.106"
             id="Pfad_368"
             stroke="white"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
           />
           <path
             d="M557.084 283.653L571.704 284.514L584.685 272.029L600.574 254.75"
             id="Pfad_369"
             stroke="white"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
           />
         </g>
         <path
           d="M655.086 4.76599L672.272 56.436L663.706 74.312V133.157L655.086 139.773L634.116 197.199L630.65 201.974L624.25 233.074V245.845"
           id="Pfad_371"
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
         />
         <g id="Gruppe_981">
           <animated.circle
@@ -366,16 +366,16 @@ export default function TrafficMap({
           d="M1162.26 94.607H624.256V238.355"
           id="Pfad_376"
           stroke="#005B79"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <text
           fill="#34C17B"
-          font-size="40"
+          fontSize="40"
           fontWeight={500}
           id="2.893.526"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           {weseler === 0 ? (
@@ -390,10 +390,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#005B79"
-          font-size="20"
+          fontSize="20"
           fontWeight={500}
           id="Weseler-Str.-/-Inselbogen"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           <tspan x="5" y="459.273">
@@ -402,10 +402,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#34C17B"
-          font-size="40"
+          fontSize="40"
           fontWeight={500}
           id="5.753.832"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           {albersloher === 0 ? (
@@ -420,10 +420,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#005B79"
-          font-size="20"
+          fontSize="20"
           fontWeight={500}
           id="Albersloher-Weg-/-Heumannsweg-"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           <tspan x="862" y="460.273">
@@ -432,10 +432,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#34C17B"
-          font-size="40"
+          fontSize="40"
           fontWeight={500}
           id="2.428.372"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           {warendorfer === 0 ? (
@@ -450,10 +450,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#005B79"
-          font-size="20"
+          fontSize="20"
           fontWeight={500}
           id="Warendorfer-Str.-/-Schifffahrter-Damm"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           <tspan x="862" y="130.273">
@@ -482,10 +482,10 @@ export default function TrafficMap({
         />
         <text
           fill="#34C17B"
-          font-size="40"
+          fontSize="40"
           fontWeight={500}
           id="4.397.847"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           {steinfurter === 0 ? (
@@ -500,10 +500,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#005B79"
-          font-size="20"
+          fontSize="20"
           fontWeight={500}
           id="Steinfurter-Str.-/-Austermannstr."
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           <tspan x="5" y="130.273">
@@ -512,10 +512,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#34C17B"
-          font-size="40"
+          fontSize="40"
           fontWeight={500}
           id="4.397.847-1"
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           {rishon === 0 ? (
@@ -530,10 +530,10 @@ export default function TrafficMap({
         </text>
         <text
           fill="#005B79"
-          font-size="20"
+          fontSize="20"
           fontWeight={500}
           id="Rishon-le-Zion-Ring-/-Einsteinstr."
-          letter-spacing="0em"
+          letterSpacing="0em"
           xmlSpace="preserve"
         >
           <tspan x="5" y="293.273">
@@ -549,33 +549,33 @@ export default function TrafficMap({
           d="M1 94.607H547V245.564"
           id="Pfad_375"
           stroke="#005B79"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           d="M1 260.902H535.5V275.652"
           id="Pfad_405"
           stroke="#005B79"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           d="M1 426.292H490.5V380.107"
           id="Pfad_378"
           stroke="#005B79"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
         <path
           d="M1132.26 426.292H594.256V307.833"
           id="Pfad_377"
           stroke="#005B79"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
         />
       </g>
     </svg>
