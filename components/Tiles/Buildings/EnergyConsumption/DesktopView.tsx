@@ -1,17 +1,13 @@
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
-import {
-  Ratsgymnasium,
-  SentruperHoehe,
-  Stadtbibliothek,
-  Stadtweinhaus,
-} from '@/components/Icons'
+
 import { SVGProps } from 'react'
 import EnergyConsumptionChart from './EnergyConsumptionChart'
 import LabelSeperator from './LabelSeperator'
 import waermeData from '@/assets/data/waerme.json'
 import stromData from '@/assets/data/strom.json'
+import { MsKlimadashboardIconsGBibliothek, MsKlimadashboardIconsGSchule, MsKlimadashboardIconsGSportSentruperHoehe, MsKlimadashboardIconsGStadtweinhaus } from '@/components/Icons/Gebäude'
 
 type DataType = {
   Datum: number
@@ -34,10 +30,10 @@ const buildingIcon: Record<
   keyof Building,
   (_props: SVGProps<SVGSVGElement>) => JSX.Element
 > = {
-  stadtbuecherei: Stadtbibliothek,
-  sentruper: SentruperHoehe,
-  rathaus: Stadtweinhaus,
-  'freiherr-von-stein': Ratsgymnasium,
+  stadtbuecherei: MsKlimadashboardIconsGBibliothek,
+  sentruper: MsKlimadashboardIconsGSportSentruperHoehe,
+  rathaus: MsKlimadashboardIconsGStadtweinhaus,
+  'freiherr-von-stein': MsKlimadashboardIconsGSchule,
 }
 
 function getBuildingIcon(

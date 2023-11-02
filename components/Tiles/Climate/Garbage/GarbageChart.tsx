@@ -6,7 +6,7 @@ import { SeriesOption } from 'echarts'
 import Title from '@/components/Elements/Title'
 import { useState } from 'react'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
-import { TrashGesamt, TrashWertstoffe } from '@/components/Icons'
+
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import { useWindowSize } from 'react-use'
 import Slider from '@/components/Inputs/Slider'
@@ -14,6 +14,7 @@ import { ReactECharts } from '@/components/Charts/ReactECharts'
 
 // @ts-ignore
 import GarbageData from '@/assets/data/awm-abfallaufkommen-pro-kopf.csv'
+import { MsKlimadashboardIconsKAbfallGesamt, MsKlimadashboardIconsKAbfallRest, MsKlimadashboardIconsKAbfallWertstoffe } from '@/components/Icons/Klima'
 
 const { theme } = resolveConfig(tailwindConfig)
 
@@ -158,7 +159,7 @@ export default function GarbageChart() {
       </div>
       <div className="flex h-fit flex-row flex-wrap justify-evenly gap-4 overflow-hidden pb-8 pt-2 md:gap-0 2xl:h-full 2xl:flex-col 2xl:pb-0 2xl:pt-0">
         <div className="flex h-fit items-center gap-2 md:w-48">
-          <TrashGesamt className="h-10 md:h-14" />
+          <MsKlimadashboardIconsKAbfallGesamt className="h-10 md:h-14" />
           <div>
             <Title as={'h5'} variant={'primary'}>
               Gesamt
@@ -174,7 +175,7 @@ export default function GarbageChart() {
           </div>
         </div>
         <div className="flex h-fit items-center gap-2 md:w-48">
-          <TrashWertstoffe className="h-10 stroke-energy md:h-14" />
+          <MsKlimadashboardIconsKAbfallWertstoffe className="h-10 stroke-energy md:h-14" />
           <div>
             <Title as={'h5'} variant={'primary'}>
               Wertstoffe
@@ -190,7 +191,7 @@ export default function GarbageChart() {
           </div>
         </div>
         <div className="flex h-fit items-center gap-2 md:w-48">
-          <TrashWertstoffe className="h-10 stroke-climate md:h-14" />
+          <MsKlimadashboardIconsKAbfallRest className="h-10 stroke-climate md:h-14" />
           <div>
             <Title as={'h5'} variant={'primary'}>
               Restmüll

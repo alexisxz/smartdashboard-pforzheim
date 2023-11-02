@@ -3,7 +3,7 @@ import Title from '@/components/Elements/Title'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import { format } from 'date-fns'
 import MobilityTile from '../MobilityTile'
-import { Masterplan } from '@/components/Icons'
+import { MsKlimadashboardIconsMMasterplanV1 } from '@/components/Icons/Mobilität'
 
 export default function MasterplanTile() {
   return (
@@ -16,7 +16,7 @@ export default function MasterplanTile() {
       <div>
         <div className="flex flex-row justify-center gap-6">
           <span className="flex flex-col justify-center">
-            <Masterplan className="h-20 text-primary lg:h-44" />
+            <MsKlimadashboardIconsMMasterplanV1 className="h-20 text-primary lg:h-44" />
           </span>
           <Title as={'subtitle'}>
             Mobilität Münster 2035+“ wird aktuell entwickelt. Dabei wurden über
