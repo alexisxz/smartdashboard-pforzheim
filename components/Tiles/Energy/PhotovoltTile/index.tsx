@@ -5,9 +5,9 @@ import EnergyTile from '../EnergyTile'
 // @ts-ignore
 import PVData from '@/assets/data/bestand-pv-anlagen.csv'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
-import { PvIcon } from '@/components/Icons'
 import ProgressBar from '@/components/Charts/Progress/ProgressBar'
 import { format } from 'date-fns'
+import { MsKlimadashboardIconsEPvAnlagen } from '@/components/Icons/Energie'
 
 interface PVDataType {
   ZEIT: string
@@ -40,7 +40,7 @@ export default function PhotovoltTile() {
           in Münster installiert.
         </Title>
         <div className="mt-8 flex items-center justify-between gap-8">
-          <PvIcon className="w-40" />
+          <MsKlimadashboardIconsEPvAnlagen className="w-40" />
           <div className="w-full flex-1">
             <div className="flex  items-center justify-between">
               <div>

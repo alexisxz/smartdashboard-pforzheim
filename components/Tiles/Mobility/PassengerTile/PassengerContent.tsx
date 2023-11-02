@@ -2,7 +2,8 @@
 
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Title from '@/components/Elements/Title'
-import { Opnvbus, Passenger } from '@/components/Icons'
+import { MsKlimadashboardIconsMoepnv, MsKlimadashboardIconsMoepnvGast } from '@/components/Icons/Mobilität'
+
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import Slider from '@/components/Inputs/Slider'
 import { useEffect, useState } from 'react'
@@ -51,24 +52,24 @@ export default function PassengerContent() {
     <div>
       <div className="mb-4 flex flex-row gap-6">
         <span>
-          <Opnvbus className="h-20 text-primary md:h-32" />
+          <MsKlimadashboardIconsMoepnv className="h-20 fill-primary md:h-32" />
         </span>
         <div className="flex flex-grow flex-col justify-between">
           <Title as="h3" variant={'mobility'}>
             <AnimatedNumber decimals={2}>{passengerValue}</AnimatedNumber> Mio
           </Title>
-          <div className="flex justify-end pb-4">
+          <div className="flex justify-end pb-4 gap-1">
             <span>
-              <Passenger className="h-10 text-primary lg:h-14" />
+              <MsKlimadashboardIconsMoepnvGast className="h-10 fill-primary lg:h-14" />
             </span>
             <span>
-              <Passenger className="h-10 text-primary lg:h-14" />
+              <MsKlimadashboardIconsMoepnvGast className="h-10 fill-primary lg:h-14" />
             </span>
             <span>
-              <Passenger className="h-10 text-primary lg:h-14" />
+              <MsKlimadashboardIconsMoepnvGast className="h-10 fill-primary lg:h-14" />
             </span>
             <span>
-              <Passenger className="hidden h-10 text-primary lg:block lg:h-14" />
+              <MsKlimadashboardIconsMoepnvGast className="hidden h-10 fill-primary lg:block lg:h-14" />
             </span>
           </div>
           {width >= 1800 && (

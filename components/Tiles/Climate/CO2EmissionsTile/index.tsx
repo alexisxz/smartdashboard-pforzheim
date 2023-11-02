@@ -1,10 +1,10 @@
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
-import { Co2City } from '@/components/Icons'
 import ClimateTile from '../ClimateTile'
 import CO2EmissionsContent from './CO2EmissionsContent'
 import getTileData from '@/lib/api/getTileData'
 import { TileSplitView } from '../../Base/TileSplitView'
+import { MsKlimadashboardIconsKCo2 } from '@/components/Icons/Klima'
 
 export default async function CO2EmissionsTile() {
   const data = await getTileData('climate-co2')
@@ -32,7 +32,7 @@ export default async function CO2EmissionsTile() {
               {infoText}
             </Title>
             <Spacer />
-            <Co2City className="mx-auto w-40" />
+            <MsKlimadashboardIconsKCo2 className="mx-auto w-40" />
           </div>
         </TileSplitView.Right>
       </TileSplitView>
