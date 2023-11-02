@@ -9,7 +9,7 @@ import { useWindowSize } from 'react-use'
 import { useEffect, useState } from 'react'
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import Slider from '@/components/Inputs/Slider'
-import { MsKlimadashboardIconsMBusAbgas, MsKlimadashboardIconsMBusElektro } from '@/components/Icons/Mobilität'
+import { MsKlimadashboardIconsMBusAbgas, MsKlimadashboardIconsMBusElektro } from '@/components/Icons/Mobilitaet'
 
 type BusDataType = {
   ZEIT: string
