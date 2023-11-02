@@ -249,7 +249,7 @@ export default function ModalSplitChart() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   alt={`${key} Icon`}
-                  className="h-full w-auto"
+                  className="h-full w-auto max-w-[80px]"
                   src={icons[key]}
                 />
                 <div>
