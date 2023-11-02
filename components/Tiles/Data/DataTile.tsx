@@ -1,4 +1,4 @@
-import { MsKlimadashboardIconsButtonAktivEnergieV1 } from '@/components/Icons/Button:Übergeordnet'
+import { MsKlimadashboardIconsButtonAktivEnergieV1 } from '@/components/Icons/Misc'
 import IconTile, { IconTileProps } from '../Base/IconTile'
 
 export type EnergyTileProps = Omit<IconTileProps, 'variant' | 'icon'>

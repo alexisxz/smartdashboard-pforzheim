@@ -1,4 +1,4 @@
-import { MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Button:Übergeordnet'
+import { MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
 import IconTile, { IconTileProps } from '../Base/IconTile'
 
 export type MobilityTileProps = Omit<IconTileProps, 'variant' | 'icon'>

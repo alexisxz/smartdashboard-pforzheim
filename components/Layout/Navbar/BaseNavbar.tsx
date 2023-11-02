@@ -8,7 +8,7 @@ import { Bars3Icon } from '@heroicons/react/24/outline'
 import Title from '@/components/Elements/Title'
 import LinkComponent, { LinkProps } from './LinkComponent'
 import { Spacer } from '@/components/Elements/Spacer'
-import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Button:Übergeordnet'
+import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
 
 const links: LinkProps[] = [
   {

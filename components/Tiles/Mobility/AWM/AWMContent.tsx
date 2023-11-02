@@ -9,7 +9,7 @@ import { useWindowSize } from 'react-use'
 // @ts-ignore
 import AwmEMobility from '@/assets/data/awm-e-mobilitaet.csv'
 import { useEffect, useState } from 'react'
-import { MsKlimadashboardIconsMAwmAbgas, MsKlimadashboardIconsMAwmElektro } from '@/components/Icons/Mobilität'
+import { MsKlimadashboardIconsMAwmAbgas, MsKlimadashboardIconsMAwmElektro } from '@/components/Icons/Mobilitaet'
 
 type AwmDatatType = {
   ZEIT: number
