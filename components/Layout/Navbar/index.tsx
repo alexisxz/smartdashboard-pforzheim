@@ -2,7 +2,6 @@
 
 import { Button } from '../../Elements/Button'
 
-import { InformationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Title from '@/components/Elements/Title'
 import Back from '@/components/Elements/Back'
 import { usePathname } from 'next/navigation'
@@ -10,6 +9,8 @@ import BaseNavbar from './BaseNavbar'
 import { useState } from 'react'
 import SectionTitle from '../SectionTitle'
 import { AnimatePresence, motion } from 'framer-motion'
+import { MsKlimadashboardIconsNaviInfoI } from '@/components/Icons/Misc/Navi'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 const routeToType: {
   [key: string]:
@@ -45,7 +46,7 @@ export default function Navbar() {
       className="whitespace-nowrap"
       onClick={() => setShowOverlay(true)}
       size={'link'}
-      startIcon={<InformationCircleIcon className="h-[26px] md:h-[34px]" />}
+      startIcon={<MsKlimadashboardIconsNaviInfoI className="h-[26px] md:h-[34px]" />}
       variant={'secondary'}
     >
       So helfen Daten dem Klima

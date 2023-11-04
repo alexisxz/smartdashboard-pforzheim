@@ -63,11 +63,11 @@ function Toggle({ onChange }: { onChange: (_val: string) => void }) {
 }
 
 const icons = {
-  KFZ: require('@/assets/icons/ModalSplit/ModalsplitCar.svg').default.src,
-  ÖPNV: require('@/assets/icons/ModalSplit/ModalsplitBus.svg').default.src,
-  Fahrrad: require('@/assets/icons/ModalSplit/ModalsplitBicycle.svg').default
+  KFZ: require('@/assets/icons/ModalSplit/MS_Klimadashboard_Icons_m_modalsplit_pkw.svg').default.src,
+  ÖPNV: require('@/assets/icons/ModalSplit/MS_Klimadashboard_Icons_m_modalsplit_bus.svg').default.src,
+  Fahrrad: require('@/assets/icons/ModalSplit/MS_Klimadashboard_Icons_m_modalsplit_rad.svg').default
     .src,
-  Fuß: require('@/assets/icons/ModalSplit/ModalsplitShoe.svg').default.src,
+  Fuß: require('@/assets/icons/ModalSplit/MS_Klimadashboard_Icons_m_modalsplit_fuss.svg').default.src,
 }
 
 const colors = {
@@ -249,7 +249,7 @@ export default function ModalSplitChart() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   alt={`${key} Icon`}
-                  className="h-full w-auto"
+                  className="h-full w-auto max-w-[80px]"
                   src={icons[key]}
                 />
                 <div>

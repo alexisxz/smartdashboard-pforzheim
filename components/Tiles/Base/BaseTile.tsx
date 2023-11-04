@@ -12,12 +12,9 @@ import ReactMarkdown from 'react-markdown'
 import Title from '@/components/Elements/Title'
 import remarkGfm from 'remark-gfm'
 import TileHeader from './TileHeader'
-import {
-  BicycleIcon,
-  BuildingIcon,
-  EnergyIcon,
-  MuensterIcon,
-} from '@/components/Icons'
+
+import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
+
 
 const baseTileStyle = cva(
   'relative flex flex-col md:flex-row h-fit overflow-hidden rounded-[36px] lg:rounded-[56px]',
@@ -111,13 +108,13 @@ export function BaseTile({
   const chooseIcon = function (variant: string | null | undefined) {
     switch (variant) {
       case 'energy':
-        return EnergyIcon
+        return MsKlimadashboardIconsButtonAktivEnergieV1
       case 'mobility':
-        return BicycleIcon
+        return MsKlimadashboardIconsButtonAktivMobil
       case 'climate':
-        return MuensterIcon
+        return MsKlimadashboardIconsButtonAktivKlima
       case 'building':
-        return BuildingIcon
+        return MsKlimadashboardIconsButtonAktivGebaeude
       default:
         return undefined
     }
