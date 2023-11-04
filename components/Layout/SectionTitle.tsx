@@ -1,6 +1,7 @@
 import { cva, cx, VariantProps } from 'class-variance-authority'
 import Title from '../Elements/Title'
-import { BicycleIcon, BuildingIcon, EnergyIcon, MuensterIcon } from '../Icons'
+import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
+
 import { SVGProps } from 'react'
 
 const sectionHeaderStyle = cva('', {
@@ -24,22 +25,22 @@ export default function SectionTitle({
 }) {
   let title = 'Münster'
   let Icon: ((_: SVGProps<SVGSVGElement>) => JSX.Element) | undefined =
-    MuensterIcon
+  MsKlimadashboardIconsButtonAktivKlima
 
   if (variant === 'climate') {
     title = 'Klima in Münster'
   }
   if (variant === 'mobility') {
     title = 'Mobilität'
-    Icon = BicycleIcon
+    Icon = MsKlimadashboardIconsButtonAktivMobil
   }
   if (variant === 'building') {
     title = 'Gebäude'
-    Icon = BuildingIcon
+    Icon = MsKlimadashboardIconsButtonAktivGebaeude
   }
   if (variant === 'energy') {
     title = 'Energie'
-    Icon = EnergyIcon
+    Icon = MsKlimadashboardIconsButtonAktivEnergieV1
   }
   if (variant === 'impressum') {
     title = 'Impressum'

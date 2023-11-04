@@ -4,8 +4,8 @@ import EnergyTile from '../EnergyTile'
 
 // @ts-ignore
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
-import { WindEnergyIcon } from '@/components/Icons'
 import { Spacer } from '@/components/Elements/Spacer'
+import { MsKlimadashboardIconsEWindkraft } from '@/components/Icons/Energie'
 
 // interface WindDataType {
 //   ZEIT: string
@@ -41,7 +41,7 @@ export default function WindEnergyTile() {
           in Münster installiert.
         </Title>
         <div className="mt-8 flex items-center justify-between gap-8">
-          <WindEnergyIcon className="w-40" />
+          <MsKlimadashboardIconsEWindkraft className="w-40" />
           <div className="w-full flex-1">
             <div className="flex  items-center justify-between">
               <div>

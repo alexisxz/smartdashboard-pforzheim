@@ -2,11 +2,11 @@
 
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Title from '@/components/Elements/Title'
-import { PVAnlageMuenster } from '@/components/Icons'
 
 // @ts-ignore
 import PVData from '@/assets/data/pv-anlagen.csv'
 import { PVAnlagenDataType } from '.'
+import { MsKlimadashboardIconsEPvGebaeude } from '@/components/Icons/Energie'
 
 export default function PVAnlagenContent() {
   const [data] = PVData as PVAnlagenDataType[]
@@ -15,7 +15,7 @@ export default function PVAnlagenContent() {
     <div>
       <div className="mb-4 flex flex-row gap-6">
         <span>
-          <PVAnlageMuenster className="h-20 text-energy md:h-32" />
+          <MsKlimadashboardIconsEPvGebaeude className="h-20 text-energy md:h-32" />
         </span>
         <div className="flex flex-grow flex-col justify-between">
           <Title as={'subtitle'}>

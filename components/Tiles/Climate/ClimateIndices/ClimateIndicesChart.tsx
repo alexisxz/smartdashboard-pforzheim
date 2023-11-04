@@ -5,12 +5,13 @@ import climateIndicesData from '@/assets/data/climate_indices.json'
 import { LineSeriesOption } from 'echarts'
 import { getYear, parse } from 'date-fns'
 import Switch from '@/components/Inputs/Switch'
-import { Eis, Frost, Heiss, Sommer, Tropen } from '@/components/Icons'
+
 import Title from '@/components/Elements/Title'
 import { ForwardRefExoticComponent, SVGProps, useState } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '@/tailwind.config.js'
 import useDevice from '@/hooks/useDevice'
+import { MsKlimadashboardIconsKlimakenntageEis, MsKlimadashboardIconsKlimakenntageFrost, MsKlimadashboardIconsKlimakenntageHeiss, MsKlimadashboardIconsKlimakenntageSommer, MsKlimadashboardIconsKlimakenntageTropennacht } from '@/components/Icons/Klima'
 
 const { theme } = resolveConfig(tailwindConfig)
 
@@ -73,7 +74,7 @@ const indices: Record<
 > = {
   heisse_tage: {
     title: 'Heiße Tage (>= 30°C)',
-    icon: Heiss,
+    icon: MsKlimadashboardIconsKlimakenntageHeiss,
     seriesOption: {
       name: 'Heiße Tage',
       data: getSeries('heisse_tage'),
@@ -83,7 +84,7 @@ const indices: Record<
   },
   sommertage: {
     title: 'Sommertage (>= 25°C)',
-    icon: Sommer,
+    icon: MsKlimadashboardIconsKlimakenntageSommer,
     seriesOption: {
       name: 'Sommertage',
       data: getSeries('sommertage'),
@@ -93,7 +94,7 @@ const indices: Record<
   },
   tropennaechte: {
     title: 'Tropennächte (>= 20°C)',
-    icon: Tropen,
+    icon: MsKlimadashboardIconsKlimakenntageTropennacht,
     seriesOption: {
       name: 'Tropennächte',
       data: getSeries('tropennaechte'),
@@ -109,11 +110,11 @@ const indices: Record<
       // @ts-ignore
       color: theme?.colors?.primary.DEFAULT || '#6060d6',
     },
-    icon: Frost,
+    icon: MsKlimadashboardIconsKlimakenntageFrost,
   },
   eistage: {
     title: 'Eistage (Max. < 0°C)',
-    icon: Eis,
+    icon: MsKlimadashboardIconsKlimakenntageEis,
     seriesOption: {
       name: 'Eistage',
       data: getSeries('eistage'),

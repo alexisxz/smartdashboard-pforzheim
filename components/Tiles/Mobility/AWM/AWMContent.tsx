@@ -2,13 +2,14 @@
 
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Title from '@/components/Elements/Title'
-import { MuellautoAbgas, MuellautoStrom } from '@/components/Icons'
+
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import Slider from '@/components/Inputs/Slider'
 import { useWindowSize } from 'react-use'
 // @ts-ignore
 import AwmEMobility from '@/assets/data/awm-e-mobilitaet.csv'
 import { useEffect, useState } from 'react'
+import { MsKlimadashboardIconsMAwmAbgas, MsKlimadashboardIconsMAwmElektro } from '@/components/Icons/Mobilitaet'
 
 type AwmDatatType = {
   ZEIT: number
@@ -61,14 +62,14 @@ export default function AWMContent() {
           className="flex-none transition-all"
           style={{
             width: `${
-              (combustionCount / (electroCount + combustionCount) || 0.5) * 100 
+              (combustionCount / (electroCount + combustionCount) || 0.5) * 100
             }%`,
           }}
         >
-          <MuellautoAbgas className="w-full" />
+          <MsKlimadashboardIconsMAwmAbgas className="w-full" />
         </div>
         <div className="flex-1">
-          <MuellautoStrom className="w-full" />
+          <MsKlimadashboardIconsMAwmElektro className="w-full" />
         </div>
       </div>
       {width < 1800 && (

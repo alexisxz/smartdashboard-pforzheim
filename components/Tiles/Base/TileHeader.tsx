@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
 import { cva, cx, VariantProps } from 'class-variance-authority'
-import { Download, Share, SquaresPlus } from '@/components/Icons'
+
 import { ForwardRefExoticComponent, SVGProps } from 'react'
+import { MsKlimadashboardIconsNaviDownload, MsKlimadashboardIconsNaviKachelImplementieren, MsKlimadashboardIconsNaviTeilen } from '@/components/Icons/Misc/Navi'
 
 const iconTileTitleStyle = cva('', {
   variants: {
@@ -70,20 +71,20 @@ export default function TileHeader({
         )}
       >
         <div>
-          <SquaresPlus
+          <MsKlimadashboardIconsNaviKachelImplementieren
             className="h-6 w-6 cursor-pointer stroke-2"
             onClick={onEmbedClick}
           />
         </div>
         <div>
-          <Share
+          <MsKlimadashboardIconsNaviTeilen
             className="h-6 w-6 cursor-pointer stroke-2"
             onClick={onShareClick}
           />
         </div>
         {dataURL && (
-          <Link href={dataURL} target="_blank">
-            <Download className="h-6 stroke-2" />
+          <Link className='fill-inherit' href={dataURL} target="_blank">
+            <MsKlimadashboardIconsNaviDownload className="h-6 stroke-2" />
           </Link>
         )}
         {Icon && (
