@@ -13,23 +13,6 @@ import WFMLogo from '@/assets/logos/logo_wfm.png'
 import BMWSBLogo from '@/assets/logos/BMWSB.png'
 import KFW from '@/assets/logos/kfw.png'
 
-function UnCryptMailto(s: string) {
-  var n = 0
-  var r = ''
-  for (var i = 0; i < s.length; i++) {
-    n = s.charCodeAt(i)
-    if (n >= 8364) {
-      n = 128
-    }
-    r += String.fromCharCode(n - 1)
-  }
-  return r
-}
-
-function linkTo_UnCryptMailto(s: string) {
-  location.href = UnCryptMailto(s)
-}
-
 export default function Footer() {
   return (
     <StairStepBackground>
@@ -110,7 +93,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-1 flex-col sm:hidden 2xl:flex">
+          <div className="sm:hidden flex flex-1 flex-col 2xl:flex">
             <Title as={'h4'} className="py-10 opacity-0 md:py-20">
               Impressum
             </Title>
@@ -125,21 +108,15 @@ export default function Footer() {
                   Datenschutz
                 </Title>
               </Link>
-              {/* https://www.math.uni-hamburg.de/it/dienste/encryptma.html */}
-              <a
-                className="cursor-pointer"
-                onClick={() =>
-                  linkTo_UnCryptMailto('nbjmup;lmjnbAtubeu.nvfotufs/ef')
-                }
-              >
+              <Link href="/feedback">
                 <Title as="h5" className="underline" variant={'primary'}>
                   Sie haben Feedback für uns?
                 </Title>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="hidden justify-between sm:flex 2xl:hidden">
+        <div className="sm:flex hidden justify-between 2xl:hidden">
           <Link href="/impressum">
             <Title as="h5" className="underline" variant={'primary'}>
               Impressum
@@ -150,16 +127,11 @@ export default function Footer() {
               Datenschutz
             </Title>
           </Link>
-          <a
-            className="cursor-pointer"
-            onClick={() =>
-              linkTo_UnCryptMailto('nbjmup;lmjnbAtubeu.nvfotufs/ef')
-            }
-          >
+          <Link href="/feedback">
             <Title as="h5" className="underline" variant={'primary'}>
               Sie haben Feedback für uns?
             </Title>
-          </a>
+          </Link>
         </div>
       </Container>
     </StairStepBackground>
