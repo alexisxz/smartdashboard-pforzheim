@@ -1,6 +1,11 @@
 import { cva, cx, VariantProps } from 'class-variance-authority'
 import Title from '../Elements/Title'
-import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
+import {
+  MsKlimadashboardIconsButtonAktivEnergieV1,
+  MsKlimadashboardIconsButtonAktivGebaeude,
+  MsKlimadashboardIconsButtonAktivKlima,
+  MsKlimadashboardIconsButtonAktivMobil,
+} from '@/components/Icons/Misc'
 
 import { SVGProps } from 'react'
 
@@ -13,6 +18,7 @@ const sectionHeaderStyle = cva('', {
       energy: 'text-energy border-energy',
       impressum: 'text-white',
       datenschutz: 'text-white',
+      feedback: 'text-white',
     },
   },
 })
@@ -23,9 +29,9 @@ export default function SectionTitle({
 }: VariantProps<typeof sectionHeaderStyle> & {
   large?: boolean
 }) {
-  let title = 'Münster'
+  let title: string | React.ReactNode = 'Münster'
   let Icon: ((_: SVGProps<SVGSVGElement>) => JSX.Element) | undefined =
-  MsKlimadashboardIconsButtonAktivKlima
+    MsKlimadashboardIconsButtonAktivKlima
 
   if (variant === 'climate') {
     title = 'Klima in Münster'
@@ -50,6 +56,14 @@ export default function SectionTitle({
     title = 'Datenschutz'
     Icon = undefined
   }
+  if (variant === 'feedback') {
+    title = (
+      <span>
+        Mit Ihren Daten - <br /> für Ihre Kommune
+      </span>
+    )
+    Icon = undefined
+  }
 
   return (
     <div className="flex items-center space-x-4">
@@ -66,7 +80,7 @@ export default function SectionTitle({
       <Title
         as={large ? 'h2' : 'h4'}
         variant={
-          ['impressum', 'datenschutz'].includes(variant!)
+          ['impressum', 'datenschutz', 'feedback'].includes(variant!)
             ? 'inverse'
             : 'primary'
         }
