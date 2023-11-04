@@ -20,6 +20,7 @@ const routeToType: {
     | 'building'
     | 'impressum'
     | 'datenschutz'
+    | 'feedback'
 } = {
   klima: 'climate',
   mobilitaet: 'mobility',
@@ -27,6 +28,7 @@ const routeToType: {
   gebaeude: 'building',
   impressum: 'impressum',
   datenschutz: 'datenschutz',
+  feedback: 'feedback',
 }
 
 export default function Navbar() {
@@ -46,7 +48,9 @@ export default function Navbar() {
       className="whitespace-nowrap"
       onClick={() => setShowOverlay(true)}
       size={'link'}
-      startIcon={<MsKlimadashboardIconsNaviInfoI className="h-[26px] md:h-[34px]" />}
+      startIcon={
+        <MsKlimadashboardIconsNaviInfoI className="h-[26px] md:h-[34px]" />
+      }
       variant={'secondary'}
     >
       So helfen Daten dem Klima
@@ -54,7 +58,9 @@ export default function Navbar() {
   ) : (
     <Back
       variant={
-        ['impressum', 'datenschutz'].includes(route) ? 'inverse' : 'primary'
+        ['impressum', 'datenschutz', 'feedback'].includes(route)
+          ? 'inverse'
+          : 'primary'
       }
     />
   )
@@ -129,6 +135,7 @@ export default function Navbar() {
       'gebaeude',
       'impressum',
       'datenschutz',
+      'feedback',
     ].includes(route)
   ) {
     const sectionText: Record<string, string> = {
@@ -146,7 +153,9 @@ export default function Navbar() {
       <BaseNavbar
         actionComponent={ActionComponent}
         variant={
-          ['impressum', 'datenschutz'].includes(route) ? 'overlay' : 'primary'
+          ['impressum', 'datenschutz', 'feedback'].includes(route)
+            ? 'overlay'
+            : 'primary'
         }
       >
         <div className="flex flex-col gap-2 lg:flex-row lg:gap-0">
