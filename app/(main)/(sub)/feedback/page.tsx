@@ -27,7 +27,7 @@ export default function Impressum() {
   return (
     <main className="mx-auto max-w-[1136px]">
       <div className="h-12 md:h-24 lg:h-64" />
-      <Title as="h3" variant={'primary'}>
+      <Title as="h3" id="use-dashboard" variant={'primary'}>
         Sie wollen das Dashboard selbst nutzen?
       </Title>
       <div className="h-6" />
@@ -52,7 +52,7 @@ export default function Impressum() {
         </Button>
       </Link>
       <div className="h-32" />
-      <Title as="h3" variant={'primary'}>
+      <Title as="h3" id="feedback" variant={'primary'}>
         Sie haben Feedback?
       </Title>
       <div className="h-6" />
