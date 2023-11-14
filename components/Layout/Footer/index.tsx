@@ -108,9 +108,14 @@ export default function Footer() {
                   Datenschutz
                 </Title>
               </Link>
-              <Link href="/feedback">
+              <Link href="/feedback#use-dashboard">
                 <Title as="h5" className="underline" variant={'primary'}>
-                  Sie haben Feedback für uns?
+                  Dieses Dashboard adaptieren
+                </Title>
+              </Link>
+              <Link href="/feedback#feedback">
+                <Title as="h5" className="underline" variant={'primary'}>
+                  Feedback geben
                 </Title>
               </Link>
             </div>
@@ -127,9 +132,14 @@ export default function Footer() {
               Datenschutz
             </Title>
           </Link>
-          <Link href="/feedback">
+          <Link href="/feedback#use-dashboard">
             <Title as="h5" className="underline" variant={'primary'}>
-              Sie haben Feedback für uns?
+              Dieses Dashboard adaptieren
+            </Title>
+          </Link>
+          <Link href="/feedback#feedback">
+            <Title as="h5" className="underline" variant={'primary'}>
+              Feedback geben
             </Title>
           </Link>
         </div>
