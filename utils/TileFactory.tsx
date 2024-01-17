@@ -1,24 +1,30 @@
 import EcoProfitTile from '@/components/Tiles/Buildings/EcoProfit'
 import EnergyComsumptionTile from '@/components/Tiles/Buildings/EnergyConsumption'
-import ClimateIndicesTile from '@/components/Tiles/Climate/ClimateIndices'
+import RenovationTile from '@/components/Tiles/Buildings/Renovation'
 import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
+import ClimateIndicesTile from '@/components/Tiles/Climate/ClimateIndices'
 import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
 import GarbageTile from '@/components/Tiles/Climate/Garbage'
 import WeatherTile from '@/components/Tiles/Climate/WeatherTile'
+import DataCountTile from '@/components/Tiles/Data/DataCountTile'
 import EnergietraegerTile from '@/components/Tiles/Energy/EnergietraegerTile'
+import LanternsTile from '@/components/Tiles/Energy/LanternsTile'
+import PVAnlagenTile from '@/components/Tiles/Energy/PVAnlagenTile'
 import PhotovoltTile from '@/components/Tiles/Energy/PhotovoltTile'
 import WindEnergyTile from '@/components/Tiles/Energy/WindEnergyTile'
-import PVAnlagenTile from '@/components/Tiles/Energy/PVAnlagenTile'
 import AWMTile from '@/components/Tiles/Mobility/AWM'
 import BicycleChartTile from '@/components/Tiles/Mobility/Bicycle/BicycleChartTile'
 import StadtradelnTile from '@/components/Tiles/Mobility/Bicycle/Stadtradeln'
 import BusTile from '@/components/Tiles/Mobility/Bus'
+import MasterplanTile from '@/components/Tiles/Mobility/MasterplanTile'
 import ModalSplitTile from '@/components/Tiles/Mobility/ModalSplit'
+import PassengerTile from '@/components/Tiles/Mobility/PassengerTile'
 import TrafficloadTile from '@/components/Tiles/Mobility/TrafficloadTile'
 import SuccessStoryTile, {
   SuccessStoryTileProps,
 } from '@/components/Tiles/SuccessStory'
 import SurveyTile, { SurveyTileProps } from '@/components/Tiles/Survey'
+import { getSuccessStoryData } from '@/lib/api/getSuccessStoryData'
 import { getSurveyData } from '@/lib/api/getSurveyData'
 import {
   BuildingsTypes,
@@ -28,7 +34,6 @@ import {
   TileTypePrefix,
 } from '@/types/tile'
 import { ID } from '@directus/sdk'
-import { getSuccessStoryData } from '@/lib/api/getSuccessStoryData'
 
 type TileTypeSuffix =
   | ClimateTypes
@@ -97,12 +102,16 @@ export default async function TileFactory({
       return <ClimateDevelopmentTile />
     case 'climate-garbage':
       return <GarbageTile />
+    case 'climate-data':
+      return <DataCountTile />
 
     // ---- BUILDINGS ----
     case 'building-ecoProfit':
       return <EcoProfitTile />
     case 'building-energyConsumption':
       return <EnergyComsumptionTile />
+    case 'building-renovation':
+      return <RenovationTile />
 
     // ---- ENERGY ----
     case 'energy-PV':
@@ -113,6 +122,8 @@ export default async function TileFactory({
       return <PVAnlagenTile />
     case 'energy-energietraeger':
       return <EnergietraegerTile />
+    case 'energy-lanterns':
+      return <LanternsTile />
 
     // ---- MOBILITY ----
     case 'mobility-bicycle':
@@ -127,6 +138,10 @@ export default async function TileFactory({
       return <TrafficloadTile />
     case 'mobility-awm':
       return <AWMTile />
+    case 'mobility-masterplan':
+      return <MasterplanTile />
+    case 'mobility-passengers':
+      return <PassengerTile />
 
     default:
       return null
