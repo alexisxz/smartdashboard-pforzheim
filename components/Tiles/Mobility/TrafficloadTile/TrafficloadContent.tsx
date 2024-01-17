@@ -1,19 +1,19 @@
 'use client'
 
+import monatsmittelwerte from '@/assets/data/monatsmittelwerte.json'
+import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Carousel from '@/components/Elements/Carousel'
 import Title from '@/components/Elements/Title'
 import Slider from '@/components/Inputs/Slider'
 import ToggleGroup from '@/components/Inputs/ToggleGroup'
 import { useState } from 'react'
-import monatsmittelwerte from '@/assets/data/monatsmittelwerte.json'
-import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import TrafficMap from './TrafficMap'
 import TrafficMapMobile from './TrafficMapMobile'
 
 function Toggle({ onChange }: { onChange: (_val: string) => void }) {
   return (
     <ToggleGroup
-      defaultValue="current"
+      defaultValue="2023"
       items={[
         {
           element: (
@@ -34,10 +34,10 @@ function Toggle({ onChange }: { onChange: (_val: string) => void }) {
         {
           element: (
             <Title as="h6" className="2xl:w-max">
-              Aktuelles Jahr
+              2023
             </Title>
           ),
-          value: 'current',
+          value: '2023',
         },
       ]}
       onChange={onChange}
@@ -48,14 +48,15 @@ function Toggle({ onChange }: { onChange: (_val: string) => void }) {
 
 export default function TrafficloadContent() {
   const [monthIndex, setMonthIndex] = useState(4)
-  const [mode, setMode] = useState<'2013' | '2019' | 'current'>('current')
+  const [mode, setMode] = useState<'2013' | '2019' | '2023'>('2023')
 
   const [mobileActive, setMobileActive] = useState<
     'albersloher' | 'warendorfer' | 'weseler' | 'rishon' | 'steinfurter'
   >('albersloher')
 
   const data = monatsmittelwerte.features.filter(f => {
-    const year = mode === 'current' ? new Date().getFullYear().toString() : mode
+    // const year = mode === 'current' ? new Date().getFullYear().toString() : mode
+    const year = mode
     return (
       f.properties.year.toString() === year &&
       f.properties.month === monthIndex + 1
