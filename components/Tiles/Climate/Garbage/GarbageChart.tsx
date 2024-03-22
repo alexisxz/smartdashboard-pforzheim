@@ -1,28 +1,32 @@
 'use client'
 
-import resolveConfig from 'tailwindcss/resolveConfig'
+import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
+import Title from '@/components/Elements/Title'
 import tailwindConfig from '@/tailwind.config.js'
 import { SeriesOption } from 'echarts'
-import Title from '@/components/Elements/Title'
 import { useState } from 'react'
-import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
+import resolveConfig from 'tailwindcss/resolveConfig'
 
-import MobileSlider from '@/components/Inputs/MobileSlider'
-import { useWindowSize } from 'react-use'
-import Slider from '@/components/Inputs/Slider'
 import { ReactECharts } from '@/components/Charts/ReactECharts'
+import MobileSlider from '@/components/Inputs/MobileSlider'
+import Slider from '@/components/Inputs/Slider'
+import { useWindowSize } from 'react-use'
 
 // @ts-ignore
 import GarbageData from '@/assets/data/awm-abfallaufkommen-pro-kopf.csv'
-import { MsKlimadashboardIconsKAbfallGesamt, MsKlimadashboardIconsKAbfallRest, MsKlimadashboardIconsKAbfallWertstoffe } from '@/components/Icons/Klima'
+import {
+  MsKlimadashboardIconsKAbfallGesamt,
+  MsKlimadashboardIconsKAbfallRest,
+  MsKlimadashboardIconsKAbfallWertstoffe,
+} from '@/components/Icons/Klima'
 
 const { theme } = resolveConfig(tailwindConfig)
 
 interface GarbageDataProps {
   ZEIT: number
-  'Abfallaufkommen pro Kopf in kg - Gesamt': number
-  'Abfallaufkommen pro Kopf in kg - Restmüll': number
-  'Abfallaufkommen pro Kopf in kg - Wertstoffe': number
+  'Abfallaufkommen - Gesamt': number
+  'Abfallaufkommen - Restmüll': number
+  'Abfallaufkommen - Wertstoffe': number
 }
 
 function getSeries(name: string, data: any[], color: string): SeriesOption {
@@ -76,21 +80,19 @@ export default function GarbageChart() {
               series: [
                 getSeries(
                   'Gesamt',
-                  data.map(e => e['Abfallaufkommen pro Kopf in kg - Gesamt']),
+                  data.map(e => e['Abfallaufkommen - Gesamt']),
                   // @ts-ignore
                   theme?.colors?.mobility.DEFAULT || '#34c17b',
                 ),
                 getSeries(
                   'Wertstoffe',
-                  data.map(
-                    e => e['Abfallaufkommen pro Kopf in kg - Wertstoffe'],
-                  ),
+                  data.map(e => e['Abfallaufkommen - Wertstoffe']),
                   // @ts-ignore
                   theme?.colors?.energy.DEFAULT || '#f28443',
                 ),
                 getSeries(
                   'Restmüll',
-                  data.map(e => e['Abfallaufkommen pro Kopf in kg - Restmüll']),
+                  data.map(e => e['Abfallaufkommen - Restmüll']),
                   // @ts-ignore
                   theme?.colors?.climate.DEFAULT || '#14b3d9',
                 ),
@@ -167,7 +169,7 @@ export default function GarbageChart() {
             <Title as={'h3'} variant={'primary'}>
               <AnimatedNumber>
                 {data.find(e => e.ZEIT.toString() === years[yearIndex])?.[
-                  'Abfallaufkommen pro Kopf in kg - Gesamt'
+                  'Abfallaufkommen - Gesamt'
                 ] ?? 0}
               </AnimatedNumber>
               kg
@@ -183,7 +185,7 @@ export default function GarbageChart() {
             <Title as={'h3'} variant={'primary'}>
               <AnimatedNumber>
                 {data.find(e => e.ZEIT.toString() === years[yearIndex])?.[
-                  'Abfallaufkommen pro Kopf in kg - Wertstoffe'
+                  'Abfallaufkommen - Wertstoffe'
                 ] ?? 0}
               </AnimatedNumber>
               kg
@@ -199,7 +201,7 @@ export default function GarbageChart() {
             <Title as={'h3'} variant={'primary'}>
               <AnimatedNumber>
                 {data.find(e => e.ZEIT.toString() === years[yearIndex])?.[
-                  'Abfallaufkommen pro Kopf in kg - Restmüll'
+                  'Abfallaufkommen - Restmüll'
                 ] ?? 0}
               </AnimatedNumber>
               kg
