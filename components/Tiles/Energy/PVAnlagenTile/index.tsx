@@ -6,12 +6,13 @@ import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import PVAnlagenContent from './PVAnlagenContent'
 
 export interface PVAnlagenDataType {
-  AnzahlAnlagen: number
-  Leistung: number
+  'Anzahl aller PV-Anlagen': number
+  'Leistung aller Anlagen (Summe)': number
 }
 
 export default function PVAnlagenTile() {
-  const [data] = PVData as PVAnlagenDataType[]
+  const allData = PVData as PVAnlagenDataType[]
+  const data = allData.at(-1)!
 
   return (
     <EnergyTile
@@ -21,7 +22,8 @@ export default function PVAnlagenTile() {
       live
       title={
         <>
-          <AnimatedNumber>{data.AnzahlAnlagen}</AnimatedNumber> PV-Anlagen
+          <AnimatedNumber>{data['Anzahl aller PV-Anlagen']}</AnimatedNumber>{' '}
+          PV-Anlagen
         </>
       }
     >
