@@ -17301,5 +17301,16 @@
         "timestamp": "2024-01-01 00:00:00+00:00",
         "tropennaechte": 0.0,
         "wmo_station_id": null
+    },
+    {
+        "dwd_station_id": 1766.0,
+        "eistage": 0.0,
+        "frosttage": 3.0,
+        "heisse_tage": 0.0,
+        "observation_type": "historical",
+        "sommertage": 0.0,
+        "timestamp": "2024-02-01 00:00:00+00:00",
+        "tropennaechte": 0.0,
+        "wmo_station_id": null
     }
 ]
