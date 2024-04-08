@@ -1,12 +1,12 @@
+import { ReactECharts } from '@/components/Charts/ReactECharts'
+import { Spacer } from '@/components/Elements/Spacer'
+import Title from '@/components/Elements/Title'
 import useCO2Data from '@/hooks/useCO2Data'
+import useDevice from '@/hooks/useDevice'
 import { parse } from 'date-fns'
 import { SeriesOption } from 'echarts'
-import { ReactECharts } from '@/components/Charts/ReactECharts'
-import Title from '@/components/Elements/Title'
-import { Spacer } from '@/components/Elements/Spacer'
-import useDevice from '@/hooks/useDevice'
-import { linearRegression } from 'simple-statistics'
 import { useWindowSize } from 'react-use'
+import { linearRegression } from 'simple-statistics'
 
 type CO2ChartProps = {
   showFuture?: boolean
@@ -58,10 +58,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
 
     const y = showFuture ? 0 : m * x + b
 
-    return [
-      lastYear,
-      [parse('01-01-2030', 'dd-MM-yyyy', new Date()).getTime(), y],
-    ]
+    return [lastYear, [x, y]]
   }
 
   const series: SeriesOption[] = [
