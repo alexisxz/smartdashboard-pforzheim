@@ -8,7 +8,7 @@ import MobilityTile from '../MobilityTile'
 export default function MasterplanTile() {
   return (
     <MobilityTile
-      dataRetrieval={format(new Date('2023-01-18T00:00:00.000Z'), 'dd.MM.yyyy')}
+      dataRetrieval={format(new Date('2024-04-30T00:00:00.000Z'), 'dd.MM.yyyy')}
       dataSource={'Stadt Münster - Amt für Mobilität und Tiefbau'}
       embedId="mobility-masterplan"
       title={<>Der „Masterplan</>}
