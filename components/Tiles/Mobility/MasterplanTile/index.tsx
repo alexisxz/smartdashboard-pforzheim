@@ -1,9 +1,9 @@
 import Title from '@/components/Elements/Title'
 // @ts-ignore
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
+import { MsKlimadashboardIconsMMasterplanV1 } from '@/components/Icons/Mobilitaet'
 import { format } from 'date-fns'
 import MobilityTile from '../MobilityTile'
-import { MsKlimadashboardIconsMMasterplanV1 } from '@/components/Icons/Mobilitaet'
 
 export default function MasterplanTile() {
   return (
@@ -19,12 +19,12 @@ export default function MasterplanTile() {
             <MsKlimadashboardIconsMMasterplanV1 className="h-20 text-primary lg:h-44" />
           </span>
           <Title as={'subtitle'}>
-            Mobilität Münster 2035+“ wird aktuell entwickelt. Dabei wurden über
-            verschiedene Formate Münsteraner Bürger*innen beteiligt, die so{' '}
+            Mobilität Münster 2035+“ wurde im April 2024 veröffentlicht. Viele
+            Anregungen der Bürger*innen sind darin eingeflossen. Insgesamt{' '}
             <span className="text-mobility">
-              <AnimatedNumber>{967}</AnimatedNumber> Ideen
+              <AnimatedNumber>{46}</AnimatedNumber> Ideen
             </span>{' '}
-            einbringen konnten.
+            Maßnahmen wurden daraus entwickelt.
           </Title>
         </div>
       </div>
