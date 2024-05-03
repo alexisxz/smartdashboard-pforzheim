@@ -11,44 +11,40 @@ import TrafficMap from './TrafficMap'
 import TrafficMapMobile from './TrafficMapMobile'
 
 function Toggle({ onChange }: { onChange: (_val: string) => void }) {
+  const minYear = 2020
+  const maxYear = new Date().getFullYear()
+
+  const years = Array.from({ length: maxYear - minYear + 1 }, (_, i) => {
+    return {
+      element: (
+        <Title as="h6" className="2xl:w-max">
+          {minYear + i}
+        </Title>
+      ),
+      value: (minYear + i).toString(),
+    }
+  })
+
   return (
     <ToggleGroup
-      defaultValue="2023"
-      items={[
-        {
-          element: (
-            <Title as="h6" className="2xl:w-max">
-              2013
-            </Title>
-          ),
-          value: '2013',
-        },
-        {
-          element: (
-            <Title as="h6" className="2xl:w-max">
-              2019
-            </Title>
-          ),
-          value: '2019',
-        },
-        {
-          element: (
-            <Title as="h6" className="2xl:w-max">
-              2023
-            </Title>
-          ),
-          value: '2023',
-        },
-      ]}
+      defaultValue="2024"
+      items={years}
       onChange={onChange}
+      scrollX
       variant={'mobility'}
     />
   )
 }
 
 export default function TrafficloadContent() {
-  const [monthIndex, setMonthIndex] = useState(4)
-  const [mode, setMode] = useState<'2013' | '2019' | '2023'>('2023')
+  const currentYear = new Date().getFullYear()
+  const latestMonthWithData = monatsmittelwerte.features
+    .filter(f => f.properties.year === currentYear)
+    .map(f => f.properties.month)
+    .sort((a, b) => b - a)[0]
+
+  const [monthIndex, setMonthIndex] = useState(latestMonthWithData - 1)
+  const [mode, setMode] = useState(currentYear.toString())
 
   const [mobileActive, setMobileActive] = useState<
     'albersloher' | 'warendorfer' | 'weseler' | 'rishon' | 'steinfurter'
@@ -165,7 +161,7 @@ export default function TrafficloadContent() {
       </div>
       <Slider
         defaultValue={[monthIndex]}
-        firstValueMobile={4} // MONAT MAI NUR FÜR DEMO
+        firstValueMobile={monthIndex} // MONAT MAI NUR FÜR DEMO
         labels={[
           'JAN',
           'FEB',
