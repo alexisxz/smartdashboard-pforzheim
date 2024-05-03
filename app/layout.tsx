@@ -10,6 +10,7 @@ export const metadata = {
   viewport: 'width=device-width, initial-scale=1',
   description: 'Das Klimadashboard der Stadt Münster',
   icons: '/favicon.ico',
+  metadataBase: new URL('https://klimadashboard.ms'),
 }
 
 export default function RootLayout({
