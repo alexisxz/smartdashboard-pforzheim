@@ -1,20 +1,24 @@
 'use client'
 
+import Title from '@/components/Elements/Title'
+import { TileType } from '@/utils/TileFactory'
+import { useTransition } from '@react-spring/web'
 import { cva, cx, VariantProps } from 'class-variance-authority'
 import { useState } from 'react'
-import { useTransition } from '@react-spring/web'
-import EmbedOverlay from './EmbedOverlay'
-import ShareOverlay from './ShareOverlay'
-import MoreInfoOverlay from './MoreInfoOverlay'
-import TileFooter from './TileFooter'
-import { TileType } from '@/utils/TileFactory'
 import ReactMarkdown from 'react-markdown'
-import Title from '@/components/Elements/Title'
 import remarkGfm from 'remark-gfm'
+import EmbedOverlay from './EmbedOverlay'
+import MoreInfoOverlay from './MoreInfoOverlay'
+import ShareOverlay from './ShareOverlay'
+import TileFooter from './TileFooter'
 import TileHeader from './TileHeader'
 
-import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
-
+import {
+  MsKlimadashboardIconsButtonAktivEnergieV1,
+  MsKlimadashboardIconsButtonAktivGebaeude,
+  MsKlimadashboardIconsButtonAktivKlima,
+  MsKlimadashboardIconsButtonAktivMobil,
+} from '@/components/Icons/Misc'
 
 const baseTileStyle = cva(
   'relative flex flex-col md:flex-row h-fit overflow-hidden rounded-[36px] lg:rounded-[56px]',
@@ -136,7 +140,7 @@ export function BaseTile({
             <></>
           </TileHeader>
 
-          <div>{children}</div>
+          <>{children}</>
           <TileFooter
             dataURL={source}
             hasMoreDetails={!!moreInfo}
@@ -183,14 +187,26 @@ export function BaseTile({
                 {typeof moreInfo === 'string' ? (
                   <ReactMarkdown
                     components={{
-                      h1: props => <Title as={'h2'} {...props} />,
-                      h2: props => <Title as={'h3'} {...props} />,
-                      h3: props => <Title as={'h4'} {...props} />,
-                      h4: props => <Title as={'h5'} {...props} />,
-                      h5: props => <Title as={'h6'} {...props} />,
-                      h6: props => <Title as={'h7'} {...props} />,
+                      h1: props => (
+                        <Title as={'h2'} className="mb-4 md:mb-6" {...props} />
+                      ),
+                      h2: props => (
+                        <Title as={'h3'} className="mb-4 md:mb-6" {...props} />
+                      ),
+                      h3: props => (
+                        <Title as={'h4'} className="mb-4 md:mb-6" {...props} />
+                      ),
+                      h4: props => (
+                        <Title as={'h5'} className="mb-4 md:mb-6" {...props} />
+                      ),
+                      h5: props => (
+                        <Title as={'h6'} className="mb-4 md:mb-6" {...props} />
+                      ),
+                      h6: props => (
+                        <Title as={'h7'} className="mb-4 md:mb-6" {...props} />
+                      ),
                       ul: props => <ul className="list-disc px-6" {...props} />,
-                      p: props => <p className="mb-2" {...props} />,
+                      p: props => <p className="mb-6 md:mb-10" {...props} />,
                       a: props => (
                         <a
                           className="underline"
