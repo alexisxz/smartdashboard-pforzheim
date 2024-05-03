@@ -64,14 +64,7 @@ export default function SuccessStoryTile({
               {...props}
             />
           ),
-          h4: props => (
-            <Title
-              as={'h5'}
-              className="mb-4 md:mb-6"
-              variant={'primary'}
-              {...props}
-            />
-          ),
+          h4: props => <Title as={'h5'} variant={'primary'} {...props} />,
           h5: props => (
             <Title
               as={'h6'}
