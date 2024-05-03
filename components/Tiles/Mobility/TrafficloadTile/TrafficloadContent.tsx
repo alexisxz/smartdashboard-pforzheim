@@ -1,6 +1,6 @@
 'use client'
 
-import monatsmittelwerte from '@/assets/data/monatsmittelwerte.json'
+import monatsmittelwerte from '@/assets/data/trafficload.json'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Carousel from '@/components/Elements/Carousel'
 import Title from '@/components/Elements/Title'
