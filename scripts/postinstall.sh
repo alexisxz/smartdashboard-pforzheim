@@ -6,5 +6,9 @@
 echo "Running traffic load script..."
 sh scripts/trafficload.sh
 
+# Run the stadtradeln script
+echo "Running stadtradeln script..."
+sh scripts/stadtradeln.sh
+
 # Exit the script
 exit 0
