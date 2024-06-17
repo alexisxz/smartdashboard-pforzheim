@@ -1,5 +1,7 @@
 import { ReactECharts } from '@/components/Charts/ReactECharts'
 import { Spinner } from '@/components/Elements/Spinner'
+import useDevice from '@/hooks/useDevice'
+import tailwindConfig from '@/tailwind.config.js'
 import {
   BarSeriesOption,
   LineSeriesOption,
@@ -8,8 +10,7 @@ import {
 } from 'echarts'
 import { useCallback, useEffect, useState } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '@/tailwind.config.js'
-import useDevice from '@/hooks/useDevice'
+import { StadtradelnData } from './ChartContainer'
 
 const { theme } = resolveConfig(tailwindConfig)
 
@@ -30,18 +31,10 @@ const colors = {
   },
 }
 
-type StadtradelnData = {
-  name: string
-  data: {
-    year: number
-    km: number
-  }[]
-}
-
 type ChartProps = {
   compare: boolean
-  data: StadtradelnData
-  other?: StadtradelnData
+  data: StadtradelnData[]
+  other?: StadtradelnData[]
 }
 
 export default function Chart({ data, other }: ChartProps) {
@@ -50,9 +43,9 @@ export default function Chart({ data, other }: ChartProps) {
   const device = useDevice()
 
   const getSeries = useCallback(
-    (data: StadtradelnData, color: string, symbol: string) => {
+    (data: StadtradelnData[], color: string, symbol: string) => {
       const lineSeries: LineSeriesOption = {
-        data: data.data.map(({ year, km }) => [year, km]),
+        data: data.map(({ year, value }) => [year, value]),
         type: 'line',
         lineStyle: {
           opacity: 0,
@@ -63,7 +56,7 @@ export default function Chart({ data, other }: ChartProps) {
       }
 
       const barSeries: BarSeriesOption = {
-        data: data.data.map(({ year, km }) => [year, km]),
+        data: data.map(({ year, value }) => [year, value]),
         type: 'bar',
         barWidth: 3,
         zlevel: 10,
@@ -80,7 +73,7 @@ export default function Chart({ data, other }: ChartProps) {
       }
 
       const barIcons: PictorialBarSeriesOption = {
-        data: data.data.map(({ year, km }) => [year, km]),
+        data: data.map(({ year, value }) => [year, value]),
         type: 'pictorialBar',
         symbol: symbol,
         symbolSize: device === 'desktop' ? [61, 61] : [30, 30],
