@@ -1,8 +1,9 @@
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
 import MobilityTile from '@/components/Tiles/Mobility/MobilityTile'
-import ChartContainer from './ChartContainer'
 import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
+import ChartContainer from './ChartContainer'
 
 export default async function StadtradelnTile() {
   const data = await getTileData('mobility-stadtradeln')
@@ -10,7 +11,7 @@ export default async function StadtradelnTile() {
 
   return (
     <MobilityTile
-      dataRetrieval="31.05.2023"
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Stadtradeln"
       embedId="mobility-stadtradeln"
       subtitle="auf der Überholspur"
