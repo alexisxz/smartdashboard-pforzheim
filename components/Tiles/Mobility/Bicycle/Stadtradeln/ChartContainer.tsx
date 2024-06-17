@@ -1,26 +1,31 @@
 'use client'
 
-import Switch from '@/components/Inputs/Switch'
-import { useEffect, useState } from 'react'
-import Chart from './Chart'
-import stadtradelnData from '@/assets/data/stadtradeln.json'
-import { animated, useSpring } from '@react-spring/web'
+// @ts-ignore
+import stadtradelnData from '@/assets/data/stadtradeln_data.csv'
 import { ProgressCircle } from '@/components/Charts/Progress/ProgressCircle'
 import AnimatedRollingElement from '@/components/Elements/Animated/AnimatedRollingElement'
 import Title from '@/components/Elements/Title'
+import Switch from '@/components/Inputs/Switch'
+import { animated, useSpring } from '@react-spring/web'
+import { useEffect, useState } from 'react'
+import Chart from './Chart'
 
-type StadtradelnData = {
+export type StadtradelnData = {
+  key: string
   name: string
-  data: {
-    year: number
-    km: number
-  }[]
+  year: number
+  value: number
 }
 
-const otherCities = Object.keys(stadtradelnData)
-  .filter(k => k !== 'muenster')
-  // @ts-ignore
-  .map(k => stadtradelnData[k] as StadtradelnData)
+const muensterData = (stadtradelnData as StadtradelnData[]).filter(
+  ({ key }) => key === 'muenster',
+)
+
+const otherCities = (stadtradelnData as StadtradelnData[]).filter(
+  ({ key }) => key !== 'muenster',
+)
+
+const otherCitiesSet = Array.from(new Set(otherCities.map(({ key }) => key)))
 
 const COMPARE_INTERVAL = 5000
 
@@ -28,7 +33,7 @@ const AnimatedProgressCircle = animated(ProgressCircle)
 
 export default function ChartContainer() {
   const [compare, setCompare] = useState(false)
-  const [otherData, setOtherData] = useState<StadtradelnData>()
+  const [otherData, setOtherData] = useState<StadtradelnData[]>()
   const [otherIndex, setOtherIndex] = useState(0)
 
   const [springs, api] = useSpring(() => ({
@@ -69,22 +74,20 @@ export default function ChartContainer() {
       return
     }
 
-    if (otherIndex >= otherCities.length) {
+    if (otherIndex >= otherCitiesSet.length) {
       setOtherIndex(0)
       return
     }
 
-    setOtherData(otherCities[otherIndex])
+    setOtherData(
+      otherCities.filter(({ key }) => key === otherCitiesSet[otherIndex]),
+    )
   }, [otherIndex])
 
   return (
     <div className="rounded bg-white p-2">
       <div className="flex h-[350px] w-full items-center justify-center md:h-[500px]">
-        <Chart
-          compare={compare}
-          data={stadtradelnData.muenster}
-          other={otherData}
-        />
+        <Chart compare={compare} data={muensterData} other={otherData} />
       </div>
       <div className="flex items-center gap-2 p-4 md:gap-10 md:pl-8">
         <div className="h-1 w-8 rounded bg-mobility md:w-[52px]" />
@@ -110,7 +113,10 @@ export default function ChartContainer() {
                 <div className="flex items-center gap-2 md:gap-4">
                   <div className="h-1 w-9 rounded bg-buildings md:w-[52px]" />
                   <Title as="h5" variant={'primary'}>
-                    {otherData.name}
+                    {
+                      otherData.find(e => e.key === otherCitiesSet[otherIndex])
+                        ?.name
+                    }
                   </Title>
                 </div>
               </AnimatedRollingElement>
