@@ -4,8 +4,8 @@ import BuildingsTile from '../BuildingsTile'
 // @ts-ignore
 // import WindData from '@/assets/data/bestand-windanlagen.csv'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
-import { format } from 'date-fns'
 import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
 
 // interface WindDataType {
 //   ZEIT: string
@@ -22,7 +22,7 @@ export default async function RenovationTile() {
 
   return (
     <BuildingsTile
-      dataRetrieval={format(new Date(), 'dd.MM.yyyy')}
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource={'Stadt Münster'}
       embedId="building-renovation"
       title={
