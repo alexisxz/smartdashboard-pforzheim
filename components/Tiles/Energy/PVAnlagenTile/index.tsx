@@ -3,6 +3,7 @@ import EnergyTile from '../EnergyTile'
 // @ts-ignore
 import PVData from '@/assets/data/pv-anlagen.csv'
 import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
+import { format } from 'date-fns'
 import PVAnlagenContent from './PVAnlagenContent'
 
 export interface PVAnlagenDataType {
@@ -16,7 +17,7 @@ export default function PVAnlagenTile() {
 
   return (
     <EnergyTile
-      dataRetrieval="12.04.2023"
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource={'Stadt Münster'}
       embedId="energy-PVAnlagen"
       live
