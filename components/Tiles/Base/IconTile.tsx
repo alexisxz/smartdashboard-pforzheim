@@ -2,11 +2,10 @@ import 'server-only'
 
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
+import getTileData from '@/lib/api/getTileData'
 import { cva, cx, VariantProps } from 'class-variance-authority'
 import { ForwardRefExoticComponent, SVGProps } from 'react'
 import { BaseTile, EmbedTileProps } from './BaseTile'
-import LiveBadge from './LiveBadge'
-import getTileData from '@/lib/api/getTileData'
 
 const iconTileTitleStyle = cva('', {
   variants: {
@@ -65,7 +64,6 @@ export default async function IconTile({
   return (
     <BaseTile
       embedId={embedId}
-      footerCenterElement={live ? <LiveBadge variant={variant} /> : undefined}
       isFullWidth={data?.full_width}
       moreInfo={data?.details}
       source={data?.data_url}
