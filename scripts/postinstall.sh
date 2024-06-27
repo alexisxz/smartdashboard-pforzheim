@@ -10,5 +10,9 @@ sh scripts/trafficload.sh
 echo "Running stadtradeln script..."
 sh scripts/stadtradeln.sh
 
+# Run the ms open data script
+echo "Running ms open data script..."
+sh scripts/ms-open-data.sh
+
 # Exit the script
 exit 0
