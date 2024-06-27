@@ -1,8 +1,9 @@
+import { Spacer } from '@/components/Elements/Spacer'
+import Title from '@/components/Elements/Title'
 import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
 import EnergyTile from '../EnergyTile'
 import EnergietraegerChart from './EnergietraegerChart'
-import Title from '@/components/Elements/Title'
-import { Spacer } from '@/components/Elements/Spacer'
 
 export default async function EnergietraegerTile() {
   const data = await getTileData('energy-energietraeger')
@@ -10,7 +11,7 @@ export default async function EnergietraegerTile() {
 
   return (
     <EnergyTile
-      dataRetrieval="02.03.2023"
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Stadt Münster &ndash; Stabsstelle Klima"
       embedId="energy-energietraeger"
       subtitle={'Anteile verschiedener Energieträger'}
