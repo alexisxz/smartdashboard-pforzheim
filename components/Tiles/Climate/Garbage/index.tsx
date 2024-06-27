@@ -1,8 +1,9 @@
 import Title from '@/components/Elements/Title'
+import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
+import { TileSplitView } from '../../Base/TileSplitView'
 import ClimateTile from '../ClimateTile'
 import GarbageChart from './GarbageChart'
-import getTileData from '@/lib/api/getTileData'
-import { TileSplitView } from '../../Base/TileSplitView'
 
 export default async function GarbageTile() {
   const data = await getTileData('climate-garbage')
@@ -10,7 +11,7 @@ export default async function GarbageTile() {
 
   return (
     <ClimateTile
-      dataRetrieval={'31.05.2023'}
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Abfallwirtschaftsbetriebe Münster (awm)"
       embedId="climate-garbage"
       subtitle={
