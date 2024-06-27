@@ -1,31 +1,48 @@
 'use client'
 
 import { ReactECharts } from '@/components/Charts/ReactECharts'
-import Slider from '@/components/Inputs/Slider'
-import { useState } from 'react'
-import ToggleGroup from '@/components/Inputs/ToggleGroup'
 import Title from '@/components/Elements/Title'
+import Slider from '@/components/Inputs/Slider'
+import ToggleGroup from '@/components/Inputs/ToggleGroup'
+import { useState } from 'react'
 
 // @ts-ignore
-import StromerzeugungBereitstellung from '@/assets/data/Stromerzeugung_bereitstellung.csv'
+import StromerzeugungBereitstellung from '@/assets/data/verbrauch-erzeugung-strom.csv'
 // @ts-ignore
-import Stromemissionen from '@/assets/data/stromemissionen.csv'
+import Stromemissionen from '@/assets/data/emissionen-strom.csv'
 import { Spacer } from '@/components/Elements/Spacer'
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import { useWindowSize } from 'react-use'
 
-type StromDataType = {
-  Jahr: number
-  'GUD (Erdgas)': number
-  'Stromeinkauf (Bundesmix)': number
-  Windkraft: number
-  'Anteil EE (%)': number
-  'PV,Biogas': number
-  'Stromverbrauch ges.': number
-  'BHKW (Erdgas)': number
-  'Klär-Deponiegas': number
-  Wasserkraft: number
-  'BHKW (Biomethan)': number
+type StromVerbrauchErzeugung = {
+  ZEIT: number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Anteil EE (%)': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - BHKW (Biomethan)': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - BHKW (Erdgas)': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Biogas': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - GUD (Erdgas)': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - HKW (Kohle)': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Klär-Deponiegas': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - PV': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Stromverbrauch ges.': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Wasserkraft': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - Windkraft': number
+  'Stromerzeugung/-bereitstellung nach Energieträgern - reg. Bezug (Bundesmix)': number
+}
+
+type StromEmissionen = {
+  ZEIT: number
+  'Strom-Emissionen nach Energieträgern (t) - Windkraft': number
+  'Strom-Emissionen nach Energieträgern - Anteil EE an Gesamtemissionen (%)': number
+  'Strom-Emissionen nach Energieträgern - BHKW (Biomethan)': number
+  'Strom-Emissionen nach Energieträgern - BHKW (Erdgas)': number
+  'Strom-Emissionen nach Energieträgern - Biogas': number
+  'Strom-Emissionen nach Energieträgern - Emissionen ges.': number
+  'Strom-Emissionen nach Energieträgern - GUD (Erdgas)': number
+  'Strom-Emissionen nach Energieträgern - Klär-Deponiegas': number
+  'Strom-Emissionen nach Energieträgern - PV': number
+  'Strom-Emissionen nach Energieträgern - Wasserkraft': number
+  'Strom-Emissionen nach Energieträgern - reg. Bezug (Bundesmix)': number
 }
 
 export default function EnergietraegerChart() {
@@ -33,7 +50,7 @@ export default function EnergietraegerChart() {
     'stromerzeugung',
   )
 
-  const data: StromDataType[] =
+  const data: (StromVerbrauchErzeugung | StromEmissionen)[] =
     mode === 'stromerzeugung' ? StromerzeugungBereitstellung : Stromemissionen
 
   const [yearIndex, setYearIndex] = useState(data.length - 1)
@@ -144,17 +161,29 @@ export default function EnergietraegerChart() {
                     .filter(
                       k =>
                         ![
-                          'Jahr',
-                          'Stromverbrauch ges.',
-                          'Emissionen ges.',
-                          'Anteil EE an Gesamtemissionen (%)',
-                          'Anteil EE (%)',
-                          'Stromeinkauf (Bundesmix)',
+                          'ZEIT',
+                          'Stromerzeugung/-bereitstellung nach Energieträgern - Stromverbrauch ges.',
+                          'Strom-Emissionen nach Energieträgern - Emissionen ges.',
+                          'Stromerzeugung/-bereitstellung nach Energieträgern - Anteil EE (%)',
+                          'Strom-Emissionen nach Energieträgern - Anteil EE an Gesamtemissionen (%)',
+                          'Stromerzeugung/-bereitstellung nach Energieträgern - reg. Bezug (Bundesmix)',
+                          'Strom-Emissionen nach Energieträgern - reg. Bezug (Bundesmix)',
                         ].includes(k),
                     )
                     .map(key => ({
-                      name: key,
-                      value: data[yearIndex][key as keyof StromDataType],
+                      name: key
+                        .replace(
+                          'Stromerzeugung/-bereitstellung nach Energieträgern - ',
+                          '',
+                        )
+                        .replace('Strom-Emissionen nach Energieträgern - ', ''),
+                      value:
+                        data[yearIndex][
+                          key as keyof (
+                            | StromVerbrauchErzeugung
+                            | StromEmissionen
+                          )
+                        ],
                     })),
                 },
               ],
@@ -166,7 +195,7 @@ export default function EnergietraegerChart() {
           <MobileSlider
             defaultValue={[data.length - 1]}
             firstValueMobile={data.length - 1}
-            labels={data.map(e => e.Jahr.toString())}
+            labels={data.map(e => e.ZEIT.toString())}
             max={data.length - 1}
             min={0}
             onValueChange={([index]) => setYearIndex(index)}
@@ -177,7 +206,7 @@ export default function EnergietraegerChart() {
           <Slider
             defaultValue={[data.length - 1]}
             firstValueMobile={data.length - 1}
-            labels={data.map(e => e.Jahr.toString())}
+            labels={data.map(e => e.ZEIT.toString())}
             max={data.length - 1}
             min={0}
             onValueChange={([index]) => setYearIndex(index)}
