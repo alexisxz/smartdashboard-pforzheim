@@ -1,8 +1,9 @@
-import MobilityTile from '@/components/Tiles/Mobility/MobilityTile'
-import ModalSplitChart from './ModalSplitChart'
 import Title from '@/components/Elements/Title'
-import { TileSplitView } from '../../Base/TileSplitView'
+import MobilityTile from '@/components/Tiles/Mobility/MobilityTile'
 import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
+import { TileSplitView } from '../../Base/TileSplitView'
+import ModalSplitChart from './ModalSplitChart'
 
 export default async function ModalSplitTile() {
   const data = await getTileData('mobility-modalSplit')
@@ -10,7 +11,7 @@ export default async function ModalSplitTile() {
 
   return (
     <MobilityTile
-      dataRetrieval="22.05.2023"
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Stadt Münster &ndash; Amt für Mobilität und Tiefbau"
       embedId="mobility-modalSplit"
       subtitle="Aufteilung der zurückgelegten Wege und Kilometer der Münsteraner*innen"

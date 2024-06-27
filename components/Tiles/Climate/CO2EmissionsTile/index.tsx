@@ -1,10 +1,11 @@
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
+import { MsKlimadashboardIconsKCo2 } from '@/components/Icons/Klima'
+import getTileData from '@/lib/api/getTileData'
+import { format } from 'date-fns'
+import { TileSplitView } from '../../Base/TileSplitView'
 import ClimateTile from '../ClimateTile'
 import CO2EmissionsContent from './CO2EmissionsContent'
-import getTileData from '@/lib/api/getTileData'
-import { TileSplitView } from '../../Base/TileSplitView'
-import { MsKlimadashboardIconsKCo2 } from '@/components/Icons/Klima'
 
 export default async function CO2EmissionsTile() {
   const data = await getTileData('climate-co2')
@@ -12,7 +13,7 @@ export default async function CO2EmissionsTile() {
 
   return (
     <ClimateTile
-      dataRetrieval="02.03.2023"
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Stadt Münster - Stabsstelle Klima"
       embedId="climate-co2"
       subtitle="So viel wird in Münster ausgestoßen"
