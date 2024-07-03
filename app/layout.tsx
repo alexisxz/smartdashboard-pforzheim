@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import { Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import Cookies from './Cookies'
@@ -8,10 +9,14 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
   title: 'Klimadashboard Münster',
-  viewport: 'width=device-width, initial-scale=1',
   description: 'Das Klimadashboard der Stadt Münster',
   icons: '/favicon.ico',
   metadataBase: new URL('https://klimadashboard.ms'),
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default function RootLayout({
