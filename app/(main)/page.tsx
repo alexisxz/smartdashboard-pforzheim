@@ -3,18 +3,19 @@ import Container from '@/components/Layout/Container'
 
 import AnimatedPage from '@/components/Layout/AnimatedPage'
 
-import BaseView from '@/components/Views/BaseView'
 import Columns from '@/components/Layout/Columns'
-import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
-import WeatherTile from '@/components/Tiles/Climate/WeatherTile'
-import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
-import PhotovoltTile from '@/components/Tiles/Energy/PhotovoltTile'
-import EnergietraegerTile from '@/components/Tiles/Energy/EnergietraegerTile'
-import WindEnergyTile from '@/components/Tiles/Energy/WindEnergyTile'
-import TrafficloadTile from '@/components/Tiles/Mobility/TrafficloadTile'
-import BusTile from '@/components/Tiles/Mobility/Bus'
-import BicycleChartTile from '@/components/Tiles/Mobility/Bicycle/BicycleChartTile'
 import EnergyComsumptionTile from '@/components/Tiles/Buildings/EnergyConsumption'
+import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
+import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
+import WachstumTile from '@/components/Tiles/Climate/Wachstum'
+import WeatherTile from '@/components/Tiles/Climate/WeatherTile'
+import EnergietraegerTile from '@/components/Tiles/Energy/EnergietraegerTile'
+import PhotovoltTile from '@/components/Tiles/Energy/PhotovoltTile'
+import WindEnergyTile from '@/components/Tiles/Energy/WindEnergyTile'
+import BicycleChartTile from '@/components/Tiles/Mobility/Bicycle/BicycleChartTile'
+import BusTile from '@/components/Tiles/Mobility/Bus'
+import TrafficloadTile from '@/components/Tiles/Mobility/TrafficloadTile'
+import BaseView from '@/components/Views/BaseView'
 
 export default async function Home() {
   return (
@@ -33,6 +34,7 @@ export default async function Home() {
               <WeatherTile />
               <ClimateDevelopmentTile />
             </Columns>
+            <WachstumTile />
           </BaseView>
 
           <BaseView

@@ -6,6 +6,7 @@ import getTileData from '@/lib/api/getTileData'
 import { cva, cx, VariantProps } from 'class-variance-authority'
 import { ForwardRefExoticComponent, SVGProps } from 'react'
 import { BaseTile, EmbedTileProps } from './BaseTile'
+import { TileSplitView } from './TileSplitView'
 
 const iconTileTitleStyle = cva('', {
   variants: {
@@ -39,6 +40,7 @@ export type IconTileProps = VariantProps<typeof iconTileTitleStyle> &
       | ForwardRefExoticComponent<SVGProps<SVGSVGElement>>
       | ((_props: SVGProps<SVGSVGElement>) => JSX.Element)
     live?: boolean
+    rightAlignedExtra?: React.ReactElement
   }
 
 /**
@@ -56,6 +58,7 @@ export default async function IconTile({
   dataRetrieval,
   dataSource,
   embedId,
+  rightAlignedExtra,
 }: IconTileProps) {
   const Icon = icon
 
@@ -119,14 +122,22 @@ export default async function IconTile({
 
       <>{children}</>
       <Spacer />
-      <div className="flex space-x-2 text-xs">
-        <Title as="h7" font="semibold" variant={'primary'}>
-          Datenstand: {dataRetrieval ?? (live ? 'live' : 'undefined')}
-        </Title>
-        <Title as="h7" font="normal" variant={'primary'}>
-          Quelle: {dataSource}
-        </Title>
-      </div>
+      <TileSplitView>
+        <TileSplitView.Left>
+          <div className="flex flex-wrap justify-between">
+            <div className="flex space-x-2 text-xs">
+              <Title as="h7" font="semibold" variant={'primary'}>
+                Datenstand: {dataRetrieval ?? (live ? 'live' : 'undefined')}
+              </Title>
+              <Title as="h7" font="normal" variant={'primary'}>
+                Quelle: {dataSource}
+              </Title>
+            </div>
+            <div>{rightAlignedExtra}</div>
+          </div>
+        </TileSplitView.Left>
+        <div className="w-[272px]" />
+      </TileSplitView>
     </BaseTile>
   )
 }
