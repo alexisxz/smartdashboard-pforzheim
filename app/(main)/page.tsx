@@ -7,7 +7,6 @@ import Columns from '@/components/Layout/Columns'
 import EnergyComsumptionTile from '@/components/Tiles/Buildings/EnergyConsumption'
 import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
 import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
-import WachstumTile from '@/components/Tiles/Climate/Wachstum'
 import WeatherTile from '@/components/Tiles/Climate/WeatherTile'
 import EnergietraegerTile from '@/components/Tiles/Energy/EnergietraegerTile'
 import PhotovoltTile from '@/components/Tiles/Energy/PhotovoltTile'
@@ -34,7 +33,7 @@ export default async function Home() {
               <WeatherTile />
               <ClimateDevelopmentTile />
             </Columns>
-            <WachstumTile />
+            {/* <WachstumTile /> */}
           </BaseView>
 
           <BaseView
