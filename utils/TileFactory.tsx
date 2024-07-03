@@ -5,6 +5,7 @@ import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
 import ClimateIndicesTile from '@/components/Tiles/Climate/ClimateIndices'
 import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
 import GarbageTile from '@/components/Tiles/Climate/Garbage'
+import WachstumTile from '@/components/Tiles/Climate/Wachstum'
 import WeatherTile from '@/components/Tiles/Climate/WeatherTile'
 import DataCountTile from '@/components/Tiles/Data/DataCountTile'
 import EnergietraegerTile from '@/components/Tiles/Energy/EnergietraegerTile'
@@ -104,6 +105,8 @@ export default async function TileFactory({
       return <GarbageTile />
     case 'climate-data':
       return <DataCountTile />
+    case 'climate-wachstum':
+      return <WachstumTile />
 
     // ---- BUILDINGS ----
     case 'building-ecoProfit':

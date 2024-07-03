@@ -21,7 +21,7 @@ import resolveConfig from 'tailwindcss/resolveConfig'
 
 const { theme } = resolveConfig(tailwindConfig)
 
-type IndicesTypes =
+export type IndicesTypes =
   | 'eistage'
   | 'frosttage'
   | 'heisse_tage'
