@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import Cookies from './Cookies'
 import Matomo from './Matomo'
 
@@ -30,6 +31,11 @@ export default function RootLayout({
         <Cookies />
       </body>
       <Matomo />
+      <Script
+        async
+        src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child"
+        type="text/javascript"
+      />
     </html>
   )
 }
