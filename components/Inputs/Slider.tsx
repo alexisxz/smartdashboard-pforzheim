@@ -1,9 +1,9 @@
 'use client'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
-import Title from '../Elements/Title'
 import { cva, VariantProps } from 'class-variance-authority'
 import { useState } from 'react'
+import Title from '../Elements/Title'
 
 const sliderStyle = cva(
   'relative h-3 md:h-5 flex-1 rounded-full bg-opacity-20',
@@ -61,24 +61,15 @@ export default function Slider({
           <SliderPrimitive.Thumb className="block aspect-square h-6 touch-pan-x rounded-full bg-primary shadow shadow-primary md:h-9" />
         </SliderPrimitive.Root>
       </div>
-      {labels &&
-        (labels.length != 12 ? (
-          <div className="mt-3 hidden w-full justify-between md:flex">
-            {labels.map((l, i) => (
-              <Title as={'h5'} key={i} variant={'primary'}>
-                {l}
-              </Title>
-            ))}
-          </div>
-        ) : (
-          <div className="mt-3 hidden w-full justify-between md:flex">
-            {labels.map((l, i) => (
-              <Title as={'h8'} key={i} variant={'primary'}>
-                {l}
-              </Title>
-            ))}
-          </div>
-        ))}
+      {labels && (
+        <div className="mt-3 hidden w-full justify-between md:flex">
+          {labels.map((l, i) => (
+            <Title as={'h5'} key={i} variant={'primary'}>
+              {l}
+            </Title>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

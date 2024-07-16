@@ -15,7 +15,7 @@ export default async function GarbageTile() {
       dataSource="Abfallwirtschaftsbetriebe Münster (awm)"
       embedId="climate-garbage"
       subtitle={
-        'So viele Kilogramm Abfall wurden durchschnittlich durch die awm erfasst'
+        'So viele kg Abfall wurden durchschnittlich pro Münsteraner*in durch die awm erfasst'
       }
       title={'Abfall pro Kopf'}
     >
