@@ -1,17 +1,17 @@
 'use client'
 
-import Link from 'next/link'
-import StairStepBackground from '../StairStepBackground'
 import Title from '@/components/Elements/Title'
-import Container from '../Container'
 import Image from 'next/image'
+import Link from 'next/link'
+import Container from '../Container'
+import StairStepBackground from '../StairStepBackground'
 
-import SmartCityMSLogo from '@/assets/logos/smart_city_ms.png'
-import MuensterKlima2030 from '@/assets/logos/muenter_unser_klima_2030.png'
-import StadtwerkeLogo from '@/assets/logos/Stadtwerke_Muenster_Logo.png'
-import WFMLogo from '@/assets/logos/logo_wfm.png'
 import BMWSBLogo from '@/assets/logos/BMWSB.png'
+import StadtwerkeLogo from '@/assets/logos/Stadtwerke_Muenster_Logo.png'
 import KFW from '@/assets/logos/kfw.png'
+import WFMLogo from '@/assets/logos/logo_wfm.png'
+import MuensterKlima2030 from '@/assets/logos/muenter_unser_klima_2030.png'
+import SmartCityMSLogo from '@/assets/logos/smart_city_ms.png'
 
 export default function Footer() {
   return (
