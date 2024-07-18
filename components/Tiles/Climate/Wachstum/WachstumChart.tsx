@@ -13,7 +13,7 @@ import Title from '@/components/Elements/Title'
 import ToggleGroup from '@/components/Inputs/ToggleGroup'
 import useDevice from '@/hooks/useDevice'
 import tailwindConfig from '@/tailwind.config.js'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import { IndicesTypes } from '../ClimateIndices/ClimateIndicesChart'
 
@@ -183,15 +183,18 @@ function ClimateIndiceToggle({
   defaultChecked,
   onChange,
   children,
+  checked,
 }: {
   type: IndicesTypes
   defaultChecked?: boolean
   onChange?: (_checked: boolean) => void
   children?: React.ReactNode
+  checked?: boolean
 }) {
   return (
     <div className="flex w-full flex-row-reverse items-center justify-between gap-2 lg:flex-row lg:justify-normal lg:gap-4">
       <Switch
+        checked={checked}
         defaultChecked={defaultChecked}
         onCheckedChange={onChange}
         variant={type}
@@ -222,6 +225,24 @@ export default function WachstumChart() {
     co2Industrie: true,
     co2Gewerbe: true,
   })
+
+  useEffect(() => {
+    if (mode === 'percent') {
+      setSeriesVisible({
+        bip: true,
+        beschaeftigte: true,
+        co2Industrie: true,
+        co2Gewerbe: true,
+      })
+    } else {
+      setSeriesVisible({
+        bip: true,
+        beschaeftigte: false,
+        co2Industrie: false,
+        co2Gewerbe: false,
+      })
+    }
+  }, [mode])
 
   const indices = getIndices(mode)
 
@@ -314,39 +335,92 @@ export default function WachstumChart() {
         </div>
         <div className="flex h-full flex-col justify-evenly gap-1">
           <ClimateIndiceToggle
-            defaultChecked={seriesVisible.co2Industrie}
-            onChange={c =>
-              setSeriesVisible({ ...seriesVisible, co2Industrie: c })
-            }
-            type="heisse_tage"
-          >
-            CO<sub>2</sub> Industrie
-          </ClimateIndiceToggle>
-          <ClimateIndiceToggle
-            defaultChecked={seriesVisible.co2Gewerbe}
-            onChange={c =>
-              setSeriesVisible({ ...seriesVisible, co2Gewerbe: c })
-            }
-            type="sommertage"
-          >
-            CO<sub>2</sub> Gewerbe + Sonstiges
-          </ClimateIndiceToggle>
+            checked={seriesVisible.bip}
+            defaultChecked={seriesVisible.bip}
+            onChange={c => {
+              if (mode === 'percent') {
+                setSeriesVisible({ ...seriesVisible, bip: c })
+              } else {
+                // @ts-ignore
+                const allFalse: Record<ValuesTypes, boolean> = Object.keys(
+                  seriesVisible,
+                ).reduce((acc, e) => ({ ...acc, [e]: false }), {})
 
+                setSeriesVisible({
+                  ...allFalse,
+                  bip: c,
+                })
+              }
+            }}
+            type="tropennaechte"
+          >
+            BIP (Münster)
+          </ClimateIndiceToggle>
           <ClimateIndiceToggle
+            checked={seriesVisible.beschaeftigte}
             defaultChecked={seriesVisible.beschaeftigte}
-            onChange={c =>
-              setSeriesVisible({ ...seriesVisible, beschaeftigte: c })
-            }
+            onChange={c => {
+              if (mode === 'percent') {
+                setSeriesVisible({ ...seriesVisible, beschaeftigte: c })
+              } else {
+                // @ts-ignore
+                const allFalse: Record<ValuesTypes, boolean> = Object.keys(
+                  seriesVisible,
+                ).reduce((acc, e) => ({ ...acc, [e]: false }), {})
+
+                setSeriesVisible({
+                  ...allFalse,
+                  beschaeftigte: c,
+                })
+              }
+            }}
             type="eistage"
           >
             Beschäftigte* am Arbeitsort
           </ClimateIndiceToggle>
           <ClimateIndiceToggle
-            defaultChecked={seriesVisible.bip}
-            onChange={c => setSeriesVisible({ ...seriesVisible, bip: c })}
-            type="tropennaechte"
+            checked={seriesVisible.co2Industrie}
+            defaultChecked={seriesVisible.co2Industrie}
+            onChange={c => {
+              if (mode === 'percent') {
+                setSeriesVisible({ ...seriesVisible, co2Industrie: c })
+              } else {
+                // @ts-ignore
+                const allFalse: Record<ValuesTypes, boolean> = Object.keys(
+                  seriesVisible,
+                ).reduce((acc, e) => ({ ...acc, [e]: false }), {})
+
+                setSeriesVisible({
+                  ...allFalse,
+                  co2Industrie: c,
+                })
+              }
+            }}
+            type="heisse_tage"
           >
-            BIP (Münster)
+            CO<sub>2</sub> Industrie
+          </ClimateIndiceToggle>
+          <ClimateIndiceToggle
+            checked={seriesVisible.co2Gewerbe}
+            defaultChecked={seriesVisible.co2Gewerbe}
+            onChange={c => {
+              if (mode === 'percent') {
+                setSeriesVisible({ ...seriesVisible, co2Gewerbe: c })
+              } else {
+                // @ts-ignore
+                const allFalse: Record<ValuesTypes, boolean> = Object.keys(
+                  seriesVisible,
+                ).reduce((acc, e) => ({ ...acc, [e]: false }), {})
+
+                setSeriesVisible({
+                  ...allFalse,
+                  co2Gewerbe: c,
+                })
+              }
+            }}
+            type="sommertage"
+          >
+            CO<sub>2</sub> Gewerbe + Sonstiges
           </ClimateIndiceToggle>
         </div>
       </div>
