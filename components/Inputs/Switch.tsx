@@ -1,7 +1,7 @@
 import * as SwitchPrimitive from '@radix-ui/react-switch'
-import { useState } from 'react'
 import type { VariantProps } from 'class-variance-authority'
 import { cva } from 'class-variance-authority'
+import { useEffect, useState } from 'react'
 import Title from '../Elements/Title'
 
 const switchThumbStyle = cva(
@@ -70,6 +70,10 @@ type SwitchProps = SwitchPrimitive.SwitchProps &
 
 export default function Switch({ label, variant, ...props }: SwitchProps) {
   const [checked, setChecked] = useState(props.defaultChecked)
+
+  useEffect(() => {
+    setChecked(props.checked)
+  }, [props.checked])
 
   return (
     <div className="flex items-center space-x-4">
