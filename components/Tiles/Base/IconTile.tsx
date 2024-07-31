@@ -125,18 +125,29 @@ export default async function IconTile({
       <TileSplitView>
         <TileSplitView.Left>
           <div className="flex flex-wrap justify-between">
-            <div className="flex space-x-2 text-xs">
-              <Title as="h7" font="semibold" variant={'primary'}>
+            <div className="space-x-2 text-xs ">
+              <Title
+                as="h7"
+                className="inline"
+                font="semibold"
+                variant={'primary'}
+              >
                 Datenstand: {dataRetrieval ?? (live ? 'live' : 'undefined')}
               </Title>
-              <Title as="h7" font="normal" variant={'primary'}>
+              <Title
+                as="h7"
+                className="inline"
+                font="normal"
+                variant={'primary'}
+              >
                 Quelle: {dataSource}
               </Title>
             </div>
             <div>{rightAlignedExtra}</div>
           </div>
         </TileSplitView.Left>
-        <div className="w-[272px]" />
+        {/* @TODO : Check if we needed this, removing fixes layout issues. */}
+        {/* <div className="w-[272px]" /> */}
       </TileSplitView>
     </BaseTile>
   )
