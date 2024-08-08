@@ -1,9 +1,15 @@
 import { ForwardRefExoticComponent, SVGProps } from 'react'
-import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Title from '@/components/Elements/Title'
 import { cx } from 'class-variance-authority'
 import useDevice from '@/hooks/useDevice'
-import { MsKlimadashboardIconsWetterNiederschlag, MsKlimadashboardIconsWetterSonnig, MsKlimadashboardIconsWetterTemperatur, MsKlimadashboardIconsWetterWindgeschw, MsKlimadashboardIconsWetterWolkendichte } from '@/components/Icons/Klima'
+import {
+  MsKlimadashboardIconsWetterNiederschlag,
+  MsKlimadashboardIconsWetterSonnig,
+  MsKlimadashboardIconsWetterTemperatur,
+  MsKlimadashboardIconsWetterWindgeschw,
+  MsKlimadashboardIconsWetterWolkendichte,
+} from '@/components/Icons/Klima'
+import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 
 type PhenomenaType = {
   [key: string]: {
@@ -53,6 +59,26 @@ const phenomena: PhenomenaType = {
     unit: 'h',
     icon: MsKlimadashboardIconsWetterSonnig,
   },
+  no2: {
+    title: 'Stickstoffdioxid (NO<sub>2</sub>)',
+    unit: 'μg/m³',
+    icon: MsKlimadashboardIconsWetterSonnig,
+  },
+  pm10: {
+    title: 'Feinstaub PM<sub>10</sub>',
+    unit: 'μg/m³',
+    icon: MsKlimadashboardIconsWetterSonnig,
+  },
+  o3: {
+    title: 'Ozon (O<sub>3</sub>)',
+    unit: 'μg/m³',
+    icon: MsKlimadashboardIconsWetterSonnig,
+  },
+  pm25: {
+    title: 'Feinstaub PM<sub>2.5</sub>',
+    unit: 'μg/m³',
+    icon: MsKlimadashboardIconsWetterSonnig,
+  },
 }
 
 type PhenomenonProps = {
@@ -90,7 +116,16 @@ export default function Phenomenon({
           variant={'primary'}
         ></Title>
         <Title as={valueSize} variant="climate">
-          <AnimatedNumber decimals={decimals}>{value}</AnimatedNumber> {unit}
+          {typeof value === 'number' ? (
+            <>
+              <AnimatedNumber decimals={decimals}>{value}</AnimatedNumber>&nbsp;
+              {unit}
+            </>
+          ) : (
+            <>
+              <span>--</span>
+            </>
+          )}{' '}
         </Title>
       </div>
     </div>
