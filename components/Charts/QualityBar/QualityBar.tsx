@@ -36,7 +36,7 @@ function QualityBar({ progress }: QualityBarProps) {
                 style={{ left: `${progress}%` }}
               ></div>
               <div
-                className="absolute top-[-22px]  translate-x-[-50%] px-2"
+                className="absolute top-[-24px]  translate-x-[-50%] px-2"
                 style={{ left: `${progress}%` }}
               >
                 <div
@@ -50,7 +50,7 @@ function QualityBar({ progress }: QualityBarProps) {
           </div>
         </div>
       </div>
-      <div className="flex justify-between text-primary">
+      <div className="flex justify-between pt-1 text-primary">
         <span>Geringe Belastung</span>
         <span className="text-right">Starke Belastung</span>
       </div>
