@@ -65,7 +65,7 @@ const phenomena: PhenomenaType = {
     icon: MsKlimadashboardIconsWetterSonnig,
   },
   pm10: {
-    title: 'Feinstaub PM<sub>10</sub>',
+    title: 'Feinstaub (PM<sub>10</sub>)',
     unit: 'μg/m³',
     icon: MsKlimadashboardIconsWetterSonnig,
   },
@@ -75,7 +75,7 @@ const phenomena: PhenomenaType = {
     icon: MsKlimadashboardIconsWetterSonnig,
   },
   pm25: {
-    title: 'Feinstaub PM<sub>2.5</sub>',
+    title: 'Feinstaub (PM<sub>2.5</sub>)',
     unit: 'μg/m³',
     icon: MsKlimadashboardIconsWetterSonnig,
   },
