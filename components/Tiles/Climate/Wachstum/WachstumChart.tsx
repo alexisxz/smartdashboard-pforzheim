@@ -268,7 +268,7 @@ export default function WachstumChart() {
             {mode === 'percent' ? (
               <span className={device === 'mobile' ? 'pl-2' : 'pl-24'}>%</span>
             ) : seriesVisible.bip ? (
-              <span className={device === 'mobile' ? 'pl-2' : 'pl-24'}>€</span>
+              <span className={device === 'mobile' ? 'pl-2' : 'pl-24'}>t€</span>
             ) : seriesVisible.beschaeftigte ? (
               <span>Beschäftigte</span>
             ) : (
