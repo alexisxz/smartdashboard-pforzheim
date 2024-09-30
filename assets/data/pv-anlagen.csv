@@ -1,11 +1,11 @@
-ZEIT,Anzahl aller PV-Anlagen,Leistung ab Jahr…,Leistung aller Anlagen (Summe),Stromproduktion
+ZEIT,Anzahl aller PV-Anlagen,Leistung ab Jahr,Leistung aller Anlagen (Summe),Stromproduktion
 2007,,4.94,,
 2011,,7.82,,
 2017,,,,2940.0
-2018,,8.4,,3489.0
-2019,,5.4,,3041.0
-2020,,29.48,,3178.0
-2021,,29.9,,2993.0
-2022,,,,3224.1
+2018,5.0,8.4,50.4,3489.0
+2019,6.0,5.4,56.1,3041.0
+2020,10.0,29.48,227.34,3178.0
+2021,14.0,29.9,368.08,2993.0
+2022,15.0,,372.48,3224.1
 2023,18.0,5.0,573.93,
 2024,26.0,,949.91,

@@ -35,7 +35,7 @@ type CO2Emissionen = {
   'CO2-Emissionen - Gewerbe + Sonstiges (Zielwert)': number
   'CO2-Emissionen - Industrie': number
   'CO2-Emissionen - Industrie (Zielwert)': number
-  'CO2-Emissionen - Private Haushalt (Zielwert)': number
+  'CO2-Emissionen - Private Haushalte (Zielwert)': number
   'CO2-Emissionen - Private Haushalte': number
   'CO2-Emissionen - Verkehr': number
   'CO2-Emissionen - Verkehr (Zielwert)': number

@@ -25,10 +25,10 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
    */
   const prepareData = (key: keyof (typeof data)[0]) => {
     const baseData = data.map(e => [
-      parse(`01-01-${e.Jahr}`, 'dd-MM-yyyy', new Date()).getTime(),
+      parse(`01-01-${e.ZEIT}`, 'dd-MM-yyyy', new Date()).getTime(),
       e[key],
     ])
-    if (data[data.length - 1].Jahr >= 2030) {
+    if (data[data.length - 1].ZEIT >= 2030) {
       baseData.pop()
     }
     return baseData
@@ -41,14 +41,25 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
    */
   const prepareFutureData = (key: keyof (typeof data)[0]) => {
     const baseData = data.map(e => [
-      parse(`01-01-${e.Jahr}`, 'dd-MM-yyyy', new Date()).getTime(),
+      parse(`01-01-${e.ZEIT}`, 'dd-MM-yyyy', new Date()).getTime(),
       e[key],
     ])
     let lastYear = baseData[baseData.length - 1]
 
-    if (data[data.length - 1].Jahr >= 2030) {
+    if (data[data.length - 1].ZEIT >= 2030) {
       if (showFuture) {
-        return [baseData[baseData.length - 2], baseData[baseData.length - 1]]
+        const lastData = data[data.length - 1]
+
+        // @ts-ignore
+        const targetValue = lastData[`${key} (Zielwert)`] ?? 0
+
+        return [
+          baseData[baseData.length - 2],
+          [
+            parse(`01-01-${lastData.ZEIT}`, 'dd-MM-yyyy', new Date()).getTime(),
+            targetValue,
+          ],
+        ]
       }
       lastYear = baseData[baseData.length - 2]
     }
@@ -65,7 +76,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Verkehr',
-      data: prepareData('Verkehr'),
+      data: prepareData('CO2-Emissionen - Verkehr'),
       showSymbol: false,
       color: '#34c17b',
       lineStyle: {
@@ -75,7 +86,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Industrie',
-      data: prepareData('Industrie'),
+      data: prepareData('CO2-Emissionen - Industrie'),
       showSymbol: false,
       color: '#2ABADC',
       lineStyle: {
@@ -85,7 +96,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Gewerbe und Sonstiges',
-      data: prepareData('Gewerbe + Sonstiges'),
+      data: prepareData('CO2-Emissionen - Gewerbe + Sonstiges'),
       showSymbol: false,
       color: '#F28647',
       lineStyle: {
@@ -95,7 +106,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Private Haushalte',
-      data: prepareData('Private Haushalte'),
+      data: prepareData('CO2-Emissionen - Private Haushalte'),
       showSymbol: false,
       color: '#6060D6',
       lineStyle: {
@@ -119,7 +130,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
   const seriesFuture: SeriesOption[] = [
     {
       type: 'line',
-      data: prepareFutureData('Verkehr'),
+      data: prepareFutureData('CO2-Emissionen - Verkehr'),
       showSymbol: false,
       color: '#34c17b',
       lineStyle: {
@@ -129,7 +140,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     },
     {
       type: 'line',
-      data: prepareFutureData('Industrie'),
+      data: prepareFutureData('CO2-Emissionen - Industrie'),
       showSymbol: false,
       color: '#2ABADC',
       lineStyle: {
@@ -140,7 +151,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Gewerbe und Sonstiges (Future)',
-      data: prepareFutureData('Gewerbe + Sonstiges'),
+      data: prepareFutureData('CO2-Emissionen - Gewerbe + Sonstiges'),
       showSymbol: false,
       color: '#F28647',
       lineStyle: {
@@ -151,7 +162,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
     {
       type: 'line',
       name: 'Private Haushalte (Future)',
-      data: prepareFutureData('Private Haushalte'),
+      data: prepareFutureData('CO2-Emissionen - Private Haushalte'),
       showSymbol: false,
       color: '#6060D6',
       lineStyle: {
