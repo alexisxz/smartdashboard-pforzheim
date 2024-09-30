@@ -14,5 +14,13 @@ sh scripts/stadtradeln.sh
 echo "Running ms open data script..."
 sh scripts/ms-open-data.sh
 
+# Run the ms climate data script
+echo "Running ms climate data script..."
+sh scripts/ms-climate-data.sh
+
+# Run the ms buildings data script
+echo "Running ms buildings data script..."
+sh scripts/ms-buildings-data.sh
+
 # Exit the script
 exit 0
