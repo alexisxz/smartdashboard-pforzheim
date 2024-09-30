@@ -2,6 +2,7 @@ build:
   stage: build
   only:
     - main
+    - schedules
   image: docker:20.10.16
   services:
     - docker:dind
