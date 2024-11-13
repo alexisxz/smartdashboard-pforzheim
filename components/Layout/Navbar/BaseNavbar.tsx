@@ -1,14 +1,19 @@
-import Image from 'next/image'
-import StairStepBackground from '../StairStepBackground'
 import MSLogo from '@/assets/logos/stadtlogo-muenster.png'
+import { Spacer } from '@/components/Elements/Spacer'
+import Title from '@/components/Elements/Title'
+import {
+  MsKlimadashboardIconsButtonAktivEnergieV1,
+  MsKlimadashboardIconsButtonAktivGebaeude,
+  MsKlimadashboardIconsButtonAktivKlima,
+  MsKlimadashboardIconsButtonAktivMobil,
+} from '@/components/Icons/Misc'
+import { Bars3Icon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 import Link from 'next/link'
 import Collapsible from '../../Elements/Collapsible'
 import Container from '../Container'
-import { Bars3Icon } from '@heroicons/react/24/outline'
-import Title from '@/components/Elements/Title'
+import StairStepBackground from '../StairStepBackground'
 import LinkComponent, { LinkProps } from './LinkComponent'
-import { Spacer } from '@/components/Elements/Spacer'
-import { MsKlimadashboardIconsButtonAktivEnergieV1, MsKlimadashboardIconsButtonAktivGebaeude, MsKlimadashboardIconsButtonAktivKlima, MsKlimadashboardIconsButtonAktivMobil } from '@/components/Icons/Misc'
 
 const links: LinkProps[] = [
   {
@@ -50,12 +55,14 @@ export default function BaseNavbar({
 }: BaseNavbarProps) {
   return (
     <div className="pt-8">
-      <div className="container relative z-10 mx-auto translate-y-1/2 px-4 md:px-12">
-        <Image
-          alt="Logo der Stadt Münster"
-          className="ml-auto h-12 w-auto"
-          src={MSLogo}
-        />
+      <div className="container relative z-10 mx-auto flex translate-y-1/2 flex-row justify-end px-4 md:px-12">
+        <Link href="https://www.stadt-muenster.de/" target="_blank">
+          <Image
+            alt="Logo der Stadt Münster"
+            className="h-12 w-auto"
+            src={MSLogo}
+          />
+        </Link>
       </div>
       <StairStepBackground variant={variant}>
         <Container>

@@ -24,7 +24,7 @@ export default function Footer() {
             </Title>
             <div className="flex w-full grid-cols-2 flex-col gap-8 lg:gap-16 xl:grid">
               <div className="relative h-28 w-full md:h-36">
-                <Link href="https://www.smartcity.ms">
+                <Link href="https://www.smartcity.ms" target="_blank">
                   <Image
                     alt="Smart City Münster Logo"
                     className="object-contain"
@@ -34,7 +34,10 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="relative h-28 w-full md:h-36">
-                <Link href="https://www.stadt-muenster.de/klima/">
+                <Link
+                  href="https://www.stadt-muenster.de/klima/"
+                  target="_blank"
+                >
                   <Image
                     alt="Unser Klima Logo"
                     className="object-contain"
@@ -49,7 +52,10 @@ export default function Footer() {
             </Title>
             <div className="flex w-full grid-cols-2 flex-col gap-8 lg:gap-16 xl:grid">
               <div className="relative h-28 w-full md:h-36">
-                <Link href="https://www.stadtwerke-muenster.de/">
+                <Link
+                  href="https://www.stadtwerke-muenster.de/"
+                  target="_blank"
+                >
                   <Image
                     alt="Stadtwerke Münster Logo"
                     className="object-contain"
@@ -59,7 +65,7 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="relative h-28 w-full md:h-36">
-                <Link href="https://www.wfm-muenster.de/">
+                <Link href="https://www.wfm-muenster.de/" target="_blank">
                   <Image
                     alt="Wirtschaftsförderung Münster Logo"
                     className="object-contain"
