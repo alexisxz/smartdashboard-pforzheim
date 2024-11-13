@@ -5,11 +5,15 @@ import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
 // @ts-ignore
 import BusData from '@/assets/data/stadtwerke-bus-fahrzeuge.csv'
-import { useWindowSize } from 'react-use'
-import { useEffect, useState } from 'react'
+import {
+  MsKlimadashboardIconsMBusAbgas,
+  MsKlimadashboardIconsMBusElektro,
+} from '@/components/Icons/Mobilitaet'
 import MobileSlider from '@/components/Inputs/MobileSlider'
 import Slider from '@/components/Inputs/Slider'
-import { MsKlimadashboardIconsMBusAbgas, MsKlimadashboardIconsMBusElektro } from '@/components/Icons/Mobilitaet'
+import { useBusData } from '@/hooks/useBusData'
+import { useEffect, useState } from 'react'
+import { useWindowSize } from 'react-use'
 
 type BusDataType = {
   ZEIT: string
@@ -32,6 +36,11 @@ export default function BusContent() {
 
   const data: BusDataType[] = BusData
   const [reducedData, setReducedData] = useState<BusDataType[]>([])
+
+  const currECount =
+    data.at(-1)?.['Fahrzeuge Alternative Antriebe Elektro'] ?? 0
+
+  const { electroCount: liveElectroCount } = useBusData()
 
   useEffect(() => {
     if (!data) {
@@ -93,7 +102,7 @@ export default function BusContent() {
           </AnimatedNumber>
         </div>
       </div>
-      <div className="flex aspect-[5/2] w-full items-end rounded bg-white p-4">
+      <div className="flex aspect-[5/2] w-full items-end gap-2 rounded bg-white p-4">
         <div
           className="flex-none transition-all"
           style={{
@@ -133,8 +142,16 @@ export default function BusContent() {
       <Spacer />
       <Title as="h5">
         Busfahren ist Klimaschutz. Damit die Umweltbilanz noch besser wird,
-        setzen die Stadtwerke auf Elektrobusse mit Ökostrom. Bis 2029 soll die
-        Stadtwerke-Flotte komplett elektrisch fahren.
+        setzen wir immer stärker auf Busse mit Ökostrom. Bis 2029 soll unsere
+        Busflotte komplett elektrisch fahren! Von den bereits{' '}
+        <span className="text-mobility">
+          <AnimatedNumber>{currECount}</AnimatedNumber> Elektrobussen
+        </span>
+        , sind aktuell{' '}
+        <span className="text-mobility">
+          <AnimatedNumber>{liveElectroCount}</AnimatedNumber> Elektrobusse
+        </span>{' '}
+        auf Münsters Straßen unterwegs.
       </Title>
     </div>
   )
