@@ -38,7 +38,7 @@ export default function RootLayout({
       <Matomo />
       <Script
         async
-        src="https://cdn.jsdelivr.net/npm/@iframe-resizer/child"
+        src="https://www.stadt-muenster.de/ms/js/iframeResizer.contentWindow.min.js"
         type="text/javascript"
       />
     </html>

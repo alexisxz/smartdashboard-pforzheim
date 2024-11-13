@@ -1,4 +1,5 @@
 import Columns from '../Layout/Columns'
+import AirqualityTile from '../Tiles/Climate/Airquality'
 import ClimateIndicesTile from '../Tiles/Climate/ClimateIndices'
 import CO2EmissionsTile from '../Tiles/Climate/CO2EmissionsTile'
 import ClimateDevelopmentTile from '../Tiles/Climate/Devlopment'
@@ -24,6 +25,7 @@ export default function ClimateView() {
 
       <GarbageTile />
       <Columns>
+        <AirqualityTile />
         <DataCountTile />
       </Columns>
     </BaseView>

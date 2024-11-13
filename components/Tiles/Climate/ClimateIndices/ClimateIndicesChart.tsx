@@ -192,13 +192,35 @@ export default function ClimateIndicesChart() {
       ),
     }))
 
-  const curYearSeries: LineSeriesOption[] = Object.keys(indices)
+  const lastToCurYearSeries: LineSeriesOption[] = Object.keys(indices)
     .filter(e => seriesVisible[e as IndicesTypes])
     .map(e => ({
       ...indices[e as IndicesTypes].seriesOption,
-      name: `${
-        indices[e as IndicesTypes].seriesOption.name
-      } (${new Date().getFullYear()})`,
+      name: `${indices[e as IndicesTypes].seriesOption.name}`,
+      type: 'line',
+      itemStyle: {
+        opacity: 0,
+      },
+      lineStyle: {
+        ...indices[e as IndicesTypes].seriesOption.lineStyle,
+        type: 'dashed',
+      },
+      tooltip: {
+        show: false,
+      },
+      data: indices[e as IndicesTypes].seriesOption.data?.filter(
+        // @ts-ignore
+        ([date, _val]) =>
+          getYear(new Date(date)) >= new Date().getFullYear() - 1,
+      ),
+    }))
+
+  // this is only added to fix the double tooltip bug
+  const onlyCurYearSeries: LineSeriesOption[] = Object.keys(indices)
+    .filter(e => seriesVisible[e as IndicesTypes])
+    .map(e => ({
+      ...indices[e as IndicesTypes].seriesOption,
+      name: `${indices[e as IndicesTypes].seriesOption.name}`,
       type: 'line',
       itemStyle: {
         opacity: 0,
@@ -209,8 +231,7 @@ export default function ClimateIndicesChart() {
       },
       data: indices[e as IndicesTypes].seriesOption.data?.filter(
         // @ts-ignore
-        ([date, _val]) =>
-          getYear(new Date(date)) >= new Date().getFullYear() - 1,
+        ([date, _val]) => getYear(new Date(date)) == new Date().getFullYear(),
       ),
     }))
 
@@ -230,7 +251,7 @@ export default function ClimateIndicesChart() {
                 left: 40,
                 right: 40,
               },
-              series: [...series, ...curYearSeries],
+              series: [...series, ...lastToCurYearSeries, ...onlyCurYearSeries],
               xAxis: {
                 type: 'time',
                 axisLabel: {
@@ -251,6 +272,11 @@ export default function ClimateIndicesChart() {
                 show: true,
                 showDelay: 0,
                 trigger: 'axis',
+                // formatter: (params: any) => {
+                //   console.log(params)
+
+                //   return '{b0}: {c0}<br />{b1}: {c1}'
+                // },
               },
               yAxis: {
                 type: 'value',

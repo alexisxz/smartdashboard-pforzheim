@@ -1,6 +1,7 @@
 import EcoProfitTile from '@/components/Tiles/Buildings/EcoProfit'
 import EnergyComsumptionTile from '@/components/Tiles/Buildings/EnergyConsumption'
 import RenovationTile from '@/components/Tiles/Buildings/Renovation'
+import AirqualityTile from '@/components/Tiles/Climate/Airquality'
 import CO2EmissionsTile from '@/components/Tiles/Climate/CO2EmissionsTile'
 import ClimateIndicesTile from '@/components/Tiles/Climate/ClimateIndices'
 import ClimateDevelopmentTile from '@/components/Tiles/Climate/Devlopment'
@@ -107,6 +108,8 @@ export default async function TileFactory({
       return <DataCountTile />
     case 'climate-wachstum':
       return <WachstumTile />
+    case 'climate-airquality':
+      return <AirqualityTile />
 
     // ---- BUILDINGS ----
     case 'building-ecoProfit':
