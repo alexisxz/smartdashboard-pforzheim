@@ -1,7 +1,5 @@
-import { ForwardRefExoticComponent, SVGProps } from 'react'
+import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
 import Title from '@/components/Elements/Title'
-import { cx } from 'class-variance-authority'
-import useDevice from '@/hooks/useDevice'
 import {
   MsKlimadashboardIconsWetterNiederschlag,
   MsKlimadashboardIconsWetterSonnig,
@@ -9,7 +7,9 @@ import {
   MsKlimadashboardIconsWetterWindgeschw,
   MsKlimadashboardIconsWetterWolkendichte,
 } from '@/components/Icons/Klima'
-import AnimatedNumber from '@/components/Elements/Animated/AnimatedNumber'
+import useDevice from '@/hooks/useDevice'
+import { cx } from 'class-variance-authority'
+import { ForwardRefExoticComponent, SVGProps } from 'react'
 
 type PhenomenaType = {
   [key: string]: {
@@ -84,27 +84,39 @@ const phenomena: PhenomenaType = {
 type PhenomenonProps = {
   phenomenon: keyof typeof phenomena
   value: number
+  icon?:
+    | ForwardRefExoticComponent<SVGProps<SVGSVGElement>>
+    | ((_props: SVGProps<SVGSVGElement>) => JSX.Element)
   size?: 'md' | 'xl'
 }
 
 export default function Phenomenon({
   phenomenon,
   value,
+  icon,
   size = 'md',
 }: PhenomenonProps) {
-  const { title, unit, icon, decimals, shortTitle } = phenomena[phenomenon]
+  const {
+    title,
+    unit,
+    icon: phenomIcon,
+    decimals,
+    shortTitle,
+  } = phenomena[phenomenon]
 
   const valueSize: 'h1' | 'h4' = size === 'xl' ? 'h1' : 'h4'
 
   const device = useDevice()
 
-  const Icon = icon
+  const Icon = icon ? icon : phenomIcon
+
   return (
     <div className="my-1 flex items-center gap-3 md:my-2">
       <Icon
         className={cx(
           size === 'md' ? 'aspect-square' : 'w-6',
-          'h-10 fill-primary stroke-primary text-primary md:h-14',
+          icon ? '' : 'fill-primary stroke-primary text-primary',
+          'h-10 md:h-14',
         )}
       />
       <div>

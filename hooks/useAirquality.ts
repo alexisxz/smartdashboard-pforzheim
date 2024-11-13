@@ -1,31 +1,44 @@
-import getAirquality from '@/lib/umweltbundesamt_airquality'
+import { FeatureCollection, Point } from 'geojson'
 import { useEffect, useState } from 'react'
 
-export default function useAirquality(timestamp: Date) {
-  const [airqualityData, setAirqualityData] = useState<any>([])
-  const [parameterData, setParameterData] = useState<any>({})
+export type AirQualityStationData = {
+  Station: string
+  'Station-ID': string
+  Zeitpunkt: string
+  Luftqualitätsindex: number
+  'Feinstaub (PM₁₀)': number
+  'Ozon (O₃)': string | number
+  'Stickstoffdioxid (NO₂)': number
+  'Feinstaub (PM₂,₅)': number
+  'Fehlender Wert'?: string
+}
+
+type AirQualityFeatureCollection = FeatureCollection<
+  Point,
+  AirQualityStationData
+>
+
+export default function useAirquality() {
+  const [data, setData] = useState<AirQualityFeatureCollection | null>(null)
+
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    async function getData() {
-      const airquality = await getAirquality(timestamp)
-      timestamp.setMinutes(0)
-      timestamp.setSeconds(0)
-      timestamp.setHours(timestamp.getHours() - 1)
-      const parsedResults: any = {}
-      const newData: any =
-        airquality.data['1140'][
-          timestamp.toISOString().replace('T', ' ').substr(0, 19)
-        ]
-      Object.values(newData).forEach((a: any) => {
-        if (a[0] === 1 || a[0] === 3 || a[0] === 5 || a[0] === 9) {
-          parsedResults[a[0]] = a[1]
-        }
+    setIsLoading(true)
+    fetch(
+      'https://www.muenster01.de/luftqualitaet/data/luftqualitaet_muenster.geojson',
+    )
+      .then(res => res.json())
+      .then(airQualityData => {
+        setData(airQualityData)
       })
-      setParameterData(parsedResults)
-      setAirqualityData(newData)
-    }
-    getData()
-  }, [timestamp])
+      .catch(err => {
+        console.error(err)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
+  }, [])
 
-  return { airqualityData, parameterData }
+  return { data, isLoading }
 }
