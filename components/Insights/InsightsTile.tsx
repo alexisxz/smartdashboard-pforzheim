@@ -38,7 +38,7 @@ export default function InsightsTile({
               alt={'Image'}
               className="object-cover transition-all group-hover:scale-105"
               fill
-              src={image}
+              src={image + '?width=600&format=webp'}
             />
           </div>
         </div>
