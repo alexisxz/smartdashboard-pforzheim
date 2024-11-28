@@ -115,7 +115,7 @@ export default function AirqualityChart() {
             <MsKlimadashboardIconsLuftqualitaet className="h-20 text-primary md:mr-12 md:h-36" />
             <div className="my-4 grow">
               <Title as={'h4'}>
-                In Münster ist aktuell{' '}
+                in Münster ist aktuell{' '}
                 <span className="text-climate">
                   {qualityMapping[properties.Luftqualitätsindex]}
                 </span>
