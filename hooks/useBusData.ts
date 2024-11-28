@@ -53,9 +53,7 @@ export function useBusData() {
     const eCount = data.features.filter(bus => {
       const id = bus.properties.fahrzeugid.substring(0, 2)
 
-      const start15 = id.startsWith('15')
-
-      return start15 || (parseInt(id) > 18 && parseInt(id) < 26)
+      return parseInt(id) >= 18 && parseInt(id) <= 26
     }).length
 
     setElectroCount(eCount)
