@@ -50,7 +50,7 @@ export default function Slider({
         )}
         <SliderPrimitive.Root
           aria-label="Volume"
-          className="relative flex h-fit w-full items-center"
+          className="relative flex h-fit w-full cursor-pointer items-center"
           {...props}
           onValueChange={([e]) => {
             props.onValueChange && props.onValueChange([e])

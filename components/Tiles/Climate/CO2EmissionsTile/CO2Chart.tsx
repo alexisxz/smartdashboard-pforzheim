@@ -3,6 +3,7 @@ import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
 import useCO2Data from '@/hooks/useCO2Data'
 import useDevice from '@/hooks/useDevice'
+import { chartFormatter } from '@/utils/chartFormatter'
 import { parse } from 'date-fns'
 import { SeriesOption } from 'echarts'
 import { useWindowSize } from 'react-use'
@@ -39,7 +40,7 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
    * @param key The key to prepare
    * @returns The prepared data
    */
-  const prepareFutureData = (key: keyof (typeof data)[0]) => {
+  const prepareFutureData = (key: keyof (typeof data)[0], onlyLast = false) => {
     const baseData = data.map(e => [
       parse(`01-01-${e.ZEIT}`, 'dd-MM-yyyy', new Date()).getTime(),
       e[key],
@@ -52,6 +53,19 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
 
         // @ts-ignore
         const targetValue = lastData[`${key} (Zielwert)`] ?? 0
+
+        if (onlyLast) {
+          return [
+            [
+              parse(
+                `01-01-${lastData.ZEIT}`,
+                'dd-MM-yyyy',
+                new Date(),
+              ).getTime(),
+              targetValue,
+            ],
+          ]
+        }
 
         return [
           baseData[baseData.length - 2],
@@ -69,6 +83,9 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
 
     const y = showFuture ? 0 : m * x + b
 
+    if (onlyLast) {
+      return [[x, y]]
+    }
     return [lastYear, [x, y]]
   }
 
@@ -113,23 +130,12 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
         width: 3,
       },
     },
-    // Gesamter Verbrauch/Ausstoß
-    // {
-    //   type: 'line',
-    //   name: 'Gesamt',
-    //   data: prepareData('Gesamt'),
-    //   showSymbol: false,
-    //   color: '#f3e500',
-    //   lineStyle: {
-    //     width: 3,
-    //     type: 'solid',
-    //   },
-    // },
   ]
 
   const seriesFuture: SeriesOption[] = [
     {
       type: 'line',
+      name: 'Verkehr (Future)',
       data: prepareFutureData('CO2-Emissionen - Verkehr'),
       showSymbol: false,
       color: '#34c17b',
@@ -137,15 +143,22 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
         width: 3,
         type: 'dashed',
       },
+      tooltip: {
+        show: false,
+      },
     },
     {
       type: 'line',
+      name: 'Industrie (Future)',
       data: prepareFutureData('CO2-Emissionen - Industrie'),
       showSymbol: false,
       color: '#2ABADC',
       lineStyle: {
         width: 3,
         type: 'dashed',
+      },
+      tooltip: {
+        show: false,
       },
     },
     {
@@ -158,6 +171,9 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
         width: 3,
         type: 'dashed',
       },
+      tooltip: {
+        show: false,
+      },
     },
     {
       type: 'line',
@@ -169,19 +185,57 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
         width: 3,
         type: 'dashed',
       },
+      tooltip: {
+        show: false,
+      },
     },
-    // Gesamter Verbrauch/Ausstoß
-    // {
-    //   type: 'line',
-    //   name: 'Gesamt (Future)',
-    //   data: prepareFutureData('Gesamt'),
-    //   showSymbol: false,
-    //   color: '#f3e500',
-    //   lineStyle: {
-    //     width: 3,
-    //     type: 'dashed',
-    //   },
-    // },
+  ]
+
+  const seriesFutureOnlyYear: SeriesOption[] = [
+    {
+      type: 'line',
+      name: 'Verkehr (Future)',
+      data: prepareFutureData('CO2-Emissionen - Verkehr', true),
+      showSymbol: false,
+      color: '#34c17b',
+      lineStyle: {
+        width: 3,
+        type: 'dashed',
+      },
+    },
+    {
+      type: 'line',
+      name: 'Industrie (Future)',
+      data: prepareFutureData('CO2-Emissionen - Industrie', true),
+      showSymbol: false,
+      color: '#2ABADC',
+      lineStyle: {
+        width: 3,
+        type: 'dashed',
+      },
+    },
+    {
+      type: 'line',
+      name: 'Gewerbe und Sonstiges (Future)',
+      data: prepareFutureData('CO2-Emissionen - Gewerbe + Sonstiges', true),
+      showSymbol: false,
+      color: '#F28647',
+      lineStyle: {
+        width: 3,
+        type: 'dashed',
+      },
+    },
+    {
+      type: 'line',
+      name: 'Private Haushalte (Future)',
+      data: prepareFutureData('CO2-Emissionen - Private Haushalte', true),
+      showSymbol: false,
+      color: '#6060D6',
+      lineStyle: {
+        width: 3,
+        type: 'dashed',
+      },
+    },
   ]
 
   return (
@@ -216,7 +270,13 @@ export default function CO2Chart({ showFuture = false, mode }: CO2ChartProps) {
                 },
               },
             },
-            series: [...series, ...seriesFuture],
+            tooltip: {
+              show: true,
+              showDelay: 0,
+              trigger: 'axis',
+              formatter: chartFormatter,
+            },
+            series: [...series, ...seriesFuture, ...seriesFutureOnlyYear],
             legend: {
               show: false,
             },

@@ -37,7 +37,10 @@ export default function AWMContent() {
     }
     const row: AwmDatatType = data[yearIndex]
     setElectroCount(row['AWM Fahrzeuge - Elektroantrieb'])
-    setCombustionCount(row['AWM Fahrzeuge - Dieselantrieb'])
+    setCombustionCount(
+      row['AWM Fahrzeuge - Dieselantrieb'] +
+        row['AWM Fahrzeuge - Erdgasantrieb'],
+    )
   }, [data, yearIndex])
 
   return (
