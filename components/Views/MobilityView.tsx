@@ -14,14 +14,12 @@ export default function MobilityView() {
     <BaseView type="mobility">
       <Columns>
         <BicycleChartTile />
+        <MasterplanTile />
 
         <StadtradelnTile />
         <BusTile />
 
         <AWMTile />
-      </Columns>
-      <Columns>
-        <MasterplanTile />
         <PassengerTile />
       </Columns>
 
