@@ -17,12 +17,12 @@ export type StadtradelnData = {
   value: number
 }
 
-const muensterData = (stadtradelnData as StadtradelnData[]).filter(
-  ({ key }) => key === 'muenster',
+const pforzheimData = (stadtradelnData as StadtradelnData[]).filter(
+  ({ key }) => key === 'pforzheim',
 )
 
 const otherCities = (stadtradelnData as StadtradelnData[]).filter(
-  ({ key }) => key !== 'muenster',
+  ({ key }) => key !== 'pforzheim',
 )
 
 const otherCitiesSet = Array.from(new Set(otherCities.map(({ key }) => key)))
@@ -87,7 +87,7 @@ export default function ChartContainer() {
   return (
     <div className="rounded bg-white p-2">
       <div className="flex h-[350px] w-full items-center justify-center md:h-[500px]">
-        <Chart compare={compare} data={muensterData} other={otherData} />
+        <Chart compare={compare} data={pforzheimData} other={otherData} />
       </div>
       <div className="flex items-center gap-2 p-4 md:gap-10 md:pl-8">
         <div className="h-1 w-8 rounded bg-mobility md:w-[52px]" />

@@ -33,7 +33,7 @@ export default async function CO2EmissionsTile() {
               {infoText}
             </Title>
             <Spacer />
-            <MsKlimadashboardIconsKCo2 className="mx-auto w-40" />
+            <MsKlimadashboardIconsKCo2 className="w-40 mx-auto" />
           </div>
         </TileSplitView.Right>
       </TileSplitView>

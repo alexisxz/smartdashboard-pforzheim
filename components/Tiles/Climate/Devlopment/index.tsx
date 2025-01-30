@@ -1,6 +1,7 @@
+import climateHistoryData from '@/assets/data/climate_history.json'
+import { format } from 'date-fns'
 import ClimateTile from '../ClimateTile'
 import RadarChart, { AvgTempData } from './RadarChart'
-import climateHistoryData from '@/assets/data/climate_history.json'
 
 type ClimateHistoryRecord = {
   observation_type: string
@@ -28,10 +29,12 @@ const climateYears = data.reduce((a: AvgTempData, o) => {
 export default function ClimateDevelopmentTile() {
   return (
     <ClimateTile
+      dataRetrieval={format(new Date(), '01.MM.yyyy')}
       dataSource="Deutscher Wetterdienst"
       embedId="climate-development"
-      live
-      subtitle={'Temperaturabweichungen von den langjährigen Monatsmitteln vor 1900'}
+      subtitle={
+        'Temperaturabweichungen von den langjährigen Monatsmitteln vor 1900'
+      }
       title={'Klima'}
     >
       <div className="h-[316px] w-full md:h-[528px]">
