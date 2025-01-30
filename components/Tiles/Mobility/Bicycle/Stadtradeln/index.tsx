@@ -19,7 +19,13 @@ export default async function StadtradelnTile() {
     >
       <ChartContainer />
       <Spacer />
-      <Title as="h5">{infoText}</Title>
+      {/* <Title as="h5">{infoText}</Title> */}
+      <Title as="h5">
+        Auf die Leeze, fertig, los! Für mehr Radverkehr, Klimaschutz und
+        Lebensqualität in die Pedale treten: Seit 2020 beteiligt sich die Stadt
+        Pforzheim an der jährlich stattfindenden, dreiwöchigen bundesweiten
+        Aktion „STADTRADELN“ des globalen Netzwerks „Klima-Bündnis“.
+      </Title>
     </MobilityTile>
   )
 }
