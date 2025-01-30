@@ -2,7 +2,7 @@
 
 import AnimatedCopyIcon from '@/components/Elements/Animated/AnimatedCopyIcon'
 import Title from '@/components/Elements/Title'
-import { ComponentPropsWithRef } from 'react'
+import { ComponentPropsWithRef, useEffect, useState } from 'react'
 import { AnimatedProps } from '@react-spring/web'
 import BaseOverlay from './BaseOverlay'
 import { TileType } from '@/utils/TileFactory'
@@ -19,17 +19,26 @@ export default function EmbedOverlay({
   embedId,
   ...props
 }: EmbedOverlayProps) {
-  const link = `${window.location.origin}/embed/${embedId}`
+  const [link, setLink] = useState('')
+  const [iframeSrc, setIframeSrc] = useState('')
 
-  const iframeSrc = `<iframe src="${link}" style="border:none; width:100%; height:100%" title="Klimadashboard Münster"></iframe>`
+  useEffect(() => {
+    const embedLink = `${window.location.origin}/embed/${embedId}`
+    setLink(embedLink)
+    setIframeSrc(
+      `<iframe src="${embedLink}" style="border:none; width:100%; height:100%" title="Klimadashboard Pforzheim"></iframe>`,
+    )
+  }, [embedId])
 
   const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(iframeSrc)
+    if (iframeSrc) {
+      await navigator.clipboard.writeText(iframeSrc)
+    }
   }
 
   return (
     <BaseOverlay onClose={onClose} {...props}>
-      <div className="flex h-full w-full flex-1 flex-col">
+      <div className="flex flex-col flex-1 w-full h-full">
         <div className="grid grid-flow-col grid-cols-3 grid-rows-2 gap-8">
           <div className="col-span-2 row-span-1">
             <Title as="h3" variant={'secondary'}>
@@ -37,8 +46,8 @@ export default function EmbedOverlay({
             </Title>
           </div>
           <div className="col-span-2 row-span-1">
-            <div className="flex rounded bg-white p-4">
-              <pre className="m-4 flex-1 whitespace-pre-wrap break-all text-sm">
+            <div className="flex p-4 bg-white rounded">
+              <pre className="flex-1 m-4 text-sm break-all whitespace-pre-wrap">
                 {iframeSrc}
               </pre>
               <div className="relative w-7">
