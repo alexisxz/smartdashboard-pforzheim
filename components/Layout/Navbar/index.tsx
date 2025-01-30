@@ -2,15 +2,15 @@
 
 import { Button } from '../../Elements/Button'
 
-import Title from '@/components/Elements/Title'
 import Back from '@/components/Elements/Back'
-import { usePathname } from 'next/navigation'
-import BaseNavbar from './BaseNavbar'
-import { useState } from 'react'
-import SectionTitle from '../SectionTitle'
-import { AnimatePresence, motion } from 'framer-motion'
+import Title from '@/components/Elements/Title'
 import { MsKlimadashboardIconsNaviInfoI } from '@/components/Icons/Misc/Navi'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { AnimatePresence, motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import SectionTitle from '../SectionTitle'
+import BaseNavbar from './BaseNavbar'
 
 const routeToType: {
   [key: string]:
@@ -115,7 +115,7 @@ export default function Navbar() {
           {showOverlay && (
             <motion.div
               animate={{ opacity: 1 }}
-              className="absolute left-0 top-0 z-10 h-full w-full"
+              className="absolute top-0 left-0 z-10 w-full h-full"
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
             >
@@ -140,13 +140,13 @@ export default function Navbar() {
   ) {
     const sectionText: Record<string, string> = {
       klima:
-        'Die Auswirkungen des Klimawandels in Münster sind spür- und messbar. Münster will klimaneutral und klimaangepasst und so der Verantwortung für ein „gutes Morgen“ gerecht werden. Dafür braucht es die gesamte Stadtgesellschaft!',
+        'Die Auswirkungen des Klimawandels in Pforzheim sind spür- und messbar. Pforzheim will klimaneutral und klimaangepasst und so der Verantwortung für ein „gutes Morgen“ gerecht werden. Dafür braucht es die gesamte Stadtgesellschaft!',
       energie:
         'Egal ob Zuhause, im Unternehmen oder als Kommune, diese Grundsätze sind die Bausteine einer erfolgreichen Energiewende: Die Vermeidung von Energieverbrauch hat oberste Priorität. Der nicht-vermeidbare Energiebedarf muss mit effizienter Technik verringert werden. Der dann noch verbleibende Energiebedarf muss mittelfristig komplett durch erneuerbare Energieträger gedeckt werden.',
       mobilitaet:
-        'Das Ziel einer funktionierenden, klimafreundlichen Mobilität stellt eine wachsende Stadt wie Münster vor eine große Herausforderung. Wenn die gesamte Stadtgesellschaft bereit ist, neue Wege zu gehen, kann diese Herausforderung gemeistert werden.',
+        'Das Ziel einer funktionierenden, klimafreundlichen Mobilität stellt eine wachsende Stadt wie Pforzheim vor eine große Herausforderung. Wenn die gesamte Stadtgesellschaft bereit ist, neue Wege zu gehen, kann diese Herausforderung gemeistert werden.',
       gebaeude:
-        'Für das Ziel einer klimaneutralen und klimaangepassten Stadt kann die Rolle der Gebäude in Münster kaum hoch genug eingeschätzt werden. Nicht nur das Einsparpotential von CO₂ ist in diesem Bereich besonders hoch. Auch können Gebäudeeigentümer*innen durch gezielte Maßnahmen Energiekosten sparen und ihr Gebäude vor Extremwetter schützen.',
+        'Für das Ziel einer klimaneutralen und klimaangepassten Stadt kann die Rolle der Gebäude in Pforzheim kaum hoch genug eingeschätzt werden. Nicht nur das Einsparpotential von CO₂ ist in diesem Bereich besonders hoch. Auch können Gebäudeeigentümer*innen durch gezielte Maßnahmen Energiekosten sparen und ihr Gebäude vor Extremwetter schützen.',
     }
 
     return (
@@ -164,7 +164,7 @@ export default function Navbar() {
               {sectionText[route]}
             </Title>
           </div>
-          <div className="flex flex-1 justify-end">
+          <div className="flex justify-end flex-1">
             <SectionTitle large variant={routeToType[route]} />
           </div>
         </div>
