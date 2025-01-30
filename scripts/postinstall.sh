@@ -1,4 +1,5 @@
 #!/bin/bash
+# To run use "postinstall": "bash ./scripts/postinstall.sh" on package.json
 
 # This script is used to run other scripts in this folder
 
