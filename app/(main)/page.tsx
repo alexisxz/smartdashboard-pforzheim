@@ -1,4 +1,3 @@
-import InsightsContainer from '@/components/Insights/InsightsContainer'
 import Container from '@/components/Layout/Container'
 
 import AnimatedPage from '@/components/Layout/AnimatedPage'
@@ -20,7 +19,7 @@ export default async function Home() {
   return (
     <div className="-translate-y-52">
       <AnimatedPage>
-        <InsightsContainer />
+        {/* <InsightsContainer /> */}
         <Container>
           <BaseView
             showGoToButton={true}

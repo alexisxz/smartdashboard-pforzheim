@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "svg": "svgr svgicons --out-dir components/Icons --typescript --ignore-existing --no-dimensions --no-prettier",
-    "postinstall": "bash ./scripts/postinstall.sh"
+    "svg": "svgr svgicons --out-dir components/Icons --typescript --ignore-existing --no-dimensions --no-prettier"
   },
   "dependencies": {
     "@directus/sdk": "^10.3.5",
