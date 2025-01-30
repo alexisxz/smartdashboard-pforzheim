@@ -4,7 +4,7 @@ import Title from '@/components/Elements/Title'
 import { TileType } from '@/utils/TileFactory'
 import { useTransition } from '@react-spring/web'
 import { cva, cx, VariantProps } from 'class-variance-authority'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import EmbedOverlay from './EmbedOverlay'
@@ -66,7 +66,7 @@ const transitionOpts = {
 }
 
 /**
- * A basic configruable tile
+ * A basic configurable tile
  * @param BaseTileProps basic properties of the tile
  * @returns BaseTile
  */
@@ -85,31 +85,32 @@ export function BaseTile({
   const [showEmbedOverlay, setShowEmbedOverlay] = useState(false)
   const [showShareOverlay, setShowShareOverlay] = useState(false)
   const [showMoreInfo, setShowMoreInfo] = useState(false)
+  const [shareUrl, setShareUrl] = useState('')
+
+  useEffect(() => {
+    setShareUrl(`${window.location.origin}/share/${embedId}`)
+  }, [embedId])
 
   const embedTransitions = useTransition(showEmbedOverlay, transitionOpts)
   const shareTransitions = useTransition(showShareOverlay, transitionOpts)
-
   const moreInfoTransitions = useTransition(showMoreInfo, transitionOpts)
 
   const openShareDialog = async () => {
-    if (navigator && navigator.share) {
+    if (navigator?.share) {
       try {
         await navigator.share({
           title: 'Klimadashboard Münster',
-          url: `${window.location.origin}/share/${embedId}`,
+          url: shareUrl,
         })
       } catch (e) {
-        // eslint-disable-next-line no-console
         console.log('Could not share', e)
-      } finally {
-        return
       }
+      return
     }
-
     setShowShareOverlay(true)
   }
 
-  const chooseIcon = function (variant: string | null | undefined) {
+  const chooseIcon = (variant: string | null | undefined) => {
     switch (variant) {
       case 'energy':
         return MsKlimadashboardIconsButtonAktivEnergieV1
@@ -128,7 +129,7 @@ export function BaseTile({
     <div className="pb-5">
       <div className={cx(baseTileStyle({ variant }), className)}>
         {startImage}
-        <div className="flex w-full flex-col justify-between px-4 py-8 lg:p-16">
+        <div className="flex flex-col justify-between w-full px-4 py-8 lg:p-16">
           <TileHeader
             dataURL={source}
             hasMoreDetails={!!moreInfo}
@@ -140,7 +141,8 @@ export function BaseTile({
             <></>
           </TileHeader>
 
-          <>{children}</>
+          {children}
+
           <TileFooter
             dataURL={source}
             hasMoreDetails={!!moreInfo}
@@ -205,7 +207,7 @@ export function BaseTile({
                       h6: props => (
                         <Title as={'h7'} className="mb-4 md:mb-6" {...props} />
                       ),
-                      ul: props => <ul className="list-disc px-6" {...props} />,
+                      ul: props => <ul className="px-6 list-disc" {...props} />,
                       p: props => <p className="mb-6 md:mb-10" {...props} />,
                       a: props => (
                         <a

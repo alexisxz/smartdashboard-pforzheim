@@ -2,7 +2,7 @@
 
 import AnimatedCopyIcon from '@/components/Elements/Animated/AnimatedCopyIcon'
 import Title from '@/components/Elements/Title'
-import { ComponentPropsWithRef } from 'react'
+import { ComponentPropsWithRef, useEffect, useState } from 'react'
 import { AnimatedProps } from '@react-spring/web'
 import BaseOverlay from './BaseOverlay'
 import { TileType } from '@/utils/TileFactory'
@@ -19,15 +19,21 @@ export default function ShareOverlay({
   embedId,
   ...props
 }: ShareOverlayProps) {
-  const link = `${window.location.origin}/share/${embedId}`
+  const [link, setLink] = useState('')
+
+  useEffect(() => {
+    setLink(`${window.location.origin}/share/${embedId}`)
+  }, [embedId])
 
   const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(link)
+    if (link) {
+      await navigator.clipboard.writeText(link)
+    }
   }
 
   return (
     <BaseOverlay onClose={onClose} {...props}>
-      <div className="flex h-full w-full flex-1 flex-col">
+      <div className="flex flex-col flex-1 w-full h-full">
         <div className="grid grid-flow-col grid-cols-3 grid-rows-2 gap-8">
           <div className="col-span-2 row-span-1">
             <Title as="h3" variant={'secondary'}>
@@ -35,8 +41,8 @@ export default function ShareOverlay({
             </Title>
           </div>
           <div className="col-span-2 row-span-1">
-            <div className="flex w-full rounded bg-white p-4">
-              <pre className="m-4 flex-1 whitespace-pre-wrap break-all text-sm">
+            <div className="flex w-full p-4 bg-white rounded">
+              <pre className="flex-1 m-4 text-sm break-all whitespace-pre-wrap">
                 {link}
               </pre>
               <div className="relative w-7">
