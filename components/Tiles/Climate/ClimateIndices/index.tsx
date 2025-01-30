@@ -5,6 +5,7 @@ import { TileSplitView } from '../../Base/TileSplitView'
 import getTileData from '@/lib/api/getTileData'
 import Title from '@/components/Elements/Title'
 
+
 export default async function ClimateIndicesTile() {
   const data = await getTileData('climate-indices')
   const infoText = data?.info ?? ''
@@ -22,7 +23,7 @@ export default async function ClimateIndicesTile() {
     >
       <TileSplitView>
         <TileSplitView.Left>
-          <div className="rounded bg-white">
+          <div className="bg-white rounded">
             <ClimateIndicesChart />
           </div>
         </TileSplitView.Left>
