@@ -22,6 +22,10 @@ import MasterplanTile from '@/components/Tiles/Mobility/MasterplanTile'
 import ModalSplitTile from '@/components/Tiles/Mobility/ModalSplit'
 import PassengerTile from '@/components/Tiles/Mobility/PassengerTile'
 import TrafficloadTile from '@/components/Tiles/Mobility/TrafficloadTile'
+import DwdTile from '@/components/Tiles/Pforzheim-Charts/Dwd'
+import MileageVehicleTypeTile from '@/components/Tiles/Pforzheim-Charts/JahresfahrleistungNachFahrzeugart'
+import ChangingStationTile from '@/components/Tiles/Pforzheim-Charts/Ladesaeulenregister'
+import PopulationRegisterTile from '@/components/Tiles/Pforzheim-Charts/Melderegister'
 import SuccessStoryTile, {
   SuccessStoryTileProps,
 } from '@/components/Tiles/SuccessStory'
@@ -110,6 +114,8 @@ export default async function TileFactory({
       return <WachstumTile />
     case 'climate-airquality':
       return <AirqualityTile />
+    case 'climate-dwd':
+      return <DwdTile />
 
     // ---- BUILDINGS ----
     case 'building-ecoProfit':
@@ -118,6 +124,8 @@ export default async function TileFactory({
       return <EnergyComsumptionTile />
     case 'building-renovation':
       return <RenovationTile />
+    case 'building-population':
+      return <PopulationRegisterTile />
 
     // ---- ENERGY ----
     case 'energy-PV':
@@ -148,6 +156,10 @@ export default async function TileFactory({
       return <MasterplanTile />
     case 'mobility-passengers':
       return <PassengerTile />
+    case 'mobility-station':
+      return <ChangingStationTile />
+    case 'mobility-mileage':
+      return <MileageVehicleTypeTile />
 
     default:
       return null

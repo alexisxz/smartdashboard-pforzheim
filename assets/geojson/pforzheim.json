@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pforzheim"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [8.65, 48.85],
+            [8.75, 48.85],
+            [8.75, 48.95],
+            [8.65, 48.95],
+            [8.65, 48.85]
+          ]
+        ]
+      }
+    }
+  ]
+}

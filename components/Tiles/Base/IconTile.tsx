@@ -68,12 +68,13 @@ export default async function IconTile({
     <BaseTile
       embedId={embedId}
       isFullWidth={data?.full_width}
-      moreInfo={data?.details}
-      source={data?.data_url}
+      // REMINDER: Removed the more info and source to be downloaded
+      // moreInfo={data?.details}
+      // source={data?.data_url}
       variant={variant}
     >
       <div className="px-2.5">
-        <div className="absolute right-16 top-16 hidden lg:block">
+        <div className="absolute hidden right-16 top-16 lg:block">
           <Icon
             className={cx(
               'h-[29px] w-auto flex-shrink-0 opacity-40 md:h-[50px]',

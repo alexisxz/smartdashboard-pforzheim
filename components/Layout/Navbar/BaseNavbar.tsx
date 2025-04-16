@@ -1,4 +1,4 @@
-import MSLogo from '@/assets/logos/stadtlogo-muenster.png'
+import MSLogo from '@/assets/logos/stadtlogo-pforzheim.png'
 import { Spacer } from '@/components/Elements/Spacer'
 import Title from '@/components/Elements/Title'
 import {
@@ -55,15 +55,17 @@ export default function BaseNavbar({
 }: BaseNavbarProps) {
   return (
     <div className="pt-8">
-      <div className="container relative z-10 mx-auto flex translate-y-1/2 flex-row justify-end px-4 md:px-12">
-        <Link href="https://www.stadt-muenster.de/" target="_blank">
+      {/* Top Navbar */}
+      <div className="container relative z-10 mx-auto flex translate-y-1/2 flex-row justify-start bg-white px-4 md:px-12">
+        <Link href="/" target="_blank">
           <Image
-            alt="Logo der Stadt Münster"
+            alt="Logo der Stadt Pforzheim"
             className="h-12 w-auto"
             src={MSLogo}
           />
         </Link>
       </div>
+      {/* Bottom Navbar */}
       <StairStepBackground variant={variant}>
         <Container>
           <div className="xl:hidden">

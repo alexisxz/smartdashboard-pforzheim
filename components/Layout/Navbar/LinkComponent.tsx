@@ -22,13 +22,14 @@ export default function LinkComponent({
   return (
     <Link href={link}>
       <Button
+        className="border-white text-white"
         hover={hover}
-        size={'link'}
+        size={'sm'}
         startIcon={
           <Icon
             className={cx(
-              'h-[26px] transition-colors md:h-[34px]',
-              variant === 'primary' ? 'text-primary' : 'text-white',
+              'h-[22px] transition-colors md:h-[30px]',
+              variant === 'primary' ? 'text-white' : 'text-white',
               hover === 'climate' && 'group-hover:text-climate',
               hover === 'energy' && 'group-hover:text-energy',
               hover === 'mobility' && 'group-hover:text-mobility',

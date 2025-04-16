@@ -129,7 +129,7 @@ export function BaseTile({
     <div className="pb-5">
       <div className={cx(baseTileStyle({ variant }), className)}>
         {startImage}
-        <div className="flex flex-col justify-between w-full px-4 py-8 lg:p-16">
+        <div className="flex w-full flex-col justify-between px-4 py-8 lg:p-16">
           <TileHeader
             dataURL={source}
             hasMoreDetails={!!moreInfo}
@@ -207,7 +207,7 @@ export function BaseTile({
                       h6: props => (
                         <Title as={'h7'} className="mb-4 md:mb-6" {...props} />
                       ),
-                      ul: props => <ul className="px-6 list-disc" {...props} />,
+                      ul: props => <ul className="list-disc px-6" {...props} />,
                       p: props => <p className="mb-6 md:mb-10" {...props} />,
                       a: props => (
                         <a

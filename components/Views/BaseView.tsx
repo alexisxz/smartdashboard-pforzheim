@@ -1,11 +1,11 @@
+import getSuccessStoriesForCategory from '@/lib/api/getSuccessStories'
 import getSurveysForCategory from '@/lib/api/getSurveyForCategories'
 import { GoToButton } from '../Elements/GoToButton'
 import { Spacer } from '../Elements/Spacer'
-import SectionHeader from '../Layout/SectionHeader'
 import Columns from '../Layout/Columns'
-import SurveyTile from '../Tiles/Survey'
-import getSuccessStoriesForCategory from '@/lib/api/getSuccessStories'
+import SectionHeader from '../Layout/SectionHeader'
 import SuccessStoryTile from '../Tiles/SuccessStory'
+import SurveyTile from '../Tiles/Survey'
 
 interface ViewProps {
   type: 'climate' | 'mobility' | 'energy' | 'building'
