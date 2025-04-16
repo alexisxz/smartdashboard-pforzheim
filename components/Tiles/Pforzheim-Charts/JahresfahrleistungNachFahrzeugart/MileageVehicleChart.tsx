@@ -88,15 +88,19 @@ export default function MileageVehicleChart() {
         <div className="text-mobility">
           <Image
             alt={vt.name}
-            className="mb-2 h-12 w-12 object-contain text-mobility"
+            className="object-contain w-12 h-12 mb-2 text-mobility"
             height={48}
             src={vt.icon}
             width={48}
           />
         </div>
 
-        <p className="text-base font-semibold opacity-25">{vt.name}</p>
-        <p className="text-sm text-mobility">{mileage} Mio km</p>
+        <p className="block text-base font-medium text-primary lg:text-xl lg:leading-6 lg:tracking-wide">
+          {vt.name}
+        </p>
+        <p className="block text-[20px] font-medium text-mobility lg:text-3xl lg:leading-[36px]">
+          {mileage} Mio km
+        </p>
       </div>
     )
   })
@@ -117,7 +121,9 @@ export default function MileageVehicleChart() {
       />
 
       {/* Tiles layout: 2 columns on mobile, 4 columns on larger screens */}
-      <div className="grid grid-cols-2 gap-4 text-center">{tiles}</div>
+      <div className="grid grid-cols-2 gap-4 text-center lg:grid-cols-4">
+        {tiles}
+      </div>
     </div>
   )
 }
