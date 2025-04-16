@@ -17,7 +17,7 @@ import LinkComponent, { LinkProps } from './LinkComponent'
 
 const links: LinkProps[] = [
   {
-    title: 'Klima in Münster',
+    title: 'Klima in Pforzheim',
     icon: MsKlimadashboardIconsButtonAktivKlima,
     link: '/klima',
     hover: 'climate',
@@ -56,11 +56,11 @@ export default function BaseNavbar({
   return (
     <div className="pt-8">
       {/* Top Navbar */}
-      <div className="container relative z-10 mx-auto flex translate-y-1/2 flex-row justify-start bg-white px-4 md:px-12">
+      <div className="container relative z-10 flex flex-row justify-start px-4 mx-auto translate-y-1/2 bg-white md:px-12">
         <Link href="/" target="_blank">
           <Image
             alt="Logo der Stadt Pforzheim"
-            className="h-12 w-auto"
+            className="w-auto h-12"
             src={MSLogo}
           />
         </Link>
@@ -71,12 +71,12 @@ export default function BaseNavbar({
           <div className="xl:hidden">
             <Collapsible
               trigger={
-                <div className="w-fit rounded-full border-2 border-primary p-2 md:p-4">
+                <div className="p-2 border-2 rounded-full w-fit border-primary md:p-4">
                   <Bars3Icon className="w-5 stroke-2 text-primary md:w-6" />
                 </div>
               }
             >
-              <div className="my-4 flex flex-col flex-wrap gap-2 md:flex-row">
+              <div className="flex flex-col flex-wrap gap-2 my-4 md:flex-row">
                 {links.map(l => (
                   <LinkComponent key={l.link} {...l} />
                 ))}
@@ -96,7 +96,7 @@ export default function BaseNavbar({
             <div className="flex items-center justify-between">
               {actionComponent}
 
-              <div className="hidden h-fit flex-wrap justify-end gap-2 xl:flex">
+              <div className="flex-wrap justify-end hidden gap-2 h-fit xl:flex">
                 {links.map(l => (
                   <LinkComponent
                     key={l.link}

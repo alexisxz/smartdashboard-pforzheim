@@ -16,7 +16,9 @@ export default async function ExampleView() {
     <div>
       <AnimatedPage>
         {/* <InsightsContainer /> */}
+
         <Container>
+          <div id="klima"></div>
           <BaseView
             showGoToButton={false}
             showSuccessStories={false}
@@ -37,6 +39,7 @@ export default async function ExampleView() {
             showSurveys={false}
             type="mobility"
           >
+            <div id="mobilitaet"></div>
             <StadtradelnTile />
             <Ladesaeulenregister />
             <JahresfahrleistungNachFahrzeugart />
@@ -48,6 +51,7 @@ export default async function ExampleView() {
             showSurveys={false}
             type="building"
           >
+            <div id="gebaeude"></div>
             <Melderegister />
           </BaseView>
         </Container>

@@ -34,7 +34,7 @@ export default function SectionTitle({
     MsKlimadashboardIconsButtonAktivKlima
 
   if (variant === 'climate') {
-    title = 'Klima in Münster'
+    title = 'Klima in Pforzheim'
   }
   if (variant === 'mobility') {
     title = 'Mobilität'
@@ -74,7 +74,7 @@ export default function SectionTitle({
             sectionHeaderStyle({ variant }),
           )}
         >
-          <Icon className="mx-auto h-full" />
+          <Icon className="h-full mx-auto" />
         </div>
       )}
       <Title
