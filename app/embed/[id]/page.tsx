@@ -1,4 +1,4 @@
-import MSLogo from '@/assets/logos/stadtlogo-muenster.png'
+import MSLogo from '@/assets/logos/stadtlogo-pforzheim.png'
 import Title from '@/components/Elements/Title'
 import TileFactory, { TileType } from '@/utils/TileFactory'
 import Image from 'next/image'
@@ -17,7 +17,7 @@ export default async function Embed({ params }: { params: { id: TileType } }) {
   return (
     <div className="relative">
       <TileFactory type={id} />
-      <div className="sticky bottom-0 right-0 flex flex-col justify-end gap-4 bg-white py-2 md:flex-row md:items-center">
+      <div className="sticky bottom-0 right-0 flex flex-col justify-end gap-4 py-2 bg-white md:flex-row md:items-center">
         <Image
           alt="Logo der Stadt Münster"
           className="h-10 w-fit"
