@@ -26,10 +26,8 @@ export default function Impressum() {
             <Title as={'h6'} className="mb-2" variant={'primary'} {...props} />
           ),
           h6: props => <Title as={'h7'} className="mb-2" {...props} />,
-          ul: props => <ul className="list-disc px-6" {...props} />,
-          p: props => (
-            <Title as="h5" className="mb-4" font={'normal'} {...props} />
-          ),
+          ul: props => <ul className="px-6 list-disc" {...props} />,
+          p: props => <p className="mb-4" {...props} />,
           a: props => <a className="underline" {...props} />,
         }}
         linkTarget={'_blank'}

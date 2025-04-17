@@ -1,60 +1,33 @@
 ## Datenschutz
 
-Die Stadt Münster unterliegt als öffentliche Stelle den Bestimmungen der Datenschutzgrundverordnung (DSGVO) und des Datenschutzgesetzes für das Land Nordrhein-Westfalen (DSG NRW). Der Schutz Ihrer personenbezogenen Daten ist uns ein sehr wichtiges Anliegen. Daher werden Ihre Daten im Rahmen der gesetzlichen Vorschriften geschützt und alle Vorgaben der DSGVO und des Datenschutzgesetzes für das Land Nordrhein-Westfalen eingehalten.
+Personenbezogene Daten werden bei der Nutzung des Dienstes nach den Bestimmungen datenschutzrechtlicher Vorschriften verarbeitet und genutzt. Maßgebliche Rechtsgrundlage ist das Telemediengesetz. Soweit personenbezogene Daten im Rahmen von Fachanwendungen städtischer Ämter und Betriebe erhoben, verarbeitet und genutzt werden, gelten die jeweiligen spezialgesetzlichen Regelungen (z.B. baden-württembergisches Meldegesetz, Sozialgesetzbuch, Ausländergesetz) und / oder das baden-württembergisches Datenschutzgesetz.
 
-## Übermittlung personenbezogener Daten
+Insbesondere die im Telemediengesetz enthaltenen Grundsätze für die Verarbeitung personenbezogener Daten und das im Telemediengesetz verankerte Auskunftsrecht des Nutzers werden gewahrt. Die Verarbeitung und Nutzung Ihrer personenbezogenen Daten außerhalb des Dienstes erfolgt nur, soweit dies für die Erfüllung der in die Zuständigkeit der Stadt fallenden Aufgaben erforderlich oder gesetzlich vorgeschrieben ist.
 
-Die Nutzung der Online-Dienste der Stadt Münster ist freiwillig. Die für die Nutzung dieser Dienste erforderlichen personenbezogenen Daten werden ausschließlich zu dem Zweck der von Ihnen aktuell ausgewählten Transaktion erhoben und gespeichert. Die von der Stadt Münster erhobenen personenbezogenen Daten werden gelöscht, wenn sie für die Durchführung der ausgewählten Transaktion nicht mehr benötigt werden und rechtliche Aufbewahrungsfristen abgelaufen sind.
-In keinem Fall erfolgt eine Weitergabe oder Verarbeitung der Daten an bzw. durch Dritte.
-Unsere Server sind durch Firewalls und Virenschutz gesichert.
-Da die Übermittlung von Informationen im Internet nicht völlig sicher ist, kann nicht ausgeschlossen werden, dass Dritte übermittelte Daten abfangen oder verändern. Dies gilt besonders für die unverschlüsselte Übermittlung von Daten über einfache Web-Formulare oder ein Mailprogramm. In Angelegenheiten, die besondere Vertraulichkeit erfordern, sollte daher auf andere Arten der Übermittlung zurückgegriffen werden.
+Datenübermittlung
 
-## E-Mail
+Bitte beachten Sie, dass die Übermittlung von Informationen im Internet nicht völlig sicher ist. Es kann nicht ausgeschlossen werden, dass Dritte die von Ihnen übermittelten Daten abfangen oder verändern. Von daher sollte in Angelegenheiten, die besondere Vertraulichkeit erfordern, auf andere Arten der Übermittlung zurückgegriffen werden. Bitte beachten Sie, dass die Stadt für die Verarbeitung und Nutzung dieser Daten nicht verantwortlich ist und eigene Bedingungen der Anbieter gelten können. Protokollierung
 
-Wenn Sie mit uns per E-Mail in Kontakt treten, verarbeiten wir Ihre Angaben zur Bearbeitung der Anfrage sowie für den Fall, dass Anschlussfragen entstehen. Bei Ihrer Kontaktaufnahme per E-Mail erfolgt die Eingabe personenbezogener Daten auf ausdrücklich freiwilliger Basis. Ihre personenbezogenen Daten verarbeiten wir aufgrund Ihrer Einwilligung (Artikel 6 Absatz 1 a DSGVO) oder weil wir ein berechtigtes Interesse an der Verarbeitung Ihrer Daten haben (Artikel 6 Absatz 1 f DSGVO). Ein berechtigtes Interesse liegt zum Beispiel darin, auf Ihre E-Mail zu antworten.
+Bei jedem Zugriff eines Nutzers auf unsere Web-Site, d.h. bei jedem Abruf oder Versuch eines Abrufes einer Datei auf diesem Server, werden Daten über diesen Vorgang in einer Protokolldatei gespeichert. Im Einzelnen wird über jeden Abruf bzw. Abrufversuch folgender Datensatz gespeichert:
 
-## Rechte der Nutzenden
+o Name der abgerufenen Datei (URL) sowie Datum und Uhrzeit des Abrufs bzw. der Anforderung o Übertragene Datenmenge o Meldung, ob der Abruf erfolgreich war bzw. warum er gegebenenfalls fehlgeschlagen ist o Die IP-Adresse des anfordernden Rechners
 
-- Sie haben das Recht, Ihre einmal erteilte Einwilligung jederzeit gegenüber der Stadt zu widerrufen. Dies hat zur Folge, dass wir die Datenverarbeitung, die auf dieser Einwilligung beruhte, für die Zukunft nicht mehr fortführen dürfen. Die Rechtmäßigkeit der Verarbeitung Ihrer Daten bis zu Ihrem Widerruf wird davon nicht berührt.
-- Auskunftsrecht über die zu Ihrer Person gespeicherten Daten und deren Verarbeitung nach Maßgabe des Artikels 15 DSGVO.
-- Recht auf Datenberichtigung, sofern Ihre Daten unrichtig oder unvollständig sein sollten, nach Maßgabe des Artikels 16 DSGVO.
-- Recht auf Löschung der zu Ihrer Person gespeicherten Daten, sofern eine der Voraussetzungen von Artikel 17 DSGVO zutrifft. Das Recht zur Löschung besteht ergänzend zu den in Artikel 17 Absatz 3 DSGVO genannten Ausnahmen nicht, wenn eine Löschung wegen der besonderen Art der Speicherung nicht oder nur mit unverhältnismäßig hohem Aufwand möglich ist. In diesen Fällen tritt an die Stelle der Löschung die Einschränkung der Verarbeitung gemäß Artikel 18 DSGVO.
-- Recht auf Einschränkung der Datenverarbeitung nach Maßgabe des Artikels 18 DSGVO
-- Recht gemäß Artikel 20 DSGVO, Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten oder die Übermittlung an einen anderen Verantwortlichen zu verlangen
-- Widerspruchsrecht gegen bestimmte Datenverarbeitungen nach Maßgabe des Artikels 21 DSGVO
+Die gespeicherten Daten werden nur für die Nachverfolgung unzulässiger Angriffsversuche auf den Web-Server sowie für statistische Zwecke verwendet. Eine Weitergabe an Dritte findet nicht statt. Die Daten werden nach 90 Tagen gelöscht.
 
-Diese Rechte können nach Artikel 23 DSGVO beschränkt werden. Bundes- und Landesgesetzgeber haben von der Möglichkeit Gebrauch gemacht, die Rechte der betroffenen Person zu beschränken. Sollten Sie von den oben genannten Rechten Gebrauch machen, prüft die Stadt Münster, ob die gesetzlichen Voraussetzungen hierfür im Einzelfall erfüllt sind.
+Soweit Sie uns personenbezogene Daten mitteilen (z.B. über E-Mail), werden diese Daten nur für die Korrespondenz mit Ihnen verwendet. Bitte beachten Sie, dass die unverschlüsselte Übertragung von personenbezogenen oder sonstigen schutzwürdigen Daten per E-Mail das Risiko einer unbefugten Kenntnisnahme und Fälschung auf dem Übertragungsweg beinhalten.
 
-## Beschwerderecht bei der Aufsichtsbehörde
+## Cookies
 
-Wenn Sie der Ansicht sind, dass Ihre personenbezogenen Daten nicht rechtmäßig verarbeitet werden, können Sie sich mit einer Beschwerde an die zuständige Aufsichtsbehörde wenden:
+Wir verwenden Cookies. Sie werden nach dem Besuch der Webseite und nachdem Sie den Browser geschlossen haben gelöscht.
 
-Landesbeauftragte für Datenschutz und Informationsfreiheit des Landes Nordrhein-Westfalen
+Obenstehende Datenschutzhinweise gelten ausschließlich für unsere Web-Site. Sie enthält jedoch Links zu anderen Web-Sites oder anderen Internet-Angeboten. Bitte beachten Sie, dass wir für deren Umgang mit Daten nicht verantwortlich sind. Wir empfehlen deshalb allen Benutzern, beim Verlassen unserer Web-Site sich über die jeweiligen Datenschutzhinweise der anderen lnternet-Angebote zu informieren.
 
-## Fragen zum Datenschutz?
+## Statistische Auswertung
 
-Wenn Sie Auskunft über Ihre personenbezogenen Daten beziehungsweise deren Korrektur oder Löschung wünschen oder weitergehende Fragen über die Verwendung Ihrer uns überlassenen personenbezogenen Daten haben, wenden Sie sich bitte an die behördliche Datenschutzbeauftragte:
+Statistische Auswertung Zur statistischen Auswertung setzt die Stadt Pforzheim auf dieser Webseite "Matomo" (früher "PIWIK") ein. Das ist ein Open-Source-Tool zur Web-Analyse. Mit Matomo werden keine Daten an Server übermittelt, die außerhalb der Kontrolle der Stadt Pforzheim liegen. Matomo ist deaktiviert, wenn Sie unsere Webseite besuchen. Erst wenn Sie aktiv einwilligen, wird Ihr Nutzungsverhalten anonymisiert erfasst.
 
-Stadt Münster, Der Oberbürgermeister\
-Michaela Heuer\
-Klemensstraße 10, 48143 Münster\
-datenschutz(at)stadt-muenster.de
+Matomo verwendet sog. Cookies. Das sind Textdateien, die auf Ihrem Computer gespeichert werden und die es der Stadt Pforzheim möglich machen, die Benutzung der Webseite zu analysieren. Dazu werden die durch den Cookie gewonnenen Informationen über die Nutzung an den Server der Stadt Pforzheim übertragen und gespeichert, damit das Nutzungsverhalten ausgewertet werden kann. Ihre IP-Adresse wird umgehend anonymisiert; damit bleiben Sie als Nutzer anonym. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Webseite werden nicht an Dritte weitergegeben.
 
-## Logfiles
+Die Stadt Pforzheim möchte mit der Analyse die Webseite weiter verbessern und noch mehr an die Bedürfnisse der Nutzerinnen und Nutzer anpassen.
 
-Die Stadt Münster erhebt und speichert aufgrund ihres berechtigten Interesses als Betreiberin der Website (Artikel 6 Absatz 1 f DSGVO) in den Logfiles ihrer Webservers die Informationen, die Ihr Browser an uns übermittelt: IP-Adresse, Betriebssystem und Browser-Typ/-Version (User-Agent) des Computers, Name und IP-Adresse des Servers, der die Seite anfordert (Remote Host), Uhrzeit der Server-Anfrage, Adresse der Webseiten, die Sie bei uns besuchen, übertragene Datenmenge und die Webseite, von der aus Sie zu unseren Seiten kommen (Referrer-URL). Sie bleiben als einzelne/r Nutzer/in hierbei anonym.
-Die Daten werden für maximal drei Monate gespeichert und dann gelöscht. Die Speicherung der Daten erfolgt aus Sicherheitsgründen. Müssen Daten aus Beweisgründen aufgehoben werden, werden sie solange nicht gelöscht, bis der Vorfall endgültig geklärt ist.
-
-## Webstatistik
-
-Um die Internetseiten kontinuierlich nach den Bedarfen der Nutzerinnen und Nutzer auszurichten, beobachtet die Stadt Münster die Seitenaufrufe, indem sie die Informationen aus den Logfiles der Webserver auswertet und eine an die gesetzlichen Datenschutzbestimmungen angepasste Version des Analyse-Tools "Matomo" einsetzt (matomo.org).
-
-Mit den über Logfiles und Matomo gewonnenen Daten lässt sich nachvollziehen, welche Seiten zu welchen Zeiten besonders nachgefragt werden und welche Informationen weniger abgerufen werden. So erhalten wir Hinweise, wie wir unser Angebot verbessern können.
-Die gespeicherten Daten werden ausschließlich zu den genannten Zwecken ausgewertet, in keinem Fall erfolgt eine Weitergabe oder Verarbeitung der Daten an bzw. durch Dritte oder eine Zusammenführung der Daten mit anderen Datenquellen.
-
-## Matomo
-
-Matomo verwendet sogenannte "Cookies", Textdateien, die auf Ihrem Computer gespeichert werden. Die Cookies ermöglichen die Wiedererkennung des Internet-Browsers und geben uns so Aufschluss darüber, wie Sie unsere Website nutzen. Diese Analyse erfolgt anonym, ein Rückschluss auf einzelne Personen oder das Anlegen von Benutzerprofilen ist damit nicht möglich.
-Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website (einschließlich Ihrer anonymisierten IP-Adresse) bleiben dabei unter der Datenhoheit der Stadt Münster.
-Sie können der Erfassung Ihrer Besuche durch die Webanalysesoftware Matomo widersprechen, indem Sie das folgende Häkchen entfernen (es dauert ggf. ein paar Sekunden, bis das Häkchen sichtbar wird):
-
+[Browser-Add-on zur Deaktivierung von Google Analytics](https://tools.google.com/dlpage/gaoptout?hl=de)
