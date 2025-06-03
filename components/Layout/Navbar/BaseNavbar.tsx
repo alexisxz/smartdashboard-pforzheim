@@ -90,7 +90,7 @@ export default function BaseNavbar({
                 as="h2"
                 variant={variant === 'overlay' ? 'inverse' : 'primary'}
               >
-                Klimadashboard Pforzheim
+                City Dashboard der Stadt Pforzheim
               </Title>
             </Link>
             <div className="flex items-center justify-between">

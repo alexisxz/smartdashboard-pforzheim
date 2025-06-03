@@ -35,7 +35,8 @@ export default function Impressum() {
         Das Projekt hat Ihr Interesse geweckt und Sie möchten ein eigenes
         Dashboard nach münsterschem Vorbild realisieren? Nachfolgend können Sie
         eine Anleitung herunterladen, die Hinweise zur Nutzung und
-        Implementierung der Freien Software des Klimadashboards Münster enthält.
+        Implementierung der Freien Software City Dashboard der Stadt Pforzheim
+        enthält.
       </Title>
       <div className="h-10" />
       <Link
@@ -59,9 +60,9 @@ export default function Impressum() {
       <Title className="text-2xl">
         Wir arbeiten stetig daran, unser Dashboard zu optimieren und freuen uns
         über Feedback. Ihnen fehlen entscheidende Informationen? Sie stoßen auf
-        technische Probleme? Sie haben Ideen für Verbesserungen, von denen das
-        Klimadashboard Münster profitieren könnte? Wenden Sie sich gerne an
-        klima@stadt-muenster.de.
+        technische Probleme? Sie haben Ideen für Verbesserungen, von denen City
+        Dashboard der Stadt Pforzheim profitieren könnte? Wenden Sie sich gerne
+        an klima@stadt-muenster.de.
       </Title>
       <div className="h-10" />
       <Button

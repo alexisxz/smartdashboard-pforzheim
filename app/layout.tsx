@@ -8,8 +8,9 @@ import Matomo from './Matomo'
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
-  title: 'Klimadashboard Pforzheim',
-  description: 'Das Klimadashboard der Stadt Pforzheim',
+  title: 'City Dashboard der Stadt Pforzheim',
+  description:
+    'Ihrem digitalen Zugang zu aktuellen und historischen Informationen rund um Klimaschutz, Energie, Mobilität und Stadtentwicklung.',
   icons: '/favicon.ico',
   metadataBase: new URL('https://klimadashboard.ms'),
 }
