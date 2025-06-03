@@ -4,23 +4,23 @@ Die Website Smart Data Dashboard Pforzheim (dashboard.pforzheim.de) ist eine Web
 
 ## Herausgeber
 
-Die Stadt Pforzheim ist eine Körperschaft des Öffentlichen Rechts. Sie wird vertreten durch den Oberbürgermeister Gert Hager.
+Die Stadt Pforzheim ist eine Körperschaft des Öffentlichen Rechts. Sie wird vertreten durch den Oberbürgermeister Peter Boch.
 
 ## Adresse
 
 Stadt Pforzheim
 
-Dezernat I
+Amt für Digitalisierung und IT
 
-Geschäftsbereich Kommunikation
+Smart City
 
 Marktplatz 1
 
 75175 Pforzheim
 
-Telefon: +49(0)7231 39-0
+Telefon: +49(0)7231 39 3704
 
-E-mail: kui@pforzheim.de
+E-mail: smartcity@pforzheim.de
 
 Internet: www.pforzheim.de
 
