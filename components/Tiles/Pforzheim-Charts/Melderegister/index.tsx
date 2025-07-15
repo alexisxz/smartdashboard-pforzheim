@@ -9,10 +9,10 @@ export default function PopulationRegisterTile() {
       dataSource="Stadt Pforzheim"
       embedId="building-population"
       subtitle={'Nach Stadtteil'}
-      title={'Bevölkerungsentwicklung Einwohner'}
+      title={'Bevölkerungsentwicklung Haushalte'}
     >
       <div className="w-full">
-        <div className="w-full h-full">
+        <div className="h-full w-full">
           <PopulationRegisterChart />
         </div>
       </div>
