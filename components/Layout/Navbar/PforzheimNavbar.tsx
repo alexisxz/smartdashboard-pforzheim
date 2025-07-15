@@ -54,21 +54,21 @@ export default function PforzheimNavbar() {
           />
         </Link>
       </div>
-      <nav className="relative w-full bg-[#65C6E1] text-white">
+      <nav className="relative w-full overflow-clip bg-[#65C6E1] text-white">
         {/* Background image, positioned on the right */}
-        <div className="absolute top-0 right-0 hidden w-1/2 h-full overflow-hidden md:block">
-          <Image
-            alt="Pforzheim background"
-            fill
-            priority
-            src={BGImage}
-            // style={{ objectFit: 'fill' }}
-          />
-        </div>
+        <Image
+          alt="Pforzheim background"
+          className="absolute bottom-0 right-0 hidden object-contain md:block"
+          height={555}
+          priority
+          src={BGImage}
+          width={424}
+          // style={{ objectFit: 'fill' }}
+        />
         <div className="container relative z-10 flex items-start justify-between px-4 py-6 mx-auto md:flex-row md:items-center md:py-8">
           <div className="flex flex-col items-start gap-4">
             {/* TITLE WRAPPER */}
-            <div className="max-w-3xl space-y-3">
+            <div className="max-w-sm space-y-3 md:max-w-[70%]">
               <h1 className="text-2xl leading-tight md:text-4xl">
                 Willkommen beim <br className="hidden md:block" />{' '}
                 <span className="font-bold">
