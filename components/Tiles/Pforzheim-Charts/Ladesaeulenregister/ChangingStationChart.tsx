@@ -1,16 +1,10 @@
-// components/Charts/PerfectMatchChart.tsx
 'use client'
 
 import { ReactECharts } from '@/components/Charts/ReactECharts'
 import type { EChartsOption } from 'echarts'
-// Import your GeoJSON map for Pforzheim.
-// Import your CSV data – adjust the path if needed.
-// If your file has a .csv extension and you’ve configured csv-loader, it should import as an array of objects.
 // @ts-ignore
 import chargingData from '@/assets/data/ladesaeulenregister.csv'
 
-// Define a TypeScript interface for the data you need.
-// Define a TypeScript interface for the data you need.
 interface ChargingStation {
   Betreiber: string
   'Anzeigename (Karte)': string
@@ -22,7 +16,6 @@ interface ChargingStation {
   'Kreis/kreisfreie Stadt': string
   Bundesland: string
   Breitengrad: string
-  // Depending on encoding the longitude key might be one of these:
   Löngengrad?: string
   'L�ngengrad'?: string
   Inbetriebnahmedatum: string
@@ -32,61 +25,72 @@ interface ChargingStation {
 }
 
 export default function ChangingStationChart() {
-  // Filter the data for rows where Ort is exactly "Pforzheim"
   const filteredData = (chargingData as ChargingStation[]).filter(
     row => row.Ort === 'Pforzheim',
   )
 
-  // Map the filtered data to extract numerical values.
-  // Convert the relevant columns from strings to numbers.
-  const seriesData = filteredData.map(row => {
-    const ratedPower = parseFloat(row['Nennleistung Ladeeinrichtung [kW]']) || 0
-    const chargingPoints = parseFloat(row['Anzahl Ladepunkte']) || 0
-    return [ratedPower, chargingPoints]
+  // Map and accumulate number of charging points by month
+  const dateMap = new Map<string, number>()
+
+  filteredData.forEach(row => {
+    const date = new Date(row.Inbetriebnahmedatum)
+    if (isNaN(date.getTime())) {
+      return
+    }
+
+    const monthKey = `${date.getFullYear()}-${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, '0')}`
+
+    const count = parseFloat(row['Anzahl Ladepunkte']) || 0
+    dateMap.set(monthKey, (dateMap.get(monthKey) || 0) + count)
   })
 
-  // Define the ECharts option with explicit literal types and function formatters.
+  const sorted = Array.from(dateMap.entries()).sort(([a], [b]) =>
+    a.localeCompare(b),
+  )
+
+  const xAxisData = sorted.map(([date]) => date)
+  const yAxisData = sorted.map(([, count]) => count)
+
   const option: EChartsOption = {
     tooltip: {
-      trigger: 'item',
-      formatter: (params: any) => {
-        return `
-          <strong>Nennleistung:</strong> ${params.value[0]} kW<br/>
-          <strong>Ladepunkte:</strong> ${params.value[1]}
-        `
-      },
+      trigger: 'axis',
     },
     xAxis: {
-      type: 'value' as const,
-      name: 'Nennleistung [kW]',
-      nameLocation: 'middle' as const,
-      nameGap: 30,
+      type: 'category',
+      data: xAxisData,
+      name: 'Inbetriebnahme (Monat)',
+      nameLocation: 'middle',
+      nameGap: 50, // increase the gap
       axisLabel: {
-        formatter: (value: number) => `${value} kW`,
+        rotate: 45,
+        margin: 10, // space between label and axis
       },
     },
     yAxis: {
-      type: 'value' as const,
-      name: 'Anzahl Ladepunkte',
-      nameLocation: 'middle' as const,
+      type: 'value',
+      name: 'Ladepunkte (Anzahl)',
+      nameLocation: 'middle',
       nameGap: 40,
-      axisLabel: {
-        formatter: (value: number) => `${value}`,
-      },
     },
     series: [
       {
-        data: seriesData,
-        type: 'scatter' as const,
-        symbolSize: 10,
+        name: 'Ladepunkte',
+        data: yAxisData,
+        type: 'line',
+        smooth: true,
+        symbol: 'circle',
+        lineStyle: { width: 2 },
         itemStyle: { color: '#34c17b' },
+        areaStyle: {}, // Optional: adds a shaded area under the line
       },
     ],
     grid: {
       left: '10%',
       right: '10%',
       top: '15%',
-      bottom: '15%',
+      bottom: 80, // increase from '15%' to 80 to make room for rotated labels and axis name
     },
   }
 
