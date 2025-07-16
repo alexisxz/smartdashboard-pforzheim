@@ -15,7 +15,7 @@ export default async function ClimateIndicesTile() {
       dataSource="Deutscher Wetterdienst"
       embedId="climate-indices"
       live
-      subtitle={'Häufigkeit von Temperaturkenntagen in Pforzheim'}
+      subtitle={'Häufigkeit von Temperaturkenntagen'}
       title="Klimakenntage"
     >
       <TileSplitView>
