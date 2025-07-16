@@ -148,8 +148,8 @@ export default function Chart({ data, other }: ChartProps) {
             ],
             yAxis: {
               type: 'value',
-              interval: 250_000,
-              max: 3_000_000,
+              interval: 100_000,
+              max: 1_000_000,
               axisLabel: {
                 fontSize: device === 'mobile' ? 12 : 20,
                 formatter: (value: number) =>
