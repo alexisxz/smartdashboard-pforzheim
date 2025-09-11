@@ -36,6 +36,7 @@ export type IconTileProps = VariantProps<typeof iconTileTitleStyle> &
     children: React.ReactElement | React.ReactElement[]
     title?: string | React.ReactElement
     subtitle?: string | React.ReactElement
+    moreInfoText?: string | React.ReactElement
     icon:
       | ForwardRefExoticComponent<SVGProps<SVGSVGElement>>
       | ((_props: SVGProps<SVGSVGElement>) => JSX.Element)
@@ -52,6 +53,7 @@ export default async function IconTile({
   children,
   live,
   title,
+  moreInfoText,
   subtitle,
   icon,
   variant,
@@ -69,7 +71,7 @@ export default async function IconTile({
       embedId={embedId}
       isFullWidth={data?.full_width}
       // REMINDER: Removed the more info and source to be downloaded
-      // moreInfo={data?.details}
+      moreInfo={moreInfoText || undefined}
       // source={data?.data_url}
       variant={variant}
     >
