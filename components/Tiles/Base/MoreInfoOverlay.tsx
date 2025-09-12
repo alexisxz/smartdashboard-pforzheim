@@ -1,13 +1,12 @@
 'use client'
 
-import { ComponentPropsWithRef } from 'react'
-import { AnimatedProps } from '@react-spring/web'
-import React from 'react'
-import BaseOverlay, { overlayStyle } from './BaseOverlay'
-import Title from '@/components/Elements/Title'
-import { cx, VariantProps } from 'class-variance-authority'
 import MoreDetails from '@/components/Elements/MoreDetails'
+import Title from '@/components/Elements/Title'
 import useDevice from '@/hooks/useDevice'
+import { AnimatedProps } from '@react-spring/web'
+import { cx, VariantProps } from 'class-variance-authority'
+import React, { ComponentPropsWithRef } from 'react'
+import BaseOverlay, { overlayStyle } from './BaseOverlay'
 
 type MoreInfoOverlayProps = VariantProps<typeof overlayStyle> &
   AnimatedProps<ComponentPropsWithRef<'div'>> & {
@@ -26,20 +25,18 @@ export default function MoreInfoOverlay({
 
   return (
     <BaseOverlay onClose={onClose} {...props}>
-      <div className="flex h-full flex-col">
+      <div className="flex flex-col h-full">
         <div
           className={cx(
             'no-scrollbar h-full flex-1 overflow-scroll',
-            isFullWidth && device === 'desktop'
-              ? 'column-fill-auto columns-2 gap-12'
-              : '',
+            isFullWidth && device === 'desktop' ? 'column-fill-auto ' : '',
           )}
         >
           <Title as="h5" variant={'inverse'}>
             {children}
           </Title>
         </div>
-        <div className="mt-2 flex w-full justify-center">
+        <div className="flex justify-center w-full mt-2">
           <MoreDetails
             lessDetails={true}
             onClick={onClose}
