@@ -54,7 +54,7 @@ export default function ClimateDevelopmentTile() {
             sich an der bekannten Darstellung des britischen Klimaforschers{' '}
             <span className="font-semibold">Ed Hawkins</span>, der die weltweite
             Erwärmung durch farbige Temperaturstreifen sichtbar gemacht hat.{' '}
-            <span className="text-red-600">
+            <span>
               Unsere Grafik zeigt die{' '}
               <span className="font-semibold">
                 monatlichen Temperaturabweichungen in Pforzheim
