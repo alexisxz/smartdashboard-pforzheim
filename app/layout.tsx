@@ -2,7 +2,6 @@ import '@/styles/globals.css'
 import { Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
-import Cookies from './Cookies'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -33,7 +32,8 @@ export default function RootLayout({
       <head />
       <body>
         {children}
-        <Cookies />
+        {/* HIDE COOKIES */}
+        {/* <Cookies /> */}
       </body>
       {/* <Matomo /> */}
       <Script
