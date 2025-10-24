@@ -1,7 +1,6 @@
 import '@/styles/globals.css'
 import { Viewport } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -10,7 +9,7 @@ export const metadata = {
   description:
     'Ihrem digitalen Zugang zu aktuellen und historischen Informationen rund um Klimaschutz, Energie, Mobilität und Stadtentwicklung.',
   icons: '/favicon.ico',
-  metadataBase: new URL('https://klimadashboard.ms'),
+  metadataBase: new URL('https://www.dashboard.pforzheim.de/'),
 }
 
 export const viewport: Viewport = {
@@ -36,11 +35,11 @@ export default function RootLayout({
         {/* <Cookies /> */}
       </body>
       {/* <Matomo /> */}
-      <Script
+      {/* <Script
         async
         src="https://www.stadt-muenster.de/ms/js/iframeResizer.contentWindow.min.js"
         type="text/javascript"
-      />
+      /> */}
     </html>
   )
 }
