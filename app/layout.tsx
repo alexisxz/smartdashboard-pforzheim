@@ -3,7 +3,6 @@ import { Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import Cookies from './Cookies'
-import Matomo from './Matomo'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -36,7 +35,7 @@ export default function RootLayout({
         {children}
         <Cookies />
       </body>
-      <Matomo />
+      {/* <Matomo /> */}
       <Script
         async
         src="https://www.stadt-muenster.de/ms/js/iframeResizer.contentWindow.min.js"
