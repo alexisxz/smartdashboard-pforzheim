@@ -28,7 +28,7 @@ Internet: www.pforzheim.de
 
 Die Darstellung des Pforzheim Smart Data Dashboards ist eine veränderte Version einer Darstellung von www.klimadashboard.ms / Stadt Münster, Drees + Riggers GbR und ist unter der „Creative Commons Namensnennung – CC BY-SA 4.0 International“ lizenziert und frei verfügbar.
 
-Die Programmierung wurde adaptiert von www.klimadshboard.ms / Stadt Münster, Reedu GmbH & Co. KG und ist unter GNU AGPL v3.0 lizenziert und frei verfügbar.
+Die Programmierung wurde adaptiert von www.klimadashboard.ms / Stadt Münster, Reedu GmbH & Co. KG und ist unter der GNU Affero General Public License Version 3 (AGPL-3.0) lizenziert und frei verfügbar. Der Quelltext des Pforzheim Smart Data Dashboards ist unter https://github.com/alexisxz/smartdashboard-pforzheim verfügbar.
 
 Die Adaptierung für Pforzheim wurde von der Stirner GmbH vorgenommen.
 
@@ -47,4 +47,3 @@ Im übrigen besteht eine Haftung für Schäden, die durch die Nutzung des Dienst
 ## Links
 
 Links auf Webseiten anderer Anbieter Von unseren eigenen Inhalten sind Querverweise („Links“) auf die Webseiten anderer Anbieter zu unterscheiden. Durch diese Links ermöglichen wir lediglich den Zugang zur Nutzung fremder Inhalte nach § 8 Telemediengesetz. Bei der erstmaligen Verknüpfung mit diesen Internetangeboten haben wir diese fremden Inhalte daraufhin überprüft, ob durch sie eine mögliche zivilrechtliche oder strafrechtliche Verantwortlichkeit ausgelöst wird. Wir können diese fremden Inhalte aber nicht ständig auf Veränderungen überprüfen und daher auch keine Verantwortung dafür übernehmen. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung von Informationen Dritter entstehen, haftet allein der jeweilige Anbieter der Seite.
-
