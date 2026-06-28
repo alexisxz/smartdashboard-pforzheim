@@ -30,8 +30,12 @@ export default async function BaseView({
   showSuccessStories = true,
   showGoToButton = false,
 }: ViewProps) {
-  const surveys = await getSurveysForCategory(categoryID[type])
-  const success = await getSuccessStoriesForCategory(categoryID[type])
+  const [surveys, success] = await Promise.all([
+    showSurveys ? getSurveysForCategory(categoryID[type]) : undefined,
+    showSuccessStories
+      ? getSuccessStoriesForCategory(categoryID[type])
+      : undefined,
+  ])
 
   return (
     <>

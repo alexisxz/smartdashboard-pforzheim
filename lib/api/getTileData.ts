@@ -1,11 +1,14 @@
 import directus, { tileCollectionName } from '../directus'
+import withTimeout from './withTimeout'
 
 export default async function getTileData(id: string) {
-  const { data } = await directus.items(tileCollectionName).readByQuery({
-    filter: {
-      tile_id: id,
-    },
-  })
+  const response = await withTimeout(
+    directus.items(tileCollectionName).readByQuery({
+      filter: {
+        tile_id: id,
+      },
+    })
+  ).catch(() => undefined)
 
-  return data?.[0]
+  return response?.data?.[0]
 }
