@@ -10,7 +10,8 @@ import {
 } from 'echarts'
 import { useCallback, useEffect, useState } from 'react'
 import resolveConfig from 'tailwindcss/resolveConfig'
-import { StadtradelnData } from './ChartContainer'
+import type { StadtradelnData } from './ChartContainer'
+import { formatStadtradelnNumber, getCityLabel } from './utils'
 
 const { theme } = resolveConfig(tailwindConfig)
 
@@ -44,7 +45,10 @@ export default function Chart({ data, other }: ChartProps) {
 
   const getSeries = useCallback(
     (data: StadtradelnData[], color: string, symbol: string) => {
+      const cityLabel = getCityLabel(data[0])
+
       const lineSeries: LineSeriesOption = {
+        name: cityLabel,
         data: data.map(({ year, value }) => [year, value]),
         type: 'line',
         lineStyle: {
@@ -56,6 +60,7 @@ export default function Chart({ data, other }: ChartProps) {
       }
 
       const barSeries: BarSeriesOption = {
+        name: cityLabel,
         data: data.map(({ year, value }) => [year, value]),
         type: 'bar',
         barWidth: 3,
@@ -73,6 +78,7 @@ export default function Chart({ data, other }: ChartProps) {
       }
 
       const barIcons: PictorialBarSeriesOption = {
+        name: cityLabel,
         data: data.map(({ year, value }) => [year, value]),
         type: 'pictorialBar',
         symbol: symbol,
@@ -90,6 +96,11 @@ export default function Chart({ data, other }: ChartProps) {
     },
     [],
   )
+
+  const visibleData = other ? [...data, ...other] : data
+  const maxVisibleValue = Math.max(...visibleData.map(({ value }) => value), 0)
+  const yAxisMax =
+    maxVisibleValue > 0 ? Math.ceil((maxVisibleValue * 1.15) / 50_000) * 50_000 : 0
 
   useEffect(() => {
     if (!data) {
@@ -126,6 +137,33 @@ export default function Chart({ data, other }: ChartProps) {
               top: '20%',
               bottom: '10%',
             },
+            tooltip: {
+              trigger: 'axis',
+              formatter: (params: any) => {
+                const rows = Array.isArray(params) ? params : [params]
+                const byCity = new Map<string, number>()
+
+                rows.forEach((param: any) => {
+                  if (
+                    typeof param.seriesName === 'string' &&
+                    typeof param.value?.[1] === 'number' &&
+                    !byCity.has(param.seriesName)
+                  ) {
+                    byCity.set(param.seriesName, param.value[1])
+                  }
+                })
+
+                const year = rows[0]?.axisValue ?? rows[0]?.value?.[0] ?? ''
+                const cityRows = Array.from(byCity.entries())
+                  .map(
+                    ([city, value]) =>
+                      `${city}: ${formatStadtradelnNumber(value)} km`,
+                  )
+                  .join('<br/>')
+
+                return `Jahr: ${year}<br/>${cityRows}`
+              },
+            },
             xAxis: [
               {
                 // hidden xaxis for lines
@@ -148,12 +186,10 @@ export default function Chart({ data, other }: ChartProps) {
             ],
             yAxis: {
               type: 'value',
-              interval: 100_000,
-              max: 1_000_000,
+              max: yAxisMax,
               axisLabel: {
                 fontSize: device === 'mobile' ? 12 : 20,
-                formatter: (value: number) =>
-                  value.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.'),
+                formatter: (value: number) => formatStadtradelnNumber(value),
               },
             },
             series,

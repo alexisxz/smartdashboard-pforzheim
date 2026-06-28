@@ -180,6 +180,7 @@ Note:
   - `components/Tiles/Mobility/Bicycle/Stadtradeln/ChartContainer.tsx`
   - `components/Tiles/Mobility/Bicycle/Stadtradeln/Chart.tsx`
 - Data file: `assets/data/stadtradeln_data.csv`
+- Population labels: `assets/data/stadtradeln_population.json`
 - Required CSV headers:
   - `key`
   - `name`
@@ -190,10 +191,25 @@ Note:
 How to update:
 1. Replace/update `assets/data/stadtradeln_data.csv`.
 2. Ensure `pforzheim` rows exist for each year to be displayed.
-3. Verify chart + city comparison toggle.
+3. If a city should show population in labels, add or update its `key` in
+   `assets/data/stadtradeln_population.json`.
+4. Verify chart + city comparison toggle.
 
 Optional script:
 - Run `bash scripts/stadtradeln.sh` to fetch the file from the configured remote source.
+- The script overwrites `assets/data/stadtradeln_data.csv`, then appends the
+  local Heilbronn comparison rows if they are missing.
+- Keep local display metadata such as population values in
+  `stadtradeln_population.json`.
+
+Note:
+- City labels show population as `City (129.000 EW)` when a matching population
+  value exists.
+- The chart scales its Y-axis from the currently visible series. Pforzheim-only
+  view uses only Pforzheim values; comparison view uses Pforzheim plus the
+  active comparison city.
+- Heilbronn is a local comparison city using official Stadtradeln Heilbronn
+  history values for 2020-2024.
 
 ## Ladesäulenregister (`Ladesaeulenregister`)
 

@@ -9,6 +9,7 @@ import Switch from '@/components/Inputs/Switch'
 import { animated, useSpring } from '@react-spring/web'
 import { useEffect, useState } from 'react'
 import Chart from './Chart'
+import { getCityLabel } from './utils'
 
 export type StadtradelnData = {
   key: string
@@ -92,7 +93,7 @@ export default function ChartContainer() {
       <div className="flex items-center gap-2 p-4 md:gap-10 md:pl-8">
         <div className="h-1 w-8 rounded bg-mobility md:w-[52px]" />
         <Title as={'h5'} variant={'primary'}>
-          geradelte Kilometer in Pforzheim
+          geradelte Kilometer in {getCityLabel(pforzheimData[0])}
         </Title>
       </div>
       <div className="flex w-full flex-col justify-between gap-2 rounded border border-dashed border-primary p-2 md:flex-row md:items-center md:space-x-4 md:p-4 md:pl-8">
@@ -113,10 +114,7 @@ export default function ChartContainer() {
                 <div className="flex items-center gap-2 md:gap-4">
                   <div className="h-1 w-9 rounded bg-buildings md:w-[52px]" />
                   <Title as="h5" variant={'primary'}>
-                    {
-                      otherData.find(e => e.key === otherCitiesSet[otherIndex])
-                        ?.name
-                    }
+                    {getCityLabel(otherData[0])}
                   </Title>
                 </div>
               </AnimatedRollingElement>
