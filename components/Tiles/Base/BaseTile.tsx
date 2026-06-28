@@ -102,8 +102,8 @@ export function BaseTile({
           title: 'Klimadashboard Münster',
           url: shareUrl,
         })
-      } catch (e) {
-        console.log('Could not share', e)
+      } catch {
+        setShowShareOverlay(true)
       }
       return
     }

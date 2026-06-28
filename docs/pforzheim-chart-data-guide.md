@@ -235,6 +235,8 @@ Note:
   remains continuous.
 - Sorting uses internal `YYYY-MM` keys; labels are formatted as German
   month/year values.
+- The X-axis may intentionally skip some visible month labels on dense timelines
+  and mobile screens to avoid overlap; the underlying monthly data is unchanged.
 
 ## Jahresfahrleistung (`JahresfahrleistungNachFahrzeugart`)
 

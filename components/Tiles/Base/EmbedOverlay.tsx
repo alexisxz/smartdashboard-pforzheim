@@ -19,12 +19,10 @@ export default function EmbedOverlay({
   embedId,
   ...props
 }: EmbedOverlayProps) {
-  const [link, setLink] = useState('')
   const [iframeSrc, setIframeSrc] = useState('')
 
   useEffect(() => {
     const embedLink = `${window.location.origin}/embed/${embedId}`
-    setLink(embedLink)
     setIframeSrc(
       `<iframe src="${embedLink}" style="border:none; width:100%; height:100%" title="Klimadashboard Pforzheim"></iframe>`,
     )

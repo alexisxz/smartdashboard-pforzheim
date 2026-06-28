@@ -117,6 +117,7 @@ export default function ChangingStationChart() {
   const cumulativeChargingPointsData = chartData.map(
     ({ cumulativeChargingPoints }) => cumulativeChargingPoints,
   )
+  const axisLabelInterval = xAxisData.length > 18 ? 2 : 0
 
   const option: EChartsOption = {
     tooltip: {
@@ -148,6 +149,7 @@ export default function ChangingStationChart() {
       axisLabel: {
         rotate: 45,
         margin: 10,
+        interval: axisLabelInterval,
       },
     },
     yAxis: [
@@ -198,6 +200,18 @@ export default function ChangingStationChart() {
       top: '15%',
       bottom: 100,
     },
+    media: [
+      {
+        query: { maxWidth: 768 },
+        option: {
+          xAxis: {
+            axisLabel: {
+              interval: Math.max(axisLabelInterval, 3),
+            },
+          },
+        },
+      },
+    ],
   }
 
   return (
