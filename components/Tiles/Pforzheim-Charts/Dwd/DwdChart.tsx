@@ -41,6 +41,9 @@ const parseGermanNumber = (value: unknown): number => {
 const formatNumber = (num: number): string =>
   num.toLocaleString('de-DE', { minimumFractionDigits: 0 })
 
+const formatDecimal = (num: number): string =>
+  num.toLocaleString('de-DE', { maximumFractionDigits: 1 })
+
 // Define the order of months (in German).
 const monthOrder = [
   'Januar',
@@ -100,23 +103,23 @@ export default function DWDChart() {
       formatter: (params: any) => {
         // Expect params to be an array with series info.
         const precip = params.find(
-          (p: any) => p.seriesName === 'Niederschlag Monatssumme',
+          (p: any) => p.seriesName === 'Niederschlag in mm',
         )
         const days = params.find(
-          (p: any) => p.seriesName === 'Tage Niederschlag',
+          (p: any) => p.seriesName === 'Regentage',
         )
-        let tooltipText = `${params[0].axisValue}<br/>`
+        let tooltipText = `Monat: ${params[0].axisValue}<br/>`
         if (precip) {
-          tooltipText += `Niederschlag: ${formatNumber(precip.data)} mm<br/>`
+          tooltipText += `Niederschlag: ${formatDecimal(precip.data)} mm<br/>`
         }
         if (days) {
-          tooltipText += `Tage Niederschlag: ${formatNumber(days.data)}`
+          tooltipText += `Regentage: ${formatNumber(days.data)} Tage`
         }
         return tooltipText
       },
     },
     legend: {
-      data: ['Niederschlag Monatssumme', 'Tage Niederschlag'],
+      data: ['Niederschlag in mm', 'Regentage'],
       bottom: 10,
     },
     xAxis: {
@@ -126,35 +129,42 @@ export default function DWDChart() {
     yAxis: [
       {
         type: 'value',
+        name: 'Niederschlag in mm',
+        nameLocation: 'middle',
+        nameGap: 72,
         axisLabel: {
-          formatter: (value: number) => formatNumber(value),
+          formatter: (value: number) => `${formatNumber(value)} mm`,
         },
       },
       {
         type: 'value',
+        name: 'Tage mit Niederschlag',
+        nameLocation: 'middle',
+        nameGap: 48,
         position: 'right',
         axisLabel: {
-          formatter: (value: number) => formatNumber(value),
+          formatter: (value: number) => `${formatNumber(value)}`,
         },
       },
     ],
     series: [
       {
-        name: 'Niederschlag Monatssumme',
-        type: 'line',
+        name: 'Niederschlag in mm',
+        type: 'bar',
         data: precipitation,
         yAxisIndex: 0,
-        smooth: true,
-        lineStyle: { width: 2 },
-        itemStyle: { color: '#5470C6' },
+        barMaxWidth: 34,
+        itemStyle: { color: '#14b3d9' },
       },
       {
-        name: 'Tage Niederschlag',
-        type: 'bar',
+        name: 'Regentage',
+        type: 'line',
         data: rainyDays,
         yAxisIndex: 1,
-        barWidth: 20,
-        itemStyle: { color: '#91CC75' },
+        smooth: true,
+        symbolSize: 8,
+        lineStyle: { color: '#006080', width: 3 },
+        itemStyle: { color: '#006080' },
       },
     ],
     grid: {
@@ -170,8 +180,8 @@ export default function DWDChart() {
         option: {
           xAxis: { axisLabel: { show: false } },
           yAxis: [
-            { axisLabel: { show: false } },
-            { axisLabel: { show: false } },
+            { axisLabel: { show: false }, name: '' },
+            { axisLabel: { show: false }, name: '' },
           ],
         },
       },

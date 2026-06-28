@@ -164,7 +164,12 @@ How to update:
 3. Keep precipitation values parseable. German decimal commas are supported:
    `87,6` is parsed as `87.6`, and thousands separators like `1.234,5` are
    parsed as `1234.5`.
-4. Verify the tile: line = precipitation sum, bars = rainy days.
+4. Verify the tile: bars = precipitation sum, line = rainy days.
+5. Keep the visual labels explicit:
+   - Legend: `Niederschlag in mm` and `Regentage`
+   - Left Y-axis: `Niederschlag in mm`
+   - Right Y-axis: `Tage mit Niederschlag`
+   - Tooltip: month, precipitation in `mm`, and rainy days in `Tage`
 
 Note:
 - The slider automatically uses the latest 5 years found in the CSV.
