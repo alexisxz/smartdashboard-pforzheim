@@ -139,9 +139,13 @@ How to update:
 2. Keep the key names exactly as above.
 3. Verify toggles (Heiße Tage, Sommertage, Tropennächte, Frosttage, Eistage) still work.
 
-Optional CMS text:
-- `ClimateIndicesTile` loads `info` using `getTileData('climate-indices')`.
-- To change the side info text, update the `tiles` entry with `tile_id = climate-indices` in Directus.
+Optional side info text:
+- `ClimateIndicesTile` uses local side info text in
+  `components/Tiles/Climate/ClimateIndices/index.tsx`.
+- The current text explains that the shown climate indices refer to a DWD
+  station in Ispringen, formerly Eutingen, and may vary within Pforzheim
+  depending on location and elevation.
+- Do not use Directus for this tile's side info text.
 
 ## Regentage (`Dwd`)
 

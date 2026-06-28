@@ -1,14 +1,13 @@
 import Title from '@/components/Elements/Title'
-import getTileData from '@/lib/api/getTileData'
 import { format } from 'date-fns'
 import { TileSplitView } from '../../Base/TileSplitView'
 import ClimateTile from '../ClimateTile'
 import ClimateIndicesChart from './ClimateIndicesChart'
 
-export default async function ClimateIndicesTile() {
-  const data = await getTileData('climate-indices')
-  const infoText = data?.info ?? ''
+const infoText =
+  'Die dargestellten Werte beziehen sich auf eine Station des Deutschen Wetterdienstes in Ispringen, ehemals Eutingen. Je nach Standort und Höhenlage können die Klimakenntage innerhalb Pforzheims abweichen.'
 
+export default function ClimateIndicesTile() {
   return (
     <ClimateTile
       dataRetrieval={format(new Date(), '01.MM.yyyy')}
@@ -64,7 +63,7 @@ export default async function ClimateIndicesTile() {
         </div>
       }
       subtitle={'Häufigkeit von Temperaturkenntagen'}
-      title="Klimakenntage"
+      title="Klimakenntage für Pforzheim"
     >
       <TileSplitView>
         <TileSplitView.Left>
