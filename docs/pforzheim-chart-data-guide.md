@@ -259,6 +259,10 @@ Note:
 
 ## Bevölkerungsentwicklung Haushalte (`Melderegister`)
 
+- Status: not currently rendered on the homepage. The client excluded the
+  `Einwohnerentwicklung` / population-development section from the approved
+  launch scope, so `Melderegister` is kept in the repo but omitted from
+  `app/(main)/page.tsx`.
 - Component: `components/Tiles/Pforzheim-Charts/Melderegister/PopulationRegisterChart.tsx`
 - Data file: `assets/data/melderegister.csv`
 - Required CSV headers:

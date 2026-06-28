@@ -11,7 +11,6 @@ import StadtradelnTile from '@/components/Tiles/Mobility/Bicycle/Stadtradeln'
 import Dwd from '@/components/Tiles/Pforzheim-Charts/Dwd'
 import JahresfahrleistungNachFahrzeugart from '@/components/Tiles/Pforzheim-Charts/JahresfahrleistungNachFahrzeugart'
 import Ladesaeulenregister from '@/components/Tiles/Pforzheim-Charts/Ladesaeulenregister'
-import Melderegister from '@/components/Tiles/Pforzheim-Charts/Melderegister'
 
 export default async function Home() {
   return (
@@ -45,16 +44,6 @@ export default async function Home() {
             <StadtradelnTile />
             <Ladesaeulenregister />
             <JahresfahrleistungNachFahrzeugart />
-          </BaseView>
-
-          <BaseView
-            showGoToButton={false}
-            showSuccessStories={false}
-            showSurveys={false}
-            type="building"
-          >
-            <div id="gebaeude"></div>
-            <Melderegister />
           </BaseView>
         </Container>
       </AnimatedPage>
