@@ -94,18 +94,33 @@ How to update:
 
 - Component: `components/Tiles/Climate/Devlopment/index.tsx`
 - Data file: `assets/data/climate_history.json`
+- Backup of the old Pforzheim monthly data:
+  `assets/data/climate_history_backup_pforzheim.json`
+- Current chart type: Warming Stripes for Stuttgart, one stripe per year.
+- Current source: `showyourstripes.info / University of Reading`
 - Used fields per item:
   - `timestamp`
   - `temperature_deviation`
-  - (metadata fields are tolerated: `observation_type`, `dwd_station_id`, etc.)
+  - `stripe_color` (optional; if present, it is used directly for the stripe)
+  - (metadata fields are tolerated: `observation_type`, `location`, `baseline`,
+    `source`, `source_url`, `dwd_station_id`, etc.)
 
 How to update:
-1. Replace/update `assets/data/climate_history.json` with new records.
+1. Replace/update `assets/data/climate_history.json` with one record per year.
 2. Keep `timestamp` parseable as a date and `temperature_deviation` numeric.
-3. Reload the page and verify the stripe/radar chart still renders all months/years.
+3. Keep years sorted from oldest to newest; the component also sorts defensively.
+4. If you have official stripe colors, include `stripe_color` as a hex color.
+   Otherwise the component maps `temperature_deviation` to blue/red colors.
+5. Reload the page and verify the Warming Stripes chart renders from 1850 to the
+   latest available year.
 
 Note:
-- `scripts/ms-climate-data.sh` can refresh `climate_history.json` and `climate_indices.json`.
+- The previous Pforzheim monthly climate history is preserved in
+  `assets/data/climate_history_backup_pforzheim.json`.
+- `scripts/ms-climate-data.sh` still refreshes the old Münster/Pforzheim-style
+  `climate_history.json` and `climate_indices.json`. Do not run it for the Klima
+  tile unless you intentionally want to replace the Stuttgart Warming Stripes
+  data or restore the old chart/data workflow.
 
 ## Klimakenntage (`ClimateIndicesTile`)
 

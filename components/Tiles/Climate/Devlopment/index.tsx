@@ -1,41 +1,120 @@
 import climateHistoryData from '@/assets/data/climate_history.json'
 import { format } from 'date-fns'
 import ClimateTile from '../ClimateTile'
-import RadarChart, { AvgTempData } from './RadarChart'
 
 type ClimateHistoryRecord = {
-  observation_type: string
-  dwd_station_id: number
-  wmo_station_id: any
+  observation_type?: string
+  dwd_station_id?: number | null
+  wmo_station_id?: number | null
   timestamp: string
-  monthly_temperature: number
+  monthly_temperature?: number
   temperature_deviation: number
+  location?: string
+  baseline?: string
+  unit?: string
+  source?: string
+  source_url?: string
+  stripe_color?: string
 }
 
-const data = climateHistoryData as ClimateHistoryRecord[]
+type ClimateHistoryData =
+  | ClimateHistoryRecord[]
+  | {
+      data: ClimateHistoryRecord[]
+      metadata?: Record<string, string>
+    }
 
-const climateYears = data.reduce((a: AvgTempData, o) => {
-  const year = new Date(o.timestamp).getFullYear()
-  const month = new Date(o.timestamp).getMonth()
-  return {
-    ...a,
-    [year]: {
-      ...a[year],
-      [month]: o.temperature_deviation,
-    },
+type WarmingStripe = {
+  year: number
+  deviation: number
+  color?: string
+}
+
+function getStripeColor(value: number): string {
+  if (value <= -1.85) {
+    return '#001944'
   }
-}, {})
+  if (value <= -1.5) {
+    return '#08306b'
+  }
+  if (value <= -1.2) {
+    return '#08519c'
+  }
+  if (value <= -0.9) {
+    return '#2171b5'
+  }
+  if (value <= -0.7) {
+    return '#4292c6'
+  }
+  if (value <= -0.5) {
+    return '#6baed6'
+  }
+  if (value <= -0.3) {
+    return '#9ecae1'
+  }
+  if (value <= -0.1) {
+    return '#c6dbef'
+  }
+  if (value < 0.1) {
+    return '#deebf7'
+  }
+  if (value < 0.3) {
+    return '#fee0d2'
+  }
+  if (value < 0.55) {
+    return '#fcbba1'
+  }
+  if (value < 0.8) {
+    return '#fc9272'
+  }
+  if (value < 1) {
+    return '#fb6a4a'
+  }
+  if (value < 1.2) {
+    return '#ef3b2c'
+  }
+  if (value < 1.45) {
+    return '#cb181d'
+  }
+  if (value < 1.7) {
+    return '#a50f15'
+  }
+  if (value < 1.95) {
+    return '#67000d'
+  }
+  return '#440007'
+}
+
+const rawClimateHistoryData = climateHistoryData as ClimateHistoryData
+const data = Array.isArray(rawClimateHistoryData)
+  ? rawClimateHistoryData
+  : rawClimateHistoryData.data
+
+const warmingStripes: WarmingStripe[] = data
+  .map(item => ({
+    year: new Date(item.timestamp).getFullYear(),
+    deviation: Number(item.temperature_deviation),
+    color: item.stripe_color,
+  }))
+  .filter(item => Number.isFinite(item.year) && Number.isFinite(item.deviation))
+  .sort((a, b) => a.year - b.year)
+
+const firstYear = warmingStripes[0]?.year ?? 1850
+const lastYear = warmingStripes[warmingStripes.length - 1]?.year ?? 2025
+const labelYears = [1850, 1880, 1910, 1940, 1970, 2000, 2025].filter(
+  year => year >= firstYear && year <= lastYear,
+)
 
 export default function ClimateDevelopmentTile() {
   return (
     <ClimateTile
       dataRetrieval={format(new Date(), '01.MM.yyyy')}
-      dataSource="Deutscher Wetterdienst"
+      dataSource="showyourstripes.info / University of Reading"
       embedId="climate-development"
       moreInfoText={
         <div className="font-normal">
           <div className="font-semibold">
-            Temperaturabweichungen seit der vorindustriellen Zeit
+            Warming Stripes für Stuttgart seit 1850
           </div>
           <br />
           <div>
@@ -50,34 +129,48 @@ export default function ClimateDevelopmentTile() {
           <br />
           <div>
             Seit der Industrialisierung Mitte des 19. Jahrhunderts steigen die
-            Temperaturen weltweit deutlich an. Die gezeigte Grafik orientiert
-            sich an der bekannten Darstellung des britischen Klimaforschers{' '}
-            <span className="font-semibold">Ed Hawkins</span>, der die weltweite
-            Erwärmung durch farbige Temperaturstreifen sichtbar gemacht hat.{' '}
-            <span>
-              Unsere Grafik zeigt die{' '}
-              <span className="font-semibold">
-                monatlichen Temperaturabweichungen in Pforzheim
-              </span>{' '}
-              im Vergleich zum langjährigen Mittel der Jahre 1853–1899.
-            </span>
+            Temperaturen weltweit deutlich an. Die gezeigte Grafik nutzt die
+            bekannte Warming-Stripes-Darstellung des britischen Klimaforschers{' '}
+            <span className="font-semibold">Ed Hawkins</span>. Jeder Streifen
+            steht für ein Jahr: Blau markiert kältere, Rot wärmere Jahre im
+            Vergleich zum Mittelwert 1961–2010.
           </div>
           <br />
           <div>
-            Diese Darstellung macht deutlich: Das Klima in Pforzheim hat sich
-            messbar verändert. Die Folgen sind heute schon spürbar – etwa durch
-            häufiger auftretende Hitzewellen, Starkregen oder Dürreperioden.
+            Verwendet werden die für Stuttgart veröffentlichten Daten von
+            showyourstripes.info, da sie die regionale Temperaturentwicklung bis
+            2025 abbilden.
           </div>
         </div>
       }
-      subtitle={
-        'Temperaturabweichungen von den langjährigen Monatsmitteln vor 1900'
-      }
+      subtitle={'Temperaturveränderung in Stuttgart seit 1850'}
       title={'Klima'}
     >
-      <div className="h-[316px] w-full md:h-[528px]">
-        <div className="w-full h-full">
-          <RadarChart data={climateYears} />
+      <div className="flex h-[316px] w-full flex-col rounded-lg bg-white p-4 md:h-[528px] md:p-7">
+        <div
+          aria-label="Warming Stripes für Stuttgart seit 1850"
+          className="grid min-h-0 flex-1 overflow-hidden"
+          role="img"
+          style={{
+            gridTemplateColumns: `repeat(${warmingStripes.length}, minmax(1px, 1fr))`,
+          }}
+        >
+          {warmingStripes.map(item => (
+            <div
+              className="h-full min-w-0"
+              key={item.year}
+              style={{
+                backgroundColor: item.color ?? getStripeColor(item.deviation),
+              }}
+              title={`${item.year}: ${item.deviation.toFixed(2)} °C`}
+            />
+          ))}
+        </div>
+
+        <div className="mt-4 flex justify-between text-xs font-semibold text-[#006080] md:text-base">
+          {labelYears.map(year => (
+            <span key={year}>{year}</span>
+          ))}
         </div>
       </div>
     </ClimateTile>
