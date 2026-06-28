@@ -223,7 +223,18 @@ Note:
 How to update:
 1. Replace/update `assets/data/ladesaeulenregister.csv`.
 2. Keep date values parseable by JS `Date` (invalid dates are skipped).
-3. Verify timeline chart shows monthly totals of charging points.
+3. Keep `Anzahl Ladepunkte` numeric (invalid values are skipped).
+4. Verify the combined chart:
+   - Bars = `Neue Ladepunkte pro Monat`
+   - Line = `Ladepunkte gesamt`
+   - Tooltip shows month, monthly additions, and cumulative total.
+
+Note:
+- Only rows where `Ort` contains `Pforzheim` are included.
+- Missing months are filled with `0` new charging points so the cumulative line
+  remains continuous.
+- Sorting uses internal `YYYY-MM` keys; labels are formatted as German
+  month/year values.
 
 ## Jahresfahrleistung (`JahresfahrleistungNachFahrzeugart`)
 

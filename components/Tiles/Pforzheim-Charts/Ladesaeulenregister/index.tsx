@@ -18,19 +18,20 @@ export default function ChangingStationTile() {
           <div>
             Die Grafik zeigt,{' '}
             <span className="font-semibold">
-              wann und wie viele öffentlich zugängliche Ladestationen
+              wann neue öffentlich zugängliche Ladepunkte
             </span>{' '}
-            für Elektrofahrzeuge in Pforzheim in Betrieb genommen wurden.
-            Grundlage der Daten ist das Ladesäulenregister der
-            Bundesnetzagentur, das einen Überblick über den Ausbau der
-            Ladeinfrastruktur in Deutschland bietet.
+            für Elektrofahrzeuge in Pforzheim in Betrieb genommen wurden und
+            wie viele Ladepunkte insgesamt zu einem Zeitpunkt verfügbar waren.
+            Grundlage der Daten ist das Ladesäulenregister der Bundesnetzagentur,
+            das einen Überblick über den Ausbau der Ladeinfrastruktur in
+            Deutschland bietet.
           </div>
           <br />
           <div>
             Erfasst werden dabei alle Ladepunkte, die öffentlich nutzbar sind –
-            unabhängig vom Anbieter. Die Darstellung verdeutlicht, wie sich die
-            Zahl der Ladesäulen im Laufe der Zeit entwickelt hat und in welchen
-            Jahren besonders viele neue Stationen hinzukamen.
+            unabhängig vom Anbieter. Die Balken zeigen die neu hinzugekommenen
+            Ladepunkte pro Monat, die Linie zeigt die kumulierte Gesamtzahl im
+            Zeitverlauf.
           </div>
           <br />
           <div>
