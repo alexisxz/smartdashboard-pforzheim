@@ -16,13 +16,25 @@ interface DWDData {
   'Tage Niederschlag': string | number
 }
 
-// Helper function to parse numbers from the CSV.
-const parseNumber = (val: any): number => {
-  if (val === null || val === undefined) {return 0}
-  const str = typeof val === 'string' ? val : String(val)
-  if (!str.trim() || str.trim() === '-') {return 0}
-  const cleaned = str.replace(/"/g, '').replace(/,/g, '')
-  return parseFloat(cleaned)
+// Helper function to parse German-formatted numbers from the CSV.
+const parseGermanNumber = (value: unknown): number => {
+  if (value === null || value === undefined) {
+    return 0
+  }
+
+  const normalized = String(value)
+    .trim()
+    .replace(/"/g, '')
+    .replace(/\./g, '')
+    .replace(',', '.')
+
+  if (!normalized || normalized === '-') {
+    return 0
+  }
+
+  const parsed = Number(normalized)
+
+  return Number.isFinite(parsed) ? parsed : 0
 }
 
 // Helper function to format numbers in German style (e.g., 4473 becomes "4.473").
@@ -75,10 +87,10 @@ export default function DWDChart() {
   // Extract the x-axis labels (the month names) and data arrays.
   const months = sortedDataForYear.map(row => row.Monat)
   const precipitation = sortedDataForYear.map(row =>
-    parseNumber(row['Niederschlag Monatssumme']),
+    parseGermanNumber(row['Niederschlag Monatssumme']),
   )
   const rainyDays = sortedDataForYear.map(row =>
-    parseNumber(row['Tage Niederschlag']),
+    parseGermanNumber(row['Tage Niederschlag']),
   )
 
   // Define the ECharts option with dual y-axes.

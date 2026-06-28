@@ -161,7 +161,10 @@ How to update:
 1. Replace/update `assets/data/dwd.csv`.
 2. Keep German month names consistent with:
    `Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember`.
-3. Verify the tile: line = precipitation sum, bars = rainy days.
+3. Keep precipitation values parseable. German decimal commas are supported:
+   `87,6` is parsed as `87.6`, and thousands separators like `1.234,5` are
+   parsed as `1234.5`.
+4. Verify the tile: line = precipitation sum, bars = rainy days.
 
 Note:
 - The slider automatically uses the latest 5 years found in the CSV.
