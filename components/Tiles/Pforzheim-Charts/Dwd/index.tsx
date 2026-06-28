@@ -51,7 +51,7 @@ export default function DwdTile() {
         </div>
       }
       subtitle={'pro Jahr'}
-      title={'Regentage'}
+      title={'Niederschlag'}
     >
       <div className="w-full">
         <div className="w-full h-full">

@@ -62,7 +62,7 @@ It renders 3 sections (`climate`, `mobility`, `building`) and mounts these data 
 1. `WeatherTile` (`Wetter aktuell`)
 2. `ClimateDevelopmentTile` (`Klima`)
 3. `ClimateIndicesTile` (`Klimakenntage`)
-4. `Dwd` (`Regentage`)
+4. `Dwd` (`Niederschlag`)
 5. `StadtradelnTile` (`Stadtradeln`)
 6. `Ladesaeulenregister` (`Ladesäulenregister`)
 7. `JahresfahrleistungNachFahrzeugart` (`Jahresfahrleistung`)
@@ -147,7 +147,7 @@ Optional side info text:
   depending on location and elevation.
 - Do not use Directus for this tile's side info text.
 
-## Regentage (`Dwd`)
+## Niederschlag (`Dwd`)
 
 - Component: `components/Tiles/Pforzheim-Charts/Dwd/DwdChart.tsx`
 - Data file: `assets/data/dwd.csv`
