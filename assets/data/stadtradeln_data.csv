@@ -1,60 +1,25 @@
 key,name,year,value
-aachen,Aachen,2020,450878
-aachen,Aachen,2021,589504
-aachen,Aachen,2022,527352
-aachen,Aachen,2023,684152
-aachen,Aachen,2024,601219
-bielefeld,Bielefeld,2020,759712
-bielefeld,Bielefeld,2021,974809
-bielefeld,Bielefeld,2022,811242
-bielefeld,Bielefeld,2023,832591
-bielefeld,Bielefeld,2024,871376
-bonn,Bonn,2020,506421
-bonn,Bonn,2021,774431
-bonn,Bonn,2022,651259
-bonn,Bonn,2023,901052
-bonn,Bonn,2024,663767
-heidelberg,Heidelberg,2020,213532
-heidelberg,Heidelberg,2021,361825
-heidelberg,Heidelberg,2022,474029
-heidelberg,Heidelberg,2023,494149
-heidelberg,Heidelberg,2024,688887
-heilbronn,Heilbronn,2020,319907
-heilbronn,Heilbronn,2021,306969
-heilbronn,Heilbronn,2022,367192
-heilbronn,Heilbronn,2023,437810
-heilbronn,Heilbronn,2024,426026
-luebeck,Lübeck,2020,354166
-luebeck,Lübeck,2021,582187
-luebeck,Lübeck,2022,700816
-luebeck,Lübeck,2023,764205
-luebeck,Lübeck,2024,636668
-mannheim,Mannheim,2020,461836
-mannheim,Mannheim,2021,547516
-mannheim,Mannheim,2022,764025
-mannheim,Mannheim,2023,721791
-mannheim,Mannheim,2024,896586
-osnabrueck,Osnabrück,2020,411560
-osnabrueck,Osnabrück,2021,378417
-osnabrueck,Osnabrück,2022,487499
-osnabrueck,Osnabrück,2023,663944
-osnabrueck,Osnabrück,2024,572983
-potsdam,Potsdam,2020,631827
-potsdam,Potsdam,2021,627424
-potsdam,Potsdam,2022,649039
-potsdam,Potsdam,2024,690578
 pforzheim,Pforzheim,2020,83787
 pforzheim,Pforzheim,2021,130086
 pforzheim,Pforzheim,2022,132019
 pforzheim,Pforzheim,2023,157161
 pforzheim,Pforzheim,2024,203108
-ulm,Ulm,2020,370228
-ulm,Ulm,2021,521978
-ulm,Ulm,2022,814772
-ulm,Ulm,2023,712908
-ulm,Ulm,2024,867576
-wuppertal,Wuppertal,2020,297885
-wuppertal,Wuppertal,2021,376315
-wuppertal,Wuppertal,2022,385339
-wuppertal,Wuppertal,2023,512587
-wuppertal,Wuppertal,2024,440659
+baden-baden,Baden-Baden,2020,172961
+baden-baden,Baden-Baden,2021,198557
+baden-baden,Baden-Baden,2022,209900
+baden-baden,Baden-Baden,2023,207605
+baden-baden,Baden-Baden,2024,183434
+schwaebisch-hall,Schwäbisch Hall,2020,46042
+schwaebisch-hall,Schwäbisch Hall,2021,62859
+schwaebisch-hall,Schwäbisch Hall,2022,134783
+schwaebisch-hall,Schwäbisch Hall,2023,144881
+schwaebisch-hall,Schwäbisch Hall,2024,127812
+bad-saeckingen,Bad Säckingen,2020,63696
+bad-saeckingen,Bad Säckingen,2021,83827
+bad-saeckingen,Bad Säckingen,2022,126812
+bad-saeckingen,Bad Säckingen,2023,131963
+bad-saeckingen,Bad Säckingen,2024,102255
+mosbach,Mosbach,2021,55570
+mosbach,Mosbach,2022,72650
+mosbach,Mosbach,2023,92140
+mosbach,Mosbach,2024,95485

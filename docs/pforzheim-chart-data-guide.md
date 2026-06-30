@@ -142,9 +142,8 @@ How to update:
 Optional side info text:
 - `ClimateIndicesTile` uses local side info text in
   `components/Tiles/Climate/ClimateIndices/index.tsx`.
-- The current text explains that the shown climate indices refer to a DWD
-  station in Ispringen, formerly Eutingen, and may vary within Pforzheim
-  depending on location and elevation.
+- The current client-approved text is:
+  `Die dargestellten Werte beziehen sich auf die Station des Deutschen Wetter Dienstes in Ispringen (früher in Eutingen). Die Kennzahlen können je nach Standort und Höhenlage abweichen.`
 - Do not use Directus for this tile's side info text.
 
 ## Niederschlag (`Dwd`)
@@ -197,8 +196,9 @@ How to update:
 
 Optional script:
 - Run `bash scripts/stadtradeln.sh` to fetch the file from the configured remote source.
-- The script overwrites `assets/data/stadtradeln_data.csv`, then appends the
-  local Heilbronn comparison rows if they are missing.
+- The script overwrites `assets/data/stadtradeln_data.csv`, keeps only
+  Pforzheim rows from the remote source, then appends the local BW comparison
+  rows if they are missing.
 - Keep local display metadata such as population values in
   `stadtradeln_population.json`.
 
@@ -208,8 +208,11 @@ Note:
 - The chart scales its Y-axis from the currently visible series. Pforzheim-only
   view uses only Pforzheim values; comparison view uses Pforzheim plus the
   active comparison city.
-- Heilbronn is a local comparison city using official Stadtradeln Heilbronn
-  history values for 2020-2024.
+- The local comparison cities are selected BW municipalities with Stadtradeln
+  totals closer to Pforzheim: Baden-Baden, Schwäbisch Hall, Bad Säckingen, and
+  Mosbach.
+- Mosbach has no local 2020 row because the official Stadtradeln history found
+  for this city starts in 2021.
 
 ## Ladesäulenregister (`Ladesaeulenregister`)
 
