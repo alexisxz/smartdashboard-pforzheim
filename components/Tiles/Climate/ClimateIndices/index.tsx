@@ -5,7 +5,7 @@ import ClimateTile from '../ClimateTile'
 import ClimateIndicesChart from './ClimateIndicesChart'
 
 const infoText =
-  'Die dargestellten Werte beziehen sich auf eine Station des Deutschen Wetterdienstes in Ispringen, ehemals Eutingen. Je nach Standort und Höhenlage können die Klimakenntage innerhalb Pforzheims abweichen.'
+  'Die dargestellten Werte beziehen sich auf die Station des Deutschen Wetter Dienstes in Ispringen (früher in Eutingen). Die Kennzahlen können je nach Standort und Höhenlage abweichen.'
 
 export default function ClimateIndicesTile() {
   return (
